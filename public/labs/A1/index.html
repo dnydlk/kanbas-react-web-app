@@ -4,6 +4,7 @@
   <body>
     <h1>HTML Examples</h1>
 
+    <!-- * Heading Tags -->
     <h2>Heading Tags</h2>
     Text documents are often broken up into several sections and subsections.
     Each section is usually prefaced with a short title or heading that attempts
@@ -16,6 +17,7 @@
     There are 6 heading tags: h1, h2, h3, h4, h5, and h6. Tag h1 is the largest
     heading and h6 is the smallest heading.
 
+    <!-- * Paragraph Tag -->
     <h2>Paragraph Tag</h2>
     <p>
       This is a paragraph. We often separate a long set of sentences with
@@ -41,6 +43,7 @@
       tell browsers to render the gaps.
     </p>
 
+    <!-- * List Tags -->
     <h2>List Tags</h2>
     <h3>Ordered List Tag</h3>
     How to make pancakes:
@@ -64,6 +67,7 @@
       <li>The Forever War</li>
     </ul>
 
+    <!-- * Table Tag -->
     <h2>Table Tag</h2>
     <table border="1" width="100%">
       <thead>
@@ -104,19 +108,19 @@
       </tfoot>
     </table>
 
+    <!-- * Image Tag -->
     <h2>Image Tag</h2>
-
     Loading an image from the internet:
     <br />
     <img
       src="https://www.staradvertiser.com/wp-content/uploads/2021/08/web1_Starship-gap2.jpg"
     />
     <br />
-
     Loading a local image:
     <br />
     <img src="Body & Tony.jpg" alt="Body & Tony" width="500px" />
 
+    <!-- * Text fields -->
     <h2>Text fields</h2>
     <form id="text-fields">
       <label for="text-fields-username">Username:</label>
@@ -138,6 +142,7 @@
       <br />
     </form>
 
+    <!-- * Text Boxes -->
     <h2>Text Boxes</h2>
     <form id="textarea">
       <label>Biography:</label>
@@ -150,12 +155,15 @@ Minim ex eiusmod minim pariatur nulla tempor sit adipisicing veniam cupidatat.
       </textarea>
     </form>
 
+    <!-- * Buttons -->
     <h2>Buttons</h2>
     <button type="button">Click me!</button>
 
+    <!-- * File upload -->
     <h2>File upload</h2>
     <input type="file" />
 
+    <!-- * Radio buttons -->
     <h2>Radio buttons</h2>
     <label>Favorite movie genre:</label>
     <br />
@@ -177,6 +185,7 @@ Minim ex eiusmod minim pariatur nulla tempor sit adipisicing veniam cupidatat.
     <input type="radio" value="FANTASY" name="radio-genre" id="radio-fantasy" />
     <label for="radio-fantasy">Fantasy</label>
 
+    <!-- * Checkboxes -->
     <h2>Checkboxes</h2>
     <label>Favorite movie genre:</label>
     <br />
@@ -207,6 +216,42 @@ Minim ex eiusmod minim pariatur nulla tempor sit adipisicing veniam cupidatat.
     />
     <label for="chkbox-fantasy">Fantasy</label>
     <br />
+
+    <!-- * Dropdowns -->
+    <h2>Dropdowns</h2>
+    <!-- * single selection -->
+    <select>
+      <option value="VAL1">Value 1</option>
+      <option value="VAL2" selected>Value 2</option>
+      <option value="VAL3">Value 3</option>
+    </select>
+    <br /><br />
+    <!-- * multiple selection -->
+    <select multiple>
+      <option value="VAL1" selected>Value 1</option>
+      <option value="VAL1">Value 2</option>
+      <option value="VAL1" selected>Value 3</option>
+    </select>
+
+    <h3>Select one</h3>
+    <label for="select-one-genre">Favorite movie genre: </label>
+    <br />
+    <select id="select-one-genre">
+      <option value="COMEDY">Comedy</option>
+      <option value="DRAMA">Drama</option>
+      <option selected value="SCIFI">Science Fiction</option>
+      <option value="FANTASY">Fantasy</option>
+    </select>
+
+    <h3>Select many</h3>
+    <label for="select-many-genre">Favorite movie genre: </label>
+    <br />
+    <select multiple id="select-many-genre">
+      <option selected value="COMEDY">Comedy</option>
+      <option value="DRAMA">Drama</option>
+      <option selected value="SCIFI">Science Fiction</option>
+      <option value="FANTASY">Fantasy</option>
+    </select>
 
     <br />
     <br />
