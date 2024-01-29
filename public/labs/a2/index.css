@@ -86,14 +86,29 @@ p#id-selector-2 {
 
 /* * Dimension */
 .wd-dimension-portrait {
-  width: 65px;
+  width: 75px;
   height: 100px;
 }
 .wd-dimension-landscape {
   width: 100px;
-  height: 65px;
+  height: 75px;
 }
 .wd-dimension-square {
-  width: 65px;
-  height: 65px;
+  width: 75px;
+  height: 75px;
+}
+
+/* * Position relative */
+.wd-pos-relative-nudge-up-right {
+  position: relative;
+  bottom: 30px;
+  left: 30px;
+}
+.wd-pos-relative-nudge-down-right {
+  position: relative;
+  top: 20px;
+  left: 20px;
+}
+.wd-pos-relative {
+  position: relative;
 }
