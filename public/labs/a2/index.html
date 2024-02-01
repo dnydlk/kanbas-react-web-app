@@ -6,8 +6,12 @@
         color: white;
       }
     </style> -->
-    <link rel="stylesheet" href="index.css" />
-    <link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="index.css" />
+    <link
+      rel="stylesheet"
+      href="/libs/bootstrap/bootstrap.min.css" />
   </head>
   <body>
     <h1>Cascading Style Sheets (CSS)</h1>
@@ -66,13 +70,15 @@
         Selectors can be combined to refer elements in particular places in the
         document
         <p class="wd-selector-3">
-          This paragraph's red background is referenced as <br />.selector-2
-          .selector3<br />
+          This paragraph's red background is referenced as
+          <br />
+          .selector-2 .selector3
+          <br />
           meaning the descendant of some ancestor.
           <br />
-          <span class="wd-selector-4"
-            >Whereas this span is a direct child of its parent</span
-          >
+          <span class="wd-selector-4">
+            Whereas this span is a direct child of its parent
+          </span>
           <br />
           You can combine these relationships to create specific styles
           depending on the document structure
@@ -92,9 +98,9 @@
     <h3 class="wd-bg-color-blue wd-fg-color-white">Background color</h3>
     <p class="wd-bg-color-red wd-fg-color-black">
       This background of this paragraph is red but
-      <span class="wd-bg-color-green wd-fg-color-white"
-        >the background of this text is green and foreground white</span
-      >
+      <span class="wd-bg-color-green wd-fg-color-white">
+        the background of this text is green and foreground white
+      </span>
     </p>
 
     <!-- * Borders -->
@@ -109,59 +115,49 @@
     <!-- * Padding -->
     <h2>Padding</h2>
     <div
-      class="wd-padded-top-left wd-border-fat wd-border-red wd-border-solid wd-bg-color-yellow"
-    >
+      class="wd-padded-top-left wd-border-fat wd-border-red wd-border-solid wd-bg-color-yellow">
       Padded top left
     </div>
     <div
-      class="wd-padded-bottom-right wd-border-fat wd-border-blue wd-border-solid wd-bg-color-yellow"
-    >
+      class="wd-padded-bottom-right wd-border-fat wd-border-blue wd-border-solid wd-bg-color-yellow">
       Padded bottom right
     </div>
     <div
-      class="wd-padding-fat wd-border-fat wd-border-yellow wd-border-solid wd-bg-color-blue wd-fg-color-white"
-    >
+      class="wd-padding-fat wd-border-fat wd-border-yellow wd-border-solid wd-bg-color-blue wd-fg-color-white">
       Padded all round
     </div>
 
     <!-- * Margins -->
     <h2>Margins</h2>
     <div
-      class="wd-margin-bottom wd-padded-top-left wd-border-fat wd-border-red wd-border-solid wd-bg-color-yellow"
-    >
+      class="wd-margin-bottom wd-padded-top-left wd-border-fat wd-border-red wd-border-solid wd-bg-color-yellow">
       Margin bottom
     </div>
     <div
-      class="wd-margin-right-left wd-padded-bottom-right wd-border-fat wd-border-blue wd-border-solid wd-bg-color-yellow"
-    >
+      class="wd-margin-right-left wd-padded-bottom-right wd-border-fat wd-border-blue wd-border-solid wd-bg-color-yellow">
       Margin left right
     </div>
     <div
-      class="wd-margin-all-round wd-padding-fat wd-border-fat wd-border-yellow wd-border-solid wd-bg-color-blue wd-fg-color-white"
-    >
+      class="wd-margin-all-round wd-padding-fat wd-border-fat wd-border-yellow wd-border-solid wd-bg-color-blue wd-fg-color-white">
       Margin all round
     </div>
 
     <!-- * Rounded corners -->
     <h3>Rounded corners</h3>
     <p
-      class="wd-rounded-corners-top wd-border-thin wd-border-blue wd-border-solid wd-padding-fat"
-    >
+      class="wd-rounded-corners-top wd-border-thin wd-border-blue wd-border-solid wd-padding-fat">
       Rounded corners on the top
     </p>
     <p
-      class="wd-rounded-corners-bottom wd-border-thin wd-border-blue wd-border-solid wd-padding-fat"
-    >
+      class="wd-rounded-corners-bottom wd-border-thin wd-border-blue wd-border-solid wd-padding-fat">
       Rounded corners at the bottom
     </p>
     <p
-      class="wd-rounded-corners-all-around wd-border-thin wd-border-blue wd-border-solid wd-padding-fat"
-    >
+      class="wd-rounded-corners-all-around wd-border-thin wd-border-blue wd-border-solid wd-padding-fat">
       Rounded corners all around
     </p>
     <p
-      class="wd-rounded-corners-inline wd-border-thin wd-border-blue wd-border-solid wd-padding-fat"
-    >
+      class="wd-rounded-corners-inline wd-border-thin wd-border-blue wd-border-solid wd-padding-fat">
       Different rounded corners
     </p>
 
@@ -184,8 +180,7 @@
         <div class="wd-pos-relative-nudge-down-right">Portrait</div>
       </div>
       <div
-        class="wd-bg-color-blue wd-fg-color-white wd-dimension-landscape wd-pos-relative-nudge-up-right"
-      >
+        class="wd-bg-color-blue wd-fg-color-white wd-dimension-landscape wd-pos-relative-nudge-up-right">
         Lanscape
       </div>
       <div class="wd-bg-color-red wd-dimension-square">Square</div>
@@ -195,13 +190,11 @@
     <h3>Absolute position</h3>
     <div class="wd-pos-relative">
       <div
-        class="wd-pos-absolute-10-10 wd-bg-color-yellow wd-dimension-portrait"
-      >
+        class="wd-pos-absolute-10-10 wd-bg-color-yellow wd-dimension-portrait">
         Portrait
       </div>
       <div
-        class="wd-pos-absolute-50-50 wd-bg-color-blue wd-fg-color-white wd-dimension-landscape"
-      >
+        class="wd-pos-absolute-50-50 wd-bg-color-blue wd-fg-color-white wd-dimension-landscape">
         Lanscape
       </div>
       <div class="wd-pos-absolute-120-20 wd-bg-color-red wd-dimension-square">
@@ -215,8 +208,7 @@
     right and half way down the page. It doesn't scroll with the rest of the
     page. Its position is "Fixed".
     <div
-      class="wd-pos-fixed wd-dimension-square wd-bg-color-blue wd-fg-color-white"
-    >
+      class="wd-pos-fixed wd-dimension-square wd-bg-color-blue wd-fg-color-white">
       Fixed position
     </div>
     <br />
@@ -228,13 +220,11 @@
     <h2>Z index</h2>
     <div class="wd-pos-relative">
       <div
-        class="wd-pos-absolute-10-10 wd-bg-color-yellow wd-dimension-portrait"
-      >
+        class="wd-pos-absolute-10-10 wd-bg-color-yellow wd-dimension-portrait">
         Portrait
       </div>
       <div
-        class="wd-zindex-bring-to-front wd-pos-absolute-50-50 wd-bg-color-blue wd-fg-color-white wd-dimension-landscape"
-      >
+        class="wd-zindex-bring-to-front wd-pos-absolute-50-50 wd-bg-color-blue wd-fg-color-white wd-dimension-landscape">
         Lanscape
       </div>
       <div class="wd-pos-absolute-120-20 wd-bg-color-red wd-dimension-square">
@@ -256,8 +246,7 @@
         Yellow
       </div>
       <div
-        class="wd-float-left wd-dimension-portrait wd-bg-color-blue wd-fg-color-white"
-      >
+        class="wd-float-left wd-dimension-portrait wd-bg-color-blue wd-fg-color-white">
         Blue
       </div>
       <div class="wd-float-left wd-dimension-portrait wd-bg-color-red">
@@ -265,8 +254,7 @@
       </div>
       <img
         class="wd-float-right"
-        src="https://www.staradvertiser.com/wp-content/uploads/2021/08/web1_Starship-gap2.jpg"
-      />
+        src="https://www.staradvertiser.com/wp-content/uploads/2021/08/web1_Starship-gap2.jpg" />
       <div class="wd-float-done"></div>
     </div>
 
@@ -286,8 +274,7 @@
         <h3>Left third</h3>
       </div>
       <div
-        class="wd-grid-col-two-thirds-page wd-bg-color-red wd-fg-color-white"
-      >
+        class="wd-grid-col-two-thirds-page wd-bg-color-red wd-fg-color-white">
         <h3>Right two thirds</h3>
       </div>
     </div>
@@ -305,8 +292,7 @@
         </p>
       </div>
       <div
-        class="wd-grid-col-right-sidebar wd-bg-color-green wd-fg-color-white"
-      >
+        class="wd-grid-col-right-sidebar wd-bg-color-green wd-fg-color-white">
         <h3>Side bar</h3>
         <p>This is the right sidebar</p>
       </div>
@@ -323,9 +309,29 @@
     <br />
 
     <!-- * Bootstrap Library -->
+
+    <!-- * Bootstrap container -->
     <div class="container">
       <h1>Boostrap</h1>
       <p>Welcome to Bootstrap!</p>
+
+      <!-- * Bootstrap grid -->
+      <h2>
+        <a href="https://getbootstrap.com/docs/5.1/layout/grid/">Grid system</a>
+      </h2>
+      <div class="row">
+        <div class="col bg-danger text-white"><h3>Left half</h3></div>
+        <div class="col bg-primary text-white"><h3>Right half</h3></div>
+      </div>
+      <div class="row">
+        <div class="col-4 bg-warning"><h3>One thirds</h3></div>
+        <div class="col-8 bg-success text-white"><h3>Two Thirds</h3></div>
+      </div>
+      <div class="row">
+        <div class="col-2 bg-dark text-white"><h3>Sidebar</h3></div>
+        <div class="col-8 bg-secondary text-white"><h3>Main content</h3></div>
+        <div class="col-2 bg-info"><h3>Sidebar</h3></div>
+      </div>
     </div>
 
     <br />
