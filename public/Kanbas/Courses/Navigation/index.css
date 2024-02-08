@@ -1,0 +1,23 @@
+.wd-course-navigation {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  width: 120px;
+}
+
+.wd-course-navigation li {
+  padding: 7px;
+}
+
+.wd-course-navigation li.wd-active {
+  font-weight: bold;
+}
+
+.wd-course-navigation li.wd-active a {
+  color: black;
+}
+
+.wd-kanbas-navigation li a {
+  color: red;
+  text-decoration: none;
+}
