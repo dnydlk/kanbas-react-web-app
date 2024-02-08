@@ -1,233 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
-  <table border="0" width="100%">
-    <tr>
-      <!-- Kanbas Navigation -->
-      <td valign="top">
-        <ul>
-          <li><a href="/kanbas/account/profiles/screen.html">Account</a></li>
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="/kanbas/courses/home/screen.html">Courses</a></li>
-          <li><a href="#">Calendar</a></li>
-          <li><a href="#">Inbox</a></li>
-          <li><a href="#">History</a></li>
-          <li><a href="#">Studio</a></li>
-          <li><a href="#">Commons</a></li>
-          <li><a href="#">Help</a></li>
-        </ul>
-      </td>
-      <!-- Course Navigation -->
-      <td valign="top">
-        <ul>
-          <li><a href="/kanbas/courses/home/screen.html">Home</a></li>
-          <li><a href="/kanbas/courses/modules/screen.html">Modules</a></li>
-          <li><a href="/kanbas/courses/piazza/index.html">Piazza</a></li>
-          <li><a href="#">Zoom Meetings</a></li>
-          <li>
-            <a href="/kanbas/courses/assignments/screen.html">Assignments</a>
-          </li>
-          <li><a href="#">Quizzes</a></li>
-          <li><a href="/kanbas/courses/grades/screen.html">Grades</a></li>
-          <li><a href="#">People</a></li>
-          <li><a href="#">Panopto Video</a></li>
-          <li><a href="#">Discussions</a></li>
-          <li><a href="#">Annoucements</a></li>
-          <li><a href="#">Pages</a></li>
-          <li><a href="#">Files</a></li>
-          <li><a href="#">Rubrics</a></li>
-          <li><a href="#">Outcomes</a></li>
-          <li><a href="#">Collaborations</a></li>
-          <li><a href="#">Syllabus</a></li>
-          <li>
-            <a href="/kanbas/courses/settings/course-details/screen.html">
-              Settings
-            </a>
-          </li>
-        </ul>
-      </td>
-      <!-- Grades -->
-      <td valign="top">
-        <!-- Buttons -->
-        <table border="0" width="100%">
-          <tbody>
-            <tr>
-              <td>
-                <select>
-                  <option selected>Gradebook</option>
-                  <option>Change Gradebook</option>
-                  <option>Traditional Gradebook</option>
-                  <option>Individual Gradebook</option>
-                </select>
-              </td>
-              <td>
-                <button>Import</button>
-                <select>
-                  <option selected>Export</option>
-                  <option>Export Current Gradebook View</option>
-                  <option>Export Entire Gradebook</option>
-                </select>
-                <button>Configure</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label for="text-fields-student-name">Student Names</label>
-                <br/ >
-              </td>
-              <td>
-                <label for="text-fields-assignment-name">
-                  Assignment Names
-                </label>
-                <br/ >
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input
-                  type="text"
-                  id="text-fields-student-name"
-                  placeholder="Search Students" />
-              </td>
-              <td>
-                <input
-                  type="text"
-                  id="text-fields-assignment-name"
-                  placeholder="Search Assignments" />
-              </td>
-            </tr>
-            <tr>
-              <td><button>Apply Filters</button></td>
-            </tr>
-          </tbody>
-        </table>
+  <head>
+    <link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="/kanbas/styles.css" />
+    <link rel="stylesheet" href="/kanbas/courses/navigation/index.css" />
+    <link rel="stylesheet" href="/kanbas/navigation/index.css" />
+  </head>
+  <body>
+    <table border="0" width="100%">
+      <tr>
+        <!-- Kanbas Navigation -->
+        <td valign="top">
+          <!-- ! K Nav -->
+          <ul class="wd-kanbas-navigation">
+            <li>
+              <a href="http://noetheastern.edu">
+                <i class="fa fa-n"></i>
+              </a>
+            </li>
+            <li>
+              <a href="/kanbas/account/profiles/screen.html">
+                <i class="fa fa-circle-user" style="color: white"></i>
+                Account
+              </a>
+            </li>
+            <li class="wd-active">
+              <a href="/kanbas/dashboard/screen.html">
+                <i class="fa fa-tachometer"></i>
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="/kanbas/courses/home/screen.html">
+                <i class="fa fa-book"></i>
+                Courses
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-calendar"></i>
+                Calendar
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-inbox"></i>
+                Inbox
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-clock"></i>
+                History
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-computer"></i>
+                Studio
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-c"></i>
+                Commons
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-circle-question"></i>
+                Help
+              </a>
+            </li>
+          </ul>
+        </td>
+        <!-- Course Navigation -->
+        <td valign="top">
+          <!-- ! C Nav -->
+          <ul class="wd-course-navigation">
+            <li><a href="/kanbas/courses/home/screen.html">Home</a></li>
+            <li>
+              <a href="/kanbas/courses/modules/screen.html">Modules</a>
+            </li>
+            <li><a href="http://piazza.com">Piazza</a></li>
+            <li><a href="#">Zoom Meetings</a></li>
+            <li>
+              <a href="/kanbas/courses/assignments/screen.html">Assignments</a>
+            </li>
+            <li><a href="#">Quizzes</a></li>
+            <li class="wd-active">
+              <a href="/kanbas/courses/grades/screen.html">Grades</a>
+            </li>
+            <li><a href="#">People</a></li>
+            <li><a href="#">Panopto Video</a></li>
+            <li><a href="#">Discussions</a></li>
+            <li><a href="#">Annoucements</a></li>
+            <li><a href="#">Pages</a></li>
+            <li><a href="#">Files</a></li>
+            <li><a href="#">Rubrics</a></li>
+            <li><a href="#">Outcomes</a></li>
+            <li><a href="#">Collaborations</a></li>
+            <li><a href="#">Syllabus</a></li>
+            <li>
+              <a href="/kanbas/courses/settings/course-details/screen.html">
+                Settings
+              </a>
+            </li>
+          </ul>
+        </td>
+        <!-- Grades -->
+        <td valign="top">
+          <!-- Buttons -->
+          <table border="0" width="100%">
+            <tbody>
+              <tr>
+                <td>
+                  <select>
+                    <option selected>Gradebook</option>
+                    <option>Change Gradebook</option>
+                    <option>Traditional Gradebook</option>
+                    <option>Individual Gradebook</option>
+                  </select>
+                </td>
+                <td>
+                  <button>Import</button>
+                  <select>
+                    <option selected>Export</option>
+                    <option>Export Current Gradebook View</option>
+                    <option>Export Entire Gradebook</option>
+                  </select>
+                  <button>Configure</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="text-fields-student-name">Student Names</label>
+                  <br/ >
+                </td>
+                <td>
+                  <label for="text-fields-assignment-name">
+                    Assignment Names
+                  </label>
+                  <br/ >
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="text"
+                    id="text-fields-student-name"
+                    placeholder="Search Students" />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    id="text-fields-assignment-name"
+                    placeholder="Search Assignments" />
+                </td>
+              </tr>
+              <tr>
+                <td><button>Apply Filters</button></td>
+              </tr>
+            </tbody>
+          </table>
 
-        <!-- Grages Section -->
-        <table border="1" width="100%">
-          <thead>
-            <tr>
-              <th rowspan="2">Student Name</th>
-              <th>A1</th>
-              <th>A2</th>
-              <th>A3</th>
-              <th>A4</th>
-              <th>A5</th>
-              <th>A6</th>
-              <th>Q1</th>
-              <th>Q2</th>
-              <th>Q3</th>
-              <th>Q4</th>
-              <th>Q5</th>
-              <th>Q6</th>
-            </tr>
-            <tr>
-              <th>Out of 100</th>
-              <th>Out of 100</th>
-              <th>Out of 100</th>
-              <th>Out of 100</th>
-              <th>Out of 100</th>
-              <th>Out of 100</th>
-              <th>Out of 100</th>
-              <th>Out of 100</th>
-              <th>Out of 100</th>
-              <th>Out of 100</th>
-              <th>Out of 100</th>
-              <th>Out of 100</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Student 1</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-            </tr>
-            <tr>
-              <td>Student 2</td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-            </tr>
-            <tr>
-              <td>Student 3</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-            </tr>
-            <tr>
-              <td>Student 4</td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-            </tr>
-            <tr>
-              <td>Student 5</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-            </tr>
-            <tr>
-              <td>Student 6</td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-              <td>100</td>
-              <td><input value="100" type="number" min="0" max="100" /></td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-  </table>
+          <!-- Grages Section -->
+          <table border="1" width="100%">
+            <thead>
+              <tr>
+                <th rowspan="2">Student Name</th>
+                <th>A1</th>
+                <th>A2</th>
+                <th>A3</th>
+                <th>A4</th>
+                <th>A5</th>
+                <th>A6</th>
+                <th>Q1</th>
+                <th>Q2</th>
+                <th>Q3</th>
+                <th>Q4</th>
+                <th>Q5</th>
+                <th>Q6</th>
+              </tr>
+              <tr>
+                <th>Out of 100</th>
+                <th>Out of 100</th>
+                <th>Out of 100</th>
+                <th>Out of 100</th>
+                <th>Out of 100</th>
+                <th>Out of 100</th>
+                <th>Out of 100</th>
+                <th>Out of 100</th>
+                <th>Out of 100</th>
+                <th>Out of 100</th>
+                <th>Out of 100</th>
+                <th>Out of 100</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Student 1</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td>Student 2</td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+              </tr>
+              <tr>
+                <td>Student 3</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td>Student 4</td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+              </tr>
+              <tr>
+                <td>Student 5</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td>Student 6</td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+                <td>100</td>
+                <td><input value="100" type="number" min="0" max="100" /></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
 </html>

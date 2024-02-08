@@ -1,23 +1,29 @@
 .wd-course-navigation {
+  background-color: white;
   list-style: none;
   padding: 0px;
   margin: 0px;
-  width: 120px;
+  width: 125px;
+  margin-left: 20px;
 }
 
 .wd-course-navigation li {
-  padding: 7px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  margin-bottom: 10px;
 }
 
 .wd-course-navigation li.wd-active {
   font-weight: bold;
+  border-left: 2px solid black;
 }
 
 .wd-course-navigation li.wd-active a {
   color: black;
 }
 
-.wd-kanbas-navigation li a {
+.wd-course-navigation a {
   color: red;
   text-decoration: none;
 }
