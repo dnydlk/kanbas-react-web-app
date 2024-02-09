@@ -18,10 +18,25 @@
   border-left: 1px solid gray !important;
 }
 .wd-modules > li > ul > li {
-  padding: 5px;
+  padding: 6px;
   border-top: 1px solid #c0c6ca !important;
-  border-left: 2px solid green;
+  border-left: 4px solid #4b7b51;
 }
 .wd-modules > li {
   margin-bottom: 20px;
+}
+.wd-modules-icon {
+  margin-right: 15px;
+  margin-left: 10px;
+}
+
+.wd-modules-heading {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #28343c;
+}
+
+.wd-modules-text {
+  color: #4b5359;
+  font-size: 0.85em;
 }

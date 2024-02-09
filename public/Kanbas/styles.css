@@ -5,3 +5,19 @@ body {
 body * {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.wd-dani-breadcrumb-item a {
+  color: #cd172a;
+  text-decoration: none;
+}
+
+.wd-dani-breadcrumb-item .active a::before {
+  content: ">";
+  padding-right: 0 5px;
+}
+
+.wd-dani-breadcrumb-item + .wd-dani-breadcrumb-item::before {
+  float: left;
+
+  content: ">";
+}
