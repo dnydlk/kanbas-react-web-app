@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  color: #28343c;
 }
 body * {
   font-family: Arial, Helvetica, sans-serif;
@@ -20,4 +21,28 @@ body * {
   float: left;
 
   content: ">";
+}
+
+.wd-dani-btn {
+  background-color: #e8e8e8;
+  color: #28343c;
+  border: 1px solid #c0c6ca;
+  padding: 5px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.wd-dani-btn-red {
+  background-color: #cd172a;
+  color: #ffffff;
+  border: 1px solid #c0c6ca;
+  padding: 5px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+p#published {
+  color: #4b7b51;
 }

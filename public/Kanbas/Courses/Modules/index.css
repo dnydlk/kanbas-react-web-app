@@ -40,3 +40,12 @@
   color: #4b5359;
   font-size: 0.85em;
 }
+
+.wd-modules-heading a {
+  color: #28343c;
+  text-decoration: none;
+}
+
+.wd-modules button {
+  background-color: transparent;
+}

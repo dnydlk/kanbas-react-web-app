@@ -16,7 +16,7 @@
 
 .wd-course-navigation li.wd-active {
   font-weight: bold;
-  border-left: 2px solid black;
+  border-left: 2px solid #2f383f;
 }
 
 .wd-course-navigation li.wd-active a {
