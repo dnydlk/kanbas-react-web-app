@@ -24,7 +24,13 @@
 // export default App;
 
 // import './App.css';
+import Labs from "./labs";
 function App() {
-  return <h1>Hello World!</h1>;
+  return (
+    <div>
+      <Labs />
+      <h1>Hello World!</h1>
+    </div>
+  );
 }
 export default App;
