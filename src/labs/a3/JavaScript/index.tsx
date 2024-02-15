@@ -1,5 +1,6 @@
 import VariablesAndConstants from "./variables/VariablesAndConstants";
 import VariableTypes from "./variables/VariableTypes";
+import BooleanVariables from "./variables/BooleanVariables";
 
 function JavaScript() {
   console.log("Hello World!");
@@ -8,6 +9,7 @@ function JavaScript() {
       <h1>JavaScript</h1>
       <VariablesAndConstants />
       <VariableTypes />
+      <BooleanVariables />
       <br />
       <br />
     </div>
