@@ -1,10 +1,8 @@
-import { editableInputTypes } from "@testing-library/user-event/dist/utils";
-import exp from "constants";
-
+import Assignment3 from "./a3";
 function Labs() {
   return (
     <div>
-      <h1>Assignment 3</h1>
+      <Assignment3 />
     </div>
   );
 }
