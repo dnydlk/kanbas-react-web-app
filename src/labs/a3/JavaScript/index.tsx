@@ -4,6 +4,7 @@ import BooleanVariables from "./variables/BooleanVariables";
 import IfElse from "./variables/IfElse";
 import TernaryOperator from "./variables/TernaryOperator";
 import WorkingWithFunctions from "./variables/WorkingWithFunctions";
+import WorkingWithArrays from "./variables/WorkingWithArrays";
 
 function JavaScript() {
   console.log("Hello World!");
@@ -16,6 +17,7 @@ function JavaScript() {
       <IfElse />
       <TernaryOperator />
       <WorkingWithFunctions />
+      <WorkingWithArrays />
       <br />
       <br />
     </div>
