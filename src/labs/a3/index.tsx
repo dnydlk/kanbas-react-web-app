@@ -1,4 +1,4 @@
-import JavaScript from "./java-script";
+import JavaScript from "./JavaScript";
 function Assignment3() {
   return (
     //- "container" is a Bootstrap class.
