@@ -16,8 +16,8 @@
   // 	"description": "Log output to console"
   // }
   "Export default function": {
-    "scope": "typescript",
-    "prefix": "edf",
+    "scope": ["javascript", "typescript"],
+    "prefix": "edf-wd-dani",
     "body": ["export default ${0:function};"],
     "description": "Export default function"
   },

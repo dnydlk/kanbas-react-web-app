@@ -1,3 +1,5 @@
+import exp from "constants";
+
 var functionScoped = 2;
 let blockScoped = 5;
 const constant1 = functionScoped - blockScoped;
