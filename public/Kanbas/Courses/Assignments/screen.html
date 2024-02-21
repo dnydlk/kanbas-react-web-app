@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="/kanbas/styles.css" />
+    <link rel="stylesheet" href="/kanbas/courses/navigation/index.css" />
+    <link rel="stylesheet" href="/kanbas/navigation/index.css" />
+    <link rel="stylesheet" href="/kanbas/courses/modules/index.css" />
+  </head>
+  <body>
+    <div class="d-flex">
+      <!-- ! K Nav -->
+      <div class="d-none d-md-block">
+        <ul class="wd-kanbas-navigation">
+          <li>
+            <a href="http://northeastern.edu">
+              <img
+                src="/images/n.png"
+                alt=""
+                style="width: 60px; height: 60px" />
+            </a>
+          </li>
+          <li>
+            <a href="/kanbas/account/profiles/screen.html">
+              <i class="fa fa-circle-user" style="color: white"></i>
+              Account
+            </a>
+          </li>
+          <li>
+            <a href="/kanbas/dashboard/screen.html">
+              <i class="fa fa-tachometer"></i>
+              Dashboard
+            </a>
+          </li>
+          <li class="wd-active">
+            <a href="/kanbas/courses/home/screen.html">
+              <i class="fa fa-book"></i>
+              Courses
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-calendar"></i>
+              Calendar
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-inbox"></i>
+              Inbox
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-clock"></i>
+              History
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-computer"></i>
+              Studio
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-c"></i>
+              Commons
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-circle-question"></i>
+              Help
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- ! Container -->
+      <div class="container">
+        <div class="d-flex flex-column">
+          <!-- * Breadcrumb -->
+          <div class="row">
+            <div class="p-1 mt-4">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item wd-dani-breadcrumb-item">
+                    <a href="#">CS5610-07</a>
+                  </li>
+                  <li
+                    class="breadcrumb-item wd-dani-breadcrumb-item active"
+                    aria-current="page">
+                    Assignments
+                  </li>
+                </ol>
+              </nav>
+            </div>
+            <hr />
+          </div>
+          <div class="row">
+            <!-- ! C Nav -->
+            <div class="col-auto p-0">
+              <div class="d-none d-md-block">
+                <ul class="wd-course-navigation">
+                  <li>
+                    <a href="/kanbas/courses/home/screen.html">Home</a>
+                  </li>
+                  <li>
+                    <a href="/kanbas/courses/modules/screen.html">Modules</a>
+                  </li>
+                  <li><a href="http://piazza.com">Piazza</a></li>
+                  <li><a href="#">Zoom Meetings</a></li>
+                  <li class="wd-active">
+                    <a href="/kanbas/courses/assignments/screen.html">
+                      Assignments
+                    </a>
+                  </li>
+                  <li><a href="#">Quizzes</a></li>
+                  <li>
+                    <a href="/kanbas/courses/grades/screen.html">Grades</a>
+                  </li>
+                  <li><a href="#">People</a></li>
+                  <li><a href="#">Panopto Video</a></li>
+                  <li><a href="#">Discussions</a></li>
+                  <li><a href="#">Annoucements</a></li>
+                  <li><a href="#">Pages</a></li>
+                  <li><a href="#">Files</a></li>
+                  <li><a href="#">Rubrics</a></li>
+                  <li><a href="#">Outcomes</a></li>
+                  <li><a href="#">Collaborations</a></li>
+                  <li><a href="#">Syllabus</a></li>
+                  <li>
+                    <a
+                      href="/kanbas/courses/settings/course-details/screen.html">
+                      Settings
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col">
+              <!-- * First row -->
+              <div class="row">
+                <!-- * Searchbar col -->
+                <div class="col">
+                  <div>
+                    <input
+                      type="text"
+                      class="form-control w-50 float-start d-flex"
+                      placeholder="Search for Assignment" />
+                  </div>
+                </div>
+                <!-- * Buttons col -->
+                <div class="col">
+                  <div class="float-end">
+                    <div class="float-end">
+                      <button class="wd-dani-btn">+Group</button>
+                      <button class="wd-dani-btn-red">+Assignment</button>
+                      <button class="wd-dani-btn">
+                        <i class="fa fa-ellipsis-v"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- * Second row -->
+              <div class="row">
+                <div class="align-center">
+                  <hr />
+                </div>
+              </div>
+              <!-- * Third row -->
+              <div class="row">
+                <div>
+                  <ul class="list-group wd-modules">
+                    <li class="list-group-item rounded">
+                      <!-- * Assignments -->
+                      <div class="container">
+                        <div class="row flex-nowrap">
+                          <div class="col-auto">
+                            <i class="wd-modules-icon fa fa-ellipsis-v"></i>
+                          </div>
+                          <div class="col-auto">Assignments</div>
+                          <div class="col">
+                            <span class="float-end">
+                              <button>
+                                <i class="wd-modules-icon fa fa-plus ms-2"></i>
+                              </button>
+                              <button>
+                                <i
+                                  class="wd-modules-icon fa fa-ellipsis-v ms-2"></i>
+                              </button>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- * items under Assignments -->
+                      <ul class="list-group">
+                        <!-- * A1 -->
+                        <li class="list-group-item">
+                          <div class="container">
+                            <div class="row align-items-center flex-nowrap">
+                              <!-- * ... -->
+                              <div class="col-auto">
+                                <i class="wd-modules-icon fa fa-ellipsis-v"></i>
+                              </div>
+                              <!-- * Text in the middle -->
+                              <div class="col-auto">
+                                <!-- * Heading -->
+                                <div class="row">
+                                  <div class="wd-modules-heading">
+                                    <a
+                                      href="/kanbas/courses/assignments/editor/screen.html">
+                                      A1 SETUP
+                                    </a>
+                                  </div>
+                                </div>
+                                <!-- * Small text under Heading -->
+                                <div class="row">
+                                  <div class="wd-modules-text">
+                                    Week 0 - SETUP - Week starting on Monday
+                                    September 5th (9/5/2022) Module |
+                                  </div>
+                                  <div class="wd-modules-text">
+                                    <b>Due</b>
+                                    Sep 18, 2022 at 11:59pm | 100 pts
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- * + & ... buttons -->
+                              <div class="col">
+                                <span class="float-end">
+                                  <button>
+                                    <i
+                                      class="wd-modules-icon fa fa-check-circle text-success"></i>
+                                  </button>
+                                  <button>
+                                    <i
+                                      class="wd-modules-icon fa fa-ellipsis-v ms-2"></i>
+                                  </button>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <!-- * A2 -->
+                        <li class="list-group-item">
+                          <div class="container">
+                            <div class="row align-items-center flex-nowrap">
+                              <!-- * ... -->
+                              <div class="col-auto">
+                                <i class="wd-modules-icon fa fa-ellipsis-v"></i>
+                              </div>
+                              <!-- * Text in the middle -->
+                              <div class="col-auto">
+                                <!-- * Heading -->
+                                <div class="row">
+                                  <div class="wd-modules-heading">
+                                    <a
+                                      href="/kanbas/courses/assignments/editor/screen.html">
+                                      A2 HTML
+                                    </a>
+                                  </div>
+                                </div>
+                                <!-- * Small text under Heading -->
+                                <div class="row">
+                                  <div class="wd-modules-text">
+                                    Week 1 - HTML - Week starting on Monday
+                                    September 12th (9/12/2022) Module |
+                                  </div>
+                                  <div class="wd-modules-text">
+                                    <b>Due</b>
+                                    Sep 25, 2022 at 11:59pm | 100 pts
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- * + & ... buttons -->
+                              <div class="col">
+                                <span class="float-end">
+                                  <button>
+                                    <i
+                                      class="wd-modules-icon fa fa-check-circle text-success"></i>
+                                  </button>
+                                  <button>
+                                    <i
+                                      class="wd-modules-icon fa fa-ellipsis-v ms-2"></i>
+                                  </button>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <!-- * A3 -->
+                        <li class="list-group-item">
+                          <div class="container">
+                            <div class="row align-items-center flex-nowrap">
+                              <!-- * ... -->
+                              <div class="col-auto">
+                                <i class="wd-modules-icon fa fa-ellipsis-v"></i>
+                              </div>
+                              <!-- * Text in the middle -->
+                              <div class="col-auto">
+                                <!-- * Heading -->
+                                <div class="row">
+                                  <div class="wd-modules-heading">
+                                    <a
+                                      href="/kanbas/courses/assignments/editor/screen.html">
+                                      A3 CSS
+                                    </a>
+                                  </div>
+                                </div>
+                                <!-- * Small text under Heading -->
+                                <div class="row">
+                                  <div class="wd-modules-text">
+                                    Week 2 - CSS - Week starting on Monday
+                                    September 19th (9/19/2022) Module |
+                                  </div>
+                                  <div class="wd-modules-text">
+                                    <b>Due</b>
+                                    Oct 2, 2022 at 11:59pm | 100 pts
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- * + & ... buttons -->
+                              <div class="col">
+                                <span class="float-end">
+                                  <button>
+                                    <i
+                                      class="wd-modules-icon fa fa-check-circle text-success"></i>
+                                  </button>
+                                  <button>
+                                    <i
+                                      class="wd-modules-icon fa fa-ellipsis-v ms-2"></i>
+                                  </button>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <!-- * A4 -->
+                        <li class="list-group-item">
+                          <div class="container">
+                            <div class="row align-items-center flex-nowrap">
+                              <!-- * ... -->
+                              <div class="col-auto">
+                                <i class="wd-modules-icon fa fa-ellipsis-v"></i>
+                              </div>
+                              <!-- * Text in the middle -->
+                              <div class="col-auto">
+                                <!-- * Heading -->
+                                <div class="row">
+                                  <div class="wd-modules-heading">
+                                    <a
+                                      href="/kanbas/courses/assignments/editor/screen.html">
+                                      A4 BOOTSTRAP
+                                    </a>
+                                  </div>
+                                </div>
+                                <!-- * Small text under Heading -->
+                                <div class="row">
+                                  <div class="wd-modules-text">
+                                    Week 3 - Bootstrap - Week starting on Monday
+                                    September 26th (9/26/2022) Module |
+                                  </div>
+                                  <div class="wd-modules-text">
+                                    <b>Due</b>
+                                    Oct 10, 2022 at 11:59pm | 100 pts
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- * + & ... buttons -->
+                              <div class="col">
+                                <span class="float-end">
+                                  <button>
+                                    <i
+                                      class="wd-modules-icon fa fa-check-circle text-success"></i>
+                                  </button>
+                                  <button>
+                                    <i
+                                      class="wd-modules-icon fa fa-ellipsis-v ms-2"></i>
+                                  </button>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <!-- * A5 -->
+                        <li class="list-group-item">
+                          <div class="container">
+                            <div class="row align-items-center flex-nowrap">
+                              <!-- * ... -->
+                              <div class="col-auto">
+                                <i class="wd-modules-icon fa fa-ellipsis-v"></i>
+                              </div>
+                              <!-- * Text in the middle -->
+                              <div class="col-auto">
+                                <!-- * Heading -->
+                                <div class="row">
+                                  <div class="wd-modules-heading">
+                                    <a
+                                      href="/kanbas/courses/assignments/editor/screen.html">
+                                      A5 JAVASCRIPT
+                                    </a>
+                                  </div>
+                                </div>
+                                <!-- * Small text under Heading -->
+                                <div class="row">
+                                  <div class="wd-modules-text">
+                                    Week 4 - JavaScript - Week starting on
+                                    Monday October 3rd (10/3/2022) Module |
+                                  </div>
+                                  <div class="wd-modules-text">
+                                    <b>Due</b>
+                                    Oct 16, 2022 at 11:59pm | 100 pts
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- * + & ... buttons -->
+                              <div class="col">
+                                <span class="float-end">
+                                  <button>
+                                    <i
+                                      class="wd-modules-icon fa fa-check-circle text-success"></i>
+                                  </button>
+                                  <button>
+                                    <i
+                                      class="wd-modules-icon fa fa-ellipsis-v ms-2"></i>
+                                  </button>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <!-- * A6 -->
+                        <li class="list-group-item">
+                          <div class="container">
+                            <div class="row align-items-center flex-nowrap">
+                              <!-- * ... -->
+                              <div class="col-auto">
+                                <i class="wd-modules-icon fa fa-ellipsis-v"></i>
+                              </div>
+                              <!-- * Text in the middle -->
+                              <div class="col-auto">
+                                <!-- * Heading -->
+                                <div class="row">
+                                  <div class="wd-modules-heading">
+                                    <a
+                                      href="/kanbas/courses/assignments/editor/screen.html">
+                                      A6 REACT
+                                    </a>
+                                  </div>
+                                </div>
+                                <!-- * Small text under Heading -->
+                                <div class="row">
+                                  <div class="wd-modules-text">
+                                    Week 5 - React & Routing - Week starting
+                                    Monday October 10th (10/10/2022) Module |
+                                  </div>
+                                  <div class="wd-modules-text">
+                                    <b>Due</b>
+                                    Sep Oct 23, 2022 at 11:59pm | 100 pts
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- * + & ... buttons -->
+                              <div class="col">
+                                <span class="float-end">
+                                  <button>
+                                    <i
+                                      class="wd-modules-icon fa fa-check-circle text-success"></i>
+                                  </button>
+                                  <button>
+                                    <i
+                                      class="wd-modules-icon fa fa-ellipsis-v ms-2"></i>
+                                  </button>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="list-group-item rounded">
+                      <!-- * Quizzes -->
+                      <div class="container">
+                        <div class="row flex-nowrap">
+                          <div class="col-auto">
+                            <i class="wd-modules-icon fa fa-ellipsis-v"></i>
+                          </div>
+                          <div class="col-auto">Quizzes</div>
+                          <div class="col">
+                            <span class="float-end">
+                              <button>
+                                <i class="wd-modules-icon fa fa-plus ms-2"></i>
+                              </button>
+                              <button>
+                                <i
+                                  class="wd-modules-icon fa fa-ellipsis-v ms-2"></i>
+                              </button>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- * items under Assignments -->
+                      <ul class="list-group">
+                        <!-- * Q1 -->
+                        <li class="list-group-item">
+                          <div class="container">
+                            <div class="row align-items-center flex-nowrap">
+                              <!-- * ... -->
+                              <div class="col-auto">
+                                <i class="wd-modules-icon fa fa-ellipsis-v"></i>
+                              </div>
+                              <!-- * Text in the middle -->
+                              <div class="col-auto">
+                                <!-- * Heading -->
+                                <div class="row">
+                                  <div class="wd-modules-heading">
+                                    <a
+                                      href="/kanbas/courses/assignments/editor/screen.html">
+                                      Q1 HTML
+                                    </a>
+                                  </div>
+                                </div>
+                                <!-- * Small text under Heading -->
+                                <div class="row">
+                                  <div class="wd-modules-text">
+                                    Week 0 - SETUP - Week starting on Monday
+                                    September 5th (9/5/2022) Module |
+                                  </div>
+                                  <div class="wd-modules-text">
+                                    <b>Due</b>
+                                    Sep 18, 2022 at 11:59pm | 100 pts
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- * + & ... buttons -->
+                              <div class="col">
+                                <span class="float-end">
+                                  <button>
+                                    <i
+                                      class="wd-modules-icon fa fa-check-circle text-success"></i>
+                                  </button>
+                                  <button>
+                                    <i
+                                      class="wd-modules-icon fa fa-ellipsis-v ms-2"></i>
+                                  </button>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <!-- * Q2 -->
+                        <li class="list-group-item">
+                          <div class="container">
+                            <div class="row align-items-center flex-nowrap">
+                              <!-- * ... -->
+                              <div class="col-auto">
+                                <i class="wd-modules-icon fa fa-ellipsis-v"></i>
+                              </div>
+                              <!-- * Text in the middle -->
+                              <div class="col-auto">
+                                <!-- * Heading -->
+                                <div class="row">
+                                  <div class="wd-modules-heading">
+                                    <a
+                                      href="/kanbas/courses/assignments/editor/screen.html">
+                                      Q2 HTML
+                                    </a>
+                                  </div>
+                                </div>
+                                <!-- * Small text under Heading -->
+                                <div class="row">
+                                  <div class="wd-modules-text">
+                                    Week 1 - HTML - Week starting on Monday
+                                    September 12th (9/12/2022) Module |
+                                  </div>
+                                  <div class="wd-modules-text">
+                                    <b>Due</b>
+                                    Sep 25, 2022 at 11:59pm | 100 pts
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- * + & ... buttons -->
+                              <div class="col">
+                                <span class="float-end">
+                                  <button>
+                                    <i
+                                      class="wd-modules-icon fa fa-check-circle text-success"></i>
+                                  </button>
+                                  <button>
+                                    <i
+                                      class="wd-modules-icon fa fa-ellipsis-v ms-2"></i>
+                                  </button>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <!-- * Q33 -->
+                        <li class="list-group-item">
+                          <div class="container">
+                            <div class="row align-items-center flex-nowrap">
+                              <!-- * ... -->
+                              <div class="col-auto">
+                                <i class="wd-modules-icon fa fa-ellipsis-v"></i>
+                              </div>
+                              <!-- * Text in the middle -->
+                              <div class="col-auto">
+                                <!-- * Heading -->
+                                <div class="row">
+                                  <div class="wd-modules-heading">
+                                    <a
+                                      href="/kanbas/courses/assignments/editor/screen.html">
+                                      Q3 JS, ES6
+                                    </a>
+                                  </div>
+                                </div>
+                                <!-- * Small text under Heading -->
+                                <div class="row">
+                                  <div class="wd-modules-text">
+                                    Week 2 - CSS - Week starting on Monday
+                                    September 19th (9/19/2022) Module |
+                                  </div>
+                                  <div class="wd-modules-text">
+                                    <b>Due</b>
+                                    Oct 2, 2022 at 11:59pm | 100 pts
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- * + & ... buttons -->
+                              <div class="col">
+                                <span class="float-end">
+                                  <button>
+                                    <i
+                                      class="wd-modules-icon fa fa-check-circle text-success"></i>
+                                  </button>
+                                  <button>
+                                    <i
+                                      class="wd-modules-icon fa fa-ellipsis-v ms-2"></i>
+                                  </button>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+
+                    <li class="list-group-item rounded">
+                      <!-- * EXAMS -->
+                      <div class="container">
+                        <div class="row flex-nowrap">
+                          <div class="col-auto">
+                            <i class="wd-modules-icon fa fa-ellipsis-v"></i>
+                          </div>
+                          <div class="col-auto">Exams</div>
+                          <div class="col">
+                            <span class="float-end">
+                              <button>
+                                <i class="wd-modules-icon fa fa-plus ms-2"></i>
+                              </button>
+                              <button>
+                                <i
+                                  class="wd-modules-icon fa fa-ellipsis-v ms-2"></i>
+                              </button>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- * items under Assignments -->
+                      <ul class="list-group">
+                        <!-- * Midterm -->
+                        <li class="list-group-item">
+                          <div class="container">
+                            <div class="row align-items-center flex-nowrap">
+                              <!-- * ... -->
+                              <div class="col-auto">
+                                <i class="wd-modules-icon fa fa-ellipsis-v"></i>
+                              </div>
+                              <!-- * Text in the middle -->
+                              <div class="col-auto">
+                                <!-- * Heading -->
+                                <div class="row">
+                                  <div class="wd-modules-heading">
+                                    <a
+                                      href="/kanbas/courses/assignments/editor/screen.html">
+                                      Midterm
+                                    </a>
+                                  </div>
+                                </div>
+                                <!-- * Small text under Heading -->
+                                <div class="row">
+                                  <div class="wd-modules-text">
+                                    Week 0 - SETUP - Week starting on Monday
+                                    September 5th (9/5/2022) Module |
+                                  </div>
+                                  <div class="wd-modules-text">
+                                    <b>Due</b>
+                                    Sep 18, 2022 at 11:59pm | 100 pts
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- * + & ... buttons -->
+                              <div class="col">
+                                <span class="float-end">
+                                  <button>
+                                    <i
+                                      class="wd-modules-icon fa fa-check-circle text-success"></i>
+                                  </button>
+                                  <button>
+                                    <i
+                                      class="wd-modules-icon fa fa-ellipsis-v ms-2"></i>
+                                  </button>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <!-- * Final -->
+                        <li class="list-group-item">
+                          <div class="container">
+                            <div class="row align-items-center flex-nowrap">
+                              <!-- * ... -->
+                              <div class="col-auto">
+                                <i class="wd-modules-icon fa fa-ellipsis-v"></i>
+                              </div>
+                              <!-- * Text in the middle -->
+                              <div class="col-auto">
+                                <!-- * Heading -->
+                                <div class="row">
+                                  <div class="wd-modules-heading">
+                                    <a
+                                      href="/kanbas/courses/assignments/editor/screen.html">
+                                      Final
+                                    </a>
+                                  </div>
+                                </div>
+                                <!-- * Small text under Heading -->
+                                <div class="row">
+                                  <div class="wd-modules-text">
+                                    Week 1 - HTML - Week starting on Monday
+                                    September 12th (9/12/2022) Module |
+                                  </div>
+                                  <div class="wd-modules-text">
+                                    <b>Due</b>
+                                    Sep 25, 2022 at 11:59pm | 100 pts
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- * + & ... buttons -->
+                              <div class="col">
+                                <span class="float-end">
+                                  <button>
+                                    <i
+                                      class="wd-modules-icon fa fa-check-circle text-success"></i>
+                                  </button>
+                                  <button>
+                                    <i
+                                      class="wd-modules-icon fa fa-ellipsis-v ms-2"></i>
+                                  </button>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="list-group-item rounded">
+                      <!-- * Project -->
+                      <div class="container">
+                        <div class="row flex-nowrap">
+                          <div class="col-auto">
+                            <i class="wd-modules-icon fa fa-ellipsis-v"></i>
+                          </div>
+                          <div class="col-auto">Project</div>
+                          <div class="col">
+                            <span class="float-end">
+                              <button>
+                                <i class="wd-modules-icon fa fa-plus ms-2"></i>
+                              </button>
+                              <button>
+                                <i
+                                  class="wd-modules-icon fa fa-ellipsis-v ms-2"></i>
+                              </button>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- * items under Assignments -->
+                      <ul class="list-group">
+                        <!-- * Project -->
+                        <li class="list-group-item">
+                          <div class="container">
+                            <div class="row align-items-center flex-nowrap">
+                              <!-- * ... -->
+                              <div class="col-auto">
+                                <i class="wd-modules-icon fa fa-ellipsis-v"></i>
+                              </div>
+                              <!-- * Text in the middle -->
+                              <div class="col-auto">
+                                <!-- * Heading -->
+                                <div class="row">
+                                  <div class="wd-modules-heading">
+                                    <a
+                                      href="/kanbas/courses/assignments/editor/screen.html">
+                                      Project
+                                    </a>
+                                  </div>
+                                </div>
+                                <!-- * Small text under Heading -->
+                                <div class="row">
+                                  <div class="wd-modules-text">
+                                    Week 0 - SETUP - Week starting on Monday
+                                    September 5th (9/5/2022) Module |
+                                  </div>
+                                  <div class="wd-modules-text">
+                                    <b>Due</b>
+                                    Sep 18, 2022 at 11:59pm | 100 pts
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- * + & ... buttons -->
+                              <div class="col">
+                                <span class="float-end">
+                                  <button>
+                                    <i
+                                      class="wd-modules-icon fa fa-check-circle text-success"></i>
+                                  </button>
+                                  <button>
+                                    <i
+                                      class="wd-modules-icon fa fa-ellipsis-v ms-2"></i>
+                                  </button>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

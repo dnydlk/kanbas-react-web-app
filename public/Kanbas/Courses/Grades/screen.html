@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="/kanbas/styles.css" />
+    <link rel="stylesheet" href="/kanbas/courses/navigation/index.css" />
+    <link rel="stylesheet" href="/kanbas/navigation/index.css" />
+    <link rel="stylesheet" href="/kanbas/courses/modules/index.css" />
+  </head>
+  <body>
+    <div class="d-flex">
+      <!-- ! K Nav -->
+      <div class="d-none d-md-block">
+        <ul class="wd-kanbas-navigation">
+          <li>
+            <a href="http://northeastern.edu">
+              <img
+                src="/images/n.png"
+                alt=""
+                style="width: 60px; height: 60px" />
+            </a>
+          </li>
+          <li>
+            <a href="/kanbas/account/profiles/screen.html">
+              <i class="fa fa-circle-user" style="color: white"></i>
+              Account
+            </a>
+          </li>
+          <li>
+            <a href="/kanbas/dashboard/screen.html">
+              <i class="fa fa-tachometer"></i>
+              Dashboard
+            </a>
+          </li>
+          <li class="wd-active">
+            <a href="/kanbas/courses/home/screen.html">
+              <i class="fa fa-book"></i>
+              Courses
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-calendar"></i>
+              Calendar
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-inbox"></i>
+              Inbox
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-clock"></i>
+              History
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-computer"></i>
+              Studio
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-c"></i>
+              Commons
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-circle-question"></i>
+              Help
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- ! Container -->
+      <div class="container">
+        <div class="d-flex flex-column">
+          <!-- * Breadcrumb -->
+          <div class="row">
+            <div class="p-1 mt-4">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item wd-dani-breadcrumb-item">
+                    <a href="#">CS5610-07</a>
+                  </li>
+                  <li
+                    class="breadcrumb-item wd-dani-breadcrumb-item active"
+                    aria-current="page">
+                    Grades
+                  </li>
+                </ol>
+              </nav>
+            </div>
+            <hr />
+          </div>
+          <div class="row">
+            <!-- ! C Nav -->
+            <div class="col-auto p-0">
+              <div class="d-none d-md-block">
+                <ul class="wd-course-navigation">
+                  <li>
+                    <a href="/kanbas/courses/home/screen.html">Home</a>
+                  </li>
+                  <li>
+                    <a href="/kanbas/courses/modules/screen.html">Modules</a>
+                  </li>
+                  <li><a href="http://piazza.com">Piazza</a></li>
+                  <li><a href="#">Zoom Meetings</a></li>
+                  <li>
+                    <a href="/kanbas/courses/assignments/screen.html">
+                      Assignments
+                    </a>
+                  </li>
+                  <li><a href="#">Quizzes</a></li>
+                  <li class="wd-active">
+                    <a href="/kanbas/courses/grades/screen.html">Grades</a>
+                  </li>
+                  <li><a href="#">People</a></li>
+                  <li><a href="#">Panopto Video</a></li>
+                  <li><a href="#">Discussions</a></li>
+                  <li><a href="#">Annoucements</a></li>
+                  <li><a href="#">Pages</a></li>
+                  <li><a href="#">Files</a></li>
+                  <li><a href="#">Rubrics</a></li>
+                  <li><a href="#">Outcomes</a></li>
+                  <li><a href="#">Collaborations</a></li>
+                  <li><a href="#">Syllabus</a></li>
+                  <li>
+                    <a
+                      href="/kanbas/courses/settings/course-details/screen.html">
+                      Settings
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col">
+              <!-- * Row -->
+              <div class="row mb-2">
+                <!-- * Buttons col -->
+                <div class="col">
+                  <div class="float-end">
+                    <button class="wd-dani-btn">
+                      <i class="fa-solid fa-file-import"></i>
+                      Import
+                    </button>
+                    <button class="wd-dani-btn-red">
+                      <i class="fa-solid fa-file-export"></i>
+                      Export
+                    </button>
+                    <button class="wd-dani-btn">
+                      <i class="fa-solid fa-gear"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- * Row -->
+              <div class="row">
+                <div>
+                  <!-- row for two search bar's title -->
+                  <div class="row p-1">
+                    <div class="col">
+                      <label for="student-name" class="wd-modules-heading">
+                        Student Names
+                      </label>
+                    </div>
+                    <div class="col">
+                      <label for="assignment-name" class="wd-modules-heading">
+                        Assignment Names
+                      </label>
+                    </div>
+                  </div>
+                  <!-- row for two search bar -->
+                  <div class="row p-1">
+                    <div class="col">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="student-name"
+                        value="Search Students" />
+                    </div>
+                    <div class="col">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="assignment-name"
+                        value="Search Assignments" />
+                    </div>
+                  </div>
+                  <!-- row for apply filter btn -->
+                  <div class="row mt-1 mb-2">
+                    <div class="col-auto ps-3">
+                      <button class="wd-dani-btn">
+                        <i class="fa-solid fa-filter"></i>
+                        Apply Filters
+                      </button>
+                    </div>
+                  </div>
+                  <!-- * Grades -->
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th rowspan="2" class="align-middle">Student Name</th>
+                          <th class="text-center">A1</th>
+                          <th class="text-center">A2</th>
+                          <th class="text-center">A3</th>
+                          <th class="text-center">A4</th>
+                          <th class="text-center">A5</th>
+                          <th class="text-center">A6</th>
+                          <th class="text-center">Q1</th>
+                          <th class="text-center">Q2</th>
+                          <th class="text-center">Q3</th>
+                        </tr>
+                        <tr>
+                          <td class="text-center">Out of 100</td>
+                          <td class="text-center">Out of 100</td>
+                          <td class="text-center">Out of 100</td>
+                          <td class="text-center">Out of 100</td>
+                          <td class="text-center">Out of 100</td>
+                          <td class="text-center">Out of 100</td>
+                          <td class="text-center">Out of 100</td>
+                          <td class="text-center">Out of 100</td>
+                          <td class="text-center">Out of 100</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">Student 1</th>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Student 2</th>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Student 3</th>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Student 4</th>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Student 5</th>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Student 6</th>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Student 7</th>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Student 8</th>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Student 9</th>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Student 10</th>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                          <td class="text-center">100</td>
+                          <td class="text-center">
+                            <input
+                              type="number"
+                              class="form-control"
+                              value="100"
+                              min="0"
+                              max="100" />
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
