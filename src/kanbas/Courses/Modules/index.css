@@ -49,3 +49,8 @@
 .wd-modules button {
   background-color: transparent;
 }
+
+.wd-dani-modules-status-btn-col {
+  width: 260px;
+  flex: 0 0 240px;
+}

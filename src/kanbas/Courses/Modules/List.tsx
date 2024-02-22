@@ -6,30 +6,44 @@ import { useParams } from "react-router";
 import { BsThreeDotsVertical } from "react-icons/bs";
 function ModuleList() {
   const { courseId } = useParams();
-  console.log("🚀 ~ ModuleList ~ courseId:", courseId);
-  // const modulesList = modules.filter((module) => module.course === courseId);
   const modulesList = modules.filter((module) => module.course === courseId);
-  console.log("🚀 ~ ModuleList ~ modulesList:", modulesList);
   const [selectedModule, setSelectedModule] = useState(modulesList[0]);
   return (
     //? <div id="module-list">
-    <div id="module-list" className="flex-fill p-2">
-      <div id="module-buttons" className="d-flex justify-content-end">
-        <button className="wd-dani-btn">Collapse All</button>
-        <button className="wd-dani-btn">Expand All</button>
-        <button className="wd-dani-btn">View Progress</button>
-        <select style={{ marginLeft: "5px" }}>
-          <option>Publish All</option>
-          <option>Unpublish All</option>
-        </select>
-        <button className="wd-dani-btn-red">+ Module</button>
-        <button className="wd-dani-btn">
-          <BsThreeDotsVertical />
-        </button>
+    // <div id="module-list" className="flex-fill p-2"fixme:>
+    <div id="module-list" className="container p-2">
+      <div id="module-buttons" className="row justify-content-end ">
+        {/* <div id="module-buttons" className="d-flex justify-content-end mb-3"> */}
+        <div className="col-auto p-0">
+          <button className="wd-dani-btn">Collapse All</button>
+        </div>
+        <div className="col-auto p-0">
+          <button className="wd-dani-btn">Expand All</button>
+        </div>
+        <div className="col-auto p-0">
+          <button className="wd-dani-btn">View Progress</button>
+        </div>
+        <div className="col-auto p-0">
+          <select style={{ marginLeft: "5px" }}>
+            <option>Publish All</option>
+            <option>Unpublish All</option>
+          </select>
+        </div>
+        <div className="col-auto p-0">
+          <button className="wd-dani-btn-red">+ Module</button>
+        </div>
+        <div className="col-auto p-0 me-3">
+          <button className="wd-dani-btn">
+            <BsThreeDotsVertical />
+          </button>
+        </div>
+
+        {/* </div> */}
       </div>
       {/* <pre>
         <code>{JSON.stringify(modulesList, null, 2)}</code>
       </pre> */}
+      {/* <ul className="list-group wd-modules">fixme: */}
       <ul className="list-group wd-modules">
         {modulesList.map((module) => (
           <li

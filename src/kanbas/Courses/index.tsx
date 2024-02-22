@@ -1,13 +1,10 @@
-import { courses } from "../Database";
 import { Navigate, Route, Routes, useParams } from "react-router-dom";
 import CourseNavigation from "./Navigation";
 import Breadcrumb from "./Navigation/Breadcrumb";
 import ModuleList from "./Modules/List";
 import Home from "./Home";
+
 function Courses() {
-  const params = useParams();
-  const { courseId } = useParams();
-  const course = courses.find((course) => course._id === courseId);
   return (
     <>
       <Breadcrumb />

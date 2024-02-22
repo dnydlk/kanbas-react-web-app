@@ -1,11 +1,20 @@
 import ModuleList from "../Modules/List";
+import Sidebar from "./Sidebar";
 function Home() {
   return (
-    <div>
-      <h2>Home</h2>
-      <ModuleList />
-      <h2>Status</h2>
-    </div>
+    <>
+      {/* <div className="flex-fill p-2 mt-0 me-4">fixme: */}
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col">
+            <ModuleList />
+          </div>
+          <div className="col-4 pe-0 me-0 mt-2 ">
+            <Sidebar />
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 export default Home;
