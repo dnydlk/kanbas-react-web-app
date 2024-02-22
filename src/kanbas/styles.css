@@ -16,11 +16,14 @@ body * {
 
 :root {
   --navigation-width: 100px;
+  --main-content-margin-top: 20px;
+  --main-content-padding-right: 20px;
 }
 
 #kanbas > .main-content {
   padding-left: var(--navigation-width);
-  margin-top: 20px;
+  margin-top: var(--main-content-margin-top);
+  padding-right: var(--main-content-padding-right);
 }
 
 .wd-dani-breadcrumb-item {

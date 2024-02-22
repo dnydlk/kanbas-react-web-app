@@ -17,6 +17,21 @@ const sidebarButtons = [
   { Icon: FaRegBell, text: "View Course Notifications" },
 ];
 
+const todoItems = [
+  {
+    Icon: PiNumberCircleFive,
+    title: "Grade A1 - ENV + HTML",
+    detail: "100 points, Sep 18 at 11:59",
+    closeIcon: IoIosClose,
+  },
+  {
+    Icon: PiNumberCircleFive,
+    title: "Grade A2 - CSS + BOOTSTRAP",
+    detail: "100 points, Oct 2 at 11:59",
+    closeIcon: IoIosClose,
+  },
+];
+
 function Sidebar() {
   return (
     <div className="col pe-0 me-0 mt-2 ">
@@ -32,28 +47,44 @@ function Sidebar() {
           </div>
         ))}
 
-        <div className="container m-0 p-0 pe-5">
+        <div className="container m-0 p-0 pe-2">
           <h4 className="mt-3">To Do</h4>
           <hr />
-          <div className="row pe-4 ">
+          {todoItems.map((item, index) => (
+            <div className="row pe-4 mb-4" key={index}>
+              <div className="col-auto wd-dani-color-red">
+                <item.Icon className="fs-3 align-middle" />
+              </div>
+              <div className="col">
+                <div className="row wd-dani-color-red">{item.title}</div>
+                <div className="row" style={{ fontSize: "14px" }}>
+                  {item.detail}
+                </div>
+              </div>
+              <div className="col-auto p-0">
+                <item.closeIcon />
+              </div>
+            </div>
+          ))}
+          {/* <div className="row pe-4 mb-4">
             <div className="col-auto wd-dani-color-red">
               <PiNumberCircleFive className="fs-3 align-middle" />
             </div>
-            <div className="col-8">
+            <div className="col">
               <div className="row wd-dani-color-red">Grade A1 - ENV + HTML</div>
               <div className="row" style={{ fontSize: "14px" }}>
                 100 points, Sep 18 at 11:59
               </div>
             </div>
-            <div className="col-auto">
+            <div className="col-auto p-0">
               <IoIosClose />
             </div>
           </div>
-          <div className="row pe-4">
+          <div className="row pe-4 mb-3">
             <div className="col-auto wd-dani-color-red">
               <PiNumberCircleFive className="fs-3 align-middle" />
             </div>
-            <div className="col-8">
+            <div className="col">
               <div className="row wd-dani-color-red">
                 Grade A2 - CSS + BOOTSTRAP
               </div>
@@ -61,10 +92,10 @@ function Sidebar() {
                 100 points, Oct 2 at 11:59
               </div>
             </div>
-            <div className="col-auto">
+            <div className="col-auto p-0">
               <IoIosClose />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

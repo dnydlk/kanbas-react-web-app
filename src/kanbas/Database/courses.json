@@ -1,66 +1,26 @@
 [
   {
-    "_id": "HP1",
+    "_id": "C01",
     "name": "Defense Against the Dark Arts",
-    "number": "HP4550",
+    "number": "HP0001",
     "startDate": "2023-09-01",
     "endDate": "2024-06-15",
-    "image": "hp101.jpg"
+    "image": "C01.jpg"
   },
   {
-    "_id": "HP2",
+    "_id": "C02",
     "name": "Potions",
-    "number": "HP4551",
+    "number": "HP0002",
     "startDate": "2023-09-01",
     "endDate": "2024-06-15",
-    "image": "hp102.jpg"
+    "image": "C02.jpg"
   },
   {
-    "_id": "HP3",
-    "name": "Transfiguration",
-    "number": "HP4552",
+    "_id": "C03",
+    "name": " Transfiguration",
+    "number": "HP0003",
     "startDate": "2023-09-01",
     "endDate": "2024-06-15",
-    "image": "hp103.jpg"
-  },
-  {
-    "_id": "HP4",
-    "name": "Charms",
-    "number": "HP4553",
-    "startDate": "2023-09-01",
-    "endDate": "2024-06-15",
-    "image": "hp104.jpg"
-  },
-  {
-    "_id": "HP5",
-    "name": "Herbology",
-    "number": "HP4554",
-    "startDate": "2023-09-01",
-    "endDate": "2024-06-15",
-    "image": "hp105.jpg"
-  },
-  {
-    "_id": "HP6",
-    "name": "Astronomy",
-    "number": "HP4555",
-    "startDate": "2023-09-01",
-    "endDate": "2024-06-15",
-    "image": "hp106.jpg"
-  },
-  {
-    "_id": "HP7",
-    "name": "History of Magic",
-    "number": "HP4556",
-    "startDate": "2023-09-01",
-    "endDate": "2024-06-15",
-    "image": "hp107.jpg"
-  },
-  {
-    "_id": "HP8",
-    "name": "Care of Magical Creatures",
-    "number": "HP4557",
-    "startDate": "2023-09-01",
-    "endDate": "2024-06-15",
-    "image": "hp108.jpg"
+    "image": "C03.jpg"
   }
 ]

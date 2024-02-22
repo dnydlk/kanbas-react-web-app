@@ -1,110 +1,236 @@
 [
   {
-    "_id": "M101",
-    "name": "Defense Against the Dark Arts",
-    "description": "Understanding and defending against dark magic, curses, and hexes.",
-    "course": "HP1",
+    "_id": "D101",
+    "name": "Defensive Spells and Counter-Curses",
+    "description": "Mastering protective magic against dark forces.",
+    "course": "C01",
     "lessons": [
       {
-        "_id": "L101",
-        "name": "Introduction to Dark Arts",
-        "description": "Overview of dark magic, its history, and key characteristics.",
-        "module": "MHP1"
+        "_id": "D001",
+        "name": "Introduction to basic and advanced defensive spells.",
+        "description": "Foundations of defensive spellwork for all levels.",
+        "module": "D101"
       },
       {
-        "_id": "L102",
-        "name": "Defensive Spells",
-        "description": "Learning spells and counter-curses to defend against dark forces.",
-        "module": "MHP1"
+        "_id": "D002",
+        "name": "Practicing counter-curses against common dark spells.",
+        "description": "Hands-on counter-curse application in controlled setups.",
+        "module": "D101"
       },
       {
-        "_id": "L103",
-        "name": "Dueling Techniques",
-        "description": "Techniques and strategies for magical duels against dark practitioners.",
-        "module": "MHP1"
+        "_id": "D003",
+        "name": "Dueling simulations to apply learned spells in real-time scenarios.",
+        "description": "Simulated duels to test defensive skills under pressure.",
+        "module": "D101"
       }
     ]
   },
   {
-    "_id": "M201",
-    "name": "Potions",
-    "description": "The study of potion making, including the properties of magical ingredients and their effects.",
-    "course": "HP2",
+    "_id": "D102",
+    "name": "Offensive Magic Techniques",
+    "description": "Harnessing the power of offense in magic.",
+    "course": "C01",
     "lessons": [
       {
-        "_id": "L201",
-        "name": "Basic Potion Making",
-        "description": "Introduction to basic potions and their ingredients.",
-        "module": "M102"
+        "_id": "D004",
+        "name": "Learning offensive spells beyond the standard curriculum.",
+        "description": "Expanding arsenal with advanced offensive spells.",
+        "module": "D102"
       },
       {
-        "_id": "L202",
-        "name": "Advanced Potions",
-        "description": "Crafting advanced potions with complex effects and uses.",
-        "module": "M102"
+        "_id": "D005",
+        "name": "Strategies for offensive spell combinations.",
+        "description": "Crafting effective spell combos for strategic advantage.",
+        "module": "D102"
       },
       {
-        "_id": "L203",
-        "name": "Potion Safety and Ethics",
-        "description": "Safe practices in potion making and ethical considerations.",
-        "module": "M102"
+        "_id": "D006",
+        "name": "Ethical considerations and controlled practice environments.",
+        "description": "Navigating the ethics of offensive magic with care.",
+        "module": "D102"
       }
     ]
   },
   {
-    "_id": "M301",
-    "name": "Transfiguration",
-    "description": "Mastering the art of changing the form and appearance of objects and beings.",
-    "course": "HP3",
+    "_id": "D103",
+    "name": "Dueling Techniques and Strategies",
+    "description": "Advanced tactics for magical combat proficiency.",
+    "course": "C01",
     "lessons": [
       {
-        "_id": "L301",
-        "name": "Basic Transfiguration",
-        "description": "Fundamentals of altering physical properties and appearances.",
-        "module": "M103"
+        "_id": "D007",
+        "name": "Stance, movement, and anticipation in magical duels.",
+        "description": "Optimizing physical readiness and tactics in duels.",
+        "module": "D103"
       },
       {
-        "_id": "L302",
-        "name": "Animal Transfiguration",
-        "description": "Techniques for transfiguring objects and oneself into animals.",
-        "module": "M103"
+        "_id": "D008",
+        "name": "Psychological aspects of dueling, including intimidation tactics.",
+        "description": "Leveraging psychology for an edge in duels.",
+        "module": "D103"
       },
       {
-        "_id": "L303",
-        "name": "Complex Transfiguration",
-        "description": "Advanced transfiguration, including human transfiguration.",
-        "module": "M103"
+        "_id": "D009",
+        "name": "Mock duels with classmates to hone skills.",
+        "description": "Practical dueling experience with peer feedback.",
+        "module": "D103"
       }
     ]
   },
   {
-    "_id": "M401",
-    "name": "Charms",
-    "description": "Learning enchantments for spell-casting that alters properties or behaviors of objects or individuals.",
-    "course": "HP4"
+    "_id": "P101",
+    "name": "Basics of Potion Making",
+    "description": "Introduction to potion ingredients, equipment, and simple potions.",
+    "course": "C02",
+    "lessons": [
+      {
+        "_id": "P001",
+        "name": "Understanding Potion Ingredients.",
+        "description": "Explore the nature and use of basic ingredients like Infusion of Wormwood and Aconite.",
+        "module": "P101"
+      },
+      {
+        "_id": "P002",
+        "name": "Equipment Familiarity",
+        "description": "Learn about cauldrons, phials, and the Standard Ingredient's role in potion-making.",
+        "module": "P101"
+      },
+      {
+        "_id": "P003",
+        "name": "Brewing Simple Potions",
+        "description": "Practical brewing sessions for potions like Cure for Boils and Forgetfulness Potion.",
+        "module": "P101"
+      }
+    ]
   },
   {
-    "_id": "M501",
-    "name": "Herbology",
-    "description": "Study of magical and mundane plants and fungi, understanding their properties and uses.",
-    "course": "HP5"
+    "_id": "P102",
+    "name": "Expanding Potion Knowledge",
+    "description": "Deeper exploration into potion brewing and its complexities.",
+    "course": "C02",
+    "lessons": [
+      {
+        "_id": "P004",
+        "name": "Brewing Intermediate Potions",
+        "description": "Brew potions like Fire Protection Potion and Swelling Solution.",
+        "module": "P102"
+      },
+      {
+        "_id": "P005",
+        "name": "Potion Effects and Antidotes",
+        "description": "Understanding the effects of potions and how to counteract them.",
+        "module": "P102"
+      },
+      {
+        "_id": "P006",
+        "name": "Mock duels with classmates to hone skills.",
+        "description": "Practical dueling experience with peer feedback.",
+        "module": "P102"
+      }
+    ]
   },
   {
-    "_id": "M601",
-    "name": "Astronomy",
-    "description": "The study of stars, planets, and celestial phenomena in the magical world.",
-    "course": "HP6"
+    "_id": "P103",
+    "name": "Specialized Potions and Antidotes",
+    "description": "Focus on specific potions, including antidotes and their preparation.",
+    "course": "C02",
+    "lessons": [
+      {
+        "_id": "P007",
+        "name": "Mastering the Shrinking Solution",
+        "description": "Detailed brewing process and uses of the Shrinking Solution.",
+        "module": "P103"
+      },
+      {
+        "_id": "P008",
+        "name": "Undetectable Poisons",
+        "description": "Theoretical knowledge and identification of undetectable poisons.",
+        "module": "P103"
+      },
+      {
+        "_id": "P009",
+        "name": "Antidotes to Common and Uncommon Poisons",
+        "description": "Crafting antidotes and understanding their components.",
+        "module": "P103"
+      }
+    ]
   },
   {
-    "_id": "M701",
-    "name": "History of Magic",
-    "description": "Exploring the history of the magical world, from ancient times to the modern era.",
-    "course": "HP7"
+    "_id": "T101",
+    "name": "Introduction to Transfiguration",
+    "description": "Basics of transforming objects, understanding transfiguration principles.",
+    "course": "C03",
+    "lessons": [
+      {
+        "_id": "T001",
+        "name": "Match to Needle",
+        "description": "Fundamentals of simple object transformation.",
+        "module": "T101"
+      },
+      {
+        "_id": "T002",
+        "name": "Mice to Snuffboxes",
+        "description": "First foray into living to non-living transformations.",
+        "module": "T101"
+      },
+      {
+        "_id": "T003",
+        "name": "Avifors Spell",
+        "description": "Turning objects into birds, an introduction to complex transfigurations.",
+        "module": "T101"
+      }
+    ]
   },
   {
-    "_id": "M801",
-    "name": "Care of Magical Creatures",
-    "description": "Understanding and caring for magical creatures, both common and rare.",
-    "course": "HP8"
+    "_id": "T102",
+    "name": "Intermediate Transformations",
+    "description": "Advancing skills with more complex transfigurations and revisions.",
+    "course": "C03",
+    "lessons": [
+      {
+        "_id": "T005",
+        "name": "Beetle to Button",
+        "description": "Perfecting precision in small-scale transformations.",
+        "module": "T102"
+      },
+      {
+        "_id": "T006",
+        "name": "Vera Verto",
+        "description": "Transforming animals into simple objects.",
+        "module": "T102"
+      },
+      {
+        "_id": "T007",
+        "name": "Porcupine to Pin Cushion",
+        "description": "Balancing transfiguration ethics and technique.",
+        "module": "T102"
+      }
+    ]
+  },
+  {
+    "_id": "T103",
+    "name": "Applied Transfiguration",
+    "description": "Focused application on practical and useful transfigurations.",
+    "course": "C03",
+    "lessons": [
+      {
+        "_id": "T008",
+        "name": "Teapot to Tortoise",
+        "description": "Emphasis on form and function in transfiguration.",
+        "module": "T103"
+      },
+      {
+        "_id": "T009",
+        "name": "Draconifors and Lapifors Spells",
+        "description": "Transforming objects into dragons and rabbits.",
+        "module": "T103"
+      },
+      {
+        "_id": "T010",
+        "name": "Animagi Lecture",
+        "description": "Theoretical understanding of human to animal transformation.",
+        "module": "T103"
+      }
+    ]
   }
 ]

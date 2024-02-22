@@ -1,0 +1,11 @@
+[
+  { "_id": "A101", "title": "Boggart Banishment", "course": "C01" },
+  { "_id": "A102", "title": "Curse Countermeasures", "course": "C01" },
+  { "_id": "A103", "title": "Patronus Practice", "course": "C01" },
+  { "_id": "A201", "title": "Draught Brewing", "course": "C02" },
+  { "_id": "A202", "title": "Antidote Analysis", "course": "C02" },
+  { "_id": "A203", "title": "Potion Properties", "course": "C02" },
+  { "_id": "A301", "title": "Object Alteration", "course": "C03" },
+  { "_id": "A302", "title": "Animal Transformation", "course": "C03" },
+  { "_id": "A303", "title": "Vanishment Verification", "course": "C03" }
+]
