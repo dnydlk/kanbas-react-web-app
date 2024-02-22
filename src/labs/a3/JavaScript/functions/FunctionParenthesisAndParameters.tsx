@@ -5,13 +5,13 @@ const threePlusOne = plusOne(3);
 
 function FunctionParenthesisAndParameters() {
   return (
-    <>
+    <div id="function-parenthesis-and-parameters">
       <h3>Parenthesis and Parameters</h3>
       twoSquared = {twoSquared} <br />
       square(2) = {square(2)} <br />
       threePlusOne = {threePlusOne} <br />
       plusOne(3) = {plusOne(3)} <br />
-    </>
+    </div>
   );
 }
 

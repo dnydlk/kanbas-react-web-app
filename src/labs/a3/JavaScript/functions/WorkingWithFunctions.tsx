@@ -5,7 +5,7 @@ import FunctionParenthesisAndParameters from "./FunctionParenthesisAndParameters
 
 function WorkingWithFunctions() {
   return (
-    <div>
+    <div id="working-with-functions">
       <h1>Working With Functions</h1>
       <ES5Functions />
       <ArrowFunctions />
