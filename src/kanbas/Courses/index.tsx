@@ -4,20 +4,33 @@ import { HiMiniBars3 } from "react-icons/hi2";
 function Courses() {
   const params = useParams();
   const { courseId } = useParams();
-  console.log("🚀 ~ Courses ~ courseId:", courseId);
   const course = courses.find((course) => course._id === courseId);
   return (
     <div>
-      <pre>
+      {/* <pre>
         <code>{JSON.stringify(params, null, 2)}</code>
-      </pre>
-      <h1>
-        <HiMiniBars3 /> Course {course?.name}
+      </pre> */}
+      <h1 className=" wd-dani-breadcrumb-item">
+        <HiMiniBars3 /> {course?.name}
       </h1>
-      <h2>Courses {course?.name}</h2>
-      <pre>
+      {/* <pre>
         <code>{JSON.stringify(course, null, 2)}</code>
-      </pre>
+      </pre> */}
+      {/* <nav aria-label="breadcrumb">
+        <ol className="breadcrumb">
+          <li className="breadcrumb-item wd-dani-breadcrumb-item">
+            <a href="#">CS5610-07</a>
+          </li>
+          <li className="breadcrumb-item wd-dani-breadcrumb-item">
+            <a href="#">Assignments</a>
+          </li>
+          <li
+            className="breadcrumb-item wd-dani-breadcrumb-item active"
+            aria-current="page">
+            A1 - ENV + HTML
+          </li>
+        </ol>
+      </nav> */}
     </div>
   );
 }

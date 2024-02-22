@@ -6,7 +6,7 @@ function Dashboard() {
   return (
     <div className="p-4">
       <h1>Dashboard</h1> <hr />
-      <h2>Published Courses (12)</h2> <hr />
+      <h2>Published Courses ({courses.length})</h2> <hr />
       <div className="row justify-content-center">
         <div className="row row-cols-1 g-4 ">
           {courses.map((course) => (

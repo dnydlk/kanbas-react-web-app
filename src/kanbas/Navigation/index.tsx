@@ -56,6 +56,11 @@ function KanbasNavigation() {
   const { pathname } = useLocation();
   return (
     <ul className="wd-kanbas-navigation">
+      <li>
+        <Link to={"http://northeastern.edu"}>
+          <img src="/images/n.png" style={{ width: "60px", height: "60px" }} />
+        </Link>
+      </li>
       {links.map((link, index) => (
         <li
           key={index}
