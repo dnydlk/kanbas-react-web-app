@@ -1,3 +1,4 @@
+import Add from "./Add";
 import Classes from "./Classes";
 import ConditionalOutput from "./ConditionalOutput";
 import Highlight from "./Highlight";
@@ -21,6 +22,7 @@ function Assignment3() {
         at accusamus. Ipsa repellat veritatis earum. Omnis obcaecati quaerat hic
         quod?
       </Highlight>
+      <Add a={3} b={4} />
     </div>
   );
 }
