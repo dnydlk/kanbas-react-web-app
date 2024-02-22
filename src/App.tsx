@@ -32,21 +32,20 @@ import Kanbas from "./kanbas";
 //* this import statement will first attempt to import a file called Kanbas.tsx, and if it fails it will then attempt to import index.tsx in a folder called Kanbas, e.g., Kanbas/index.tsx, which is what we have here
 import { HashRouter } from "react-router-dom";
 import { Routes, Route, Navigate } from "react-router";
-import { Link } from "react-router-dom";
 
 function App() {
   return (
     //* return can only return a single component that's why we wrap the whole content with a <div>
-    <HashRouter>
-      <div id="app">
+    <div id="app">
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Navigate to="/Labs" />} />
           <Route path="/labs/*" element={<Labs />} />
           <Route path="/kanbas/*" element={<Kanbas />} />
-          <Route path="/hello" element={<HelloWorld />} />
+          <Route path="/hello/*" element={<HelloWorld />} />
         </Routes>
-      </div>
-    </HashRouter>
+      </HashRouter>
+    </div>
   );
 }
 export default App;

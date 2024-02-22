@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 function Nav() {
   return (
     <nav className="nav nav-tabs mt-2">
-      <Link className="nav-link" to="/labs/a3">
-        A3
+      <Link className="nav-link" to="/labs">
+        Labs
       </Link>
       <Link className="nav-link" to="/kanbas">
         Kanbas
