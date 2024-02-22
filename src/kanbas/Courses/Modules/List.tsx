@@ -6,12 +6,15 @@ import { useParams } from "react-router";
 import { BsThreeDotsVertical } from "react-icons/bs";
 function ModuleList() {
   const { courseId } = useParams();
+  console.log("🚀 ~ ModuleList ~ courseId:", courseId);
+  // const modulesList = modules.filter((module) => module.course === courseId);
   const modulesList = modules.filter((module) => module.course === courseId);
+  console.log("🚀 ~ ModuleList ~ modulesList:", modulesList);
   const [selectedModule, setSelectedModule] = useState(modulesList[0]);
   return (
     //? <div id="module-list">
-    <div id="module-list" className="flex-fill p-2 border border-black">
-      <div className="d-flex justify-content-end">
+    <div id="module-list" className="flex-fill p-2">
+      <div id="module-buttons" className="d-flex justify-content-end">
         <button className="wd-dani-btn">Collapse All</button>
         <button className="wd-dani-btn">Expand All</button>
         <button className="wd-dani-btn">View Progress</button>
@@ -24,37 +27,39 @@ function ModuleList() {
           <BsThreeDotsVertical />
         </button>
       </div>
-      <h1>test</h1>
+      {/* <pre>
+        <code>{JSON.stringify(modulesList, null, 2)}</code>
+      </pre> */}
       <ul className="list-group wd-modules">
         {modulesList.map((module) => (
           <li
             className="list-group-item"
             onClick={() => setSelectedModule(module)}>
             <div>
-              <FaEllipsisV className="me-2" />
+              <FaEllipsisV className="me-2 ms-2" />
               {module.name}
               <span className="float-end">
-                <FaCheckCircle className="text-success" />
-                <FaPlusCircle className="ms-2" />
-                <FaEllipsisV className="ms-2" />
+                <FaCheckCircle className="text-success me-2 ms-1" />
+                <FaPlusCircle className="me-1 ms-1" />
+                <FaEllipsisV className="me-1 ms-1" />
               </span>
             </div>
             {selectedModule._id === module._id && (
               <ul className="list-group">
                 {module.lessons?.map((lesson) => (
                   <li className="list-group-item">
-                    <FaEllipsisV className="me-2" />
+                    <FaEllipsisV className="ms-2 me-2" />
                     {lesson.name}
                     <span className="float-end">
                       <FaCheckCircle className="text-success" />
-                      <FaEllipsisV className="ms-2" />
+                      <FaEllipsisV className="ms-2 me-1" />
                     </span>
                   </li>
-                ))}{" "}
+                ))}
               </ul>
-            )}{" "}
+            )}
           </li>
-        ))}{" "}
+        ))}
       </ul>
     </div>
   );

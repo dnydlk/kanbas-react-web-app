@@ -1,6 +1,6 @@
 [
   {
-    "_id": "hp101",
+    "_id": "HP1",
     "name": "Defense Against the Dark Arts",
     "number": "HP4550",
     "startDate": "2023-09-01",
@@ -8,7 +8,7 @@
     "image": "hp101.jpg"
   },
   {
-    "_id": "hp102",
+    "_id": "HP2",
     "name": "Potions",
     "number": "HP4551",
     "startDate": "2023-09-01",
@@ -16,7 +16,7 @@
     "image": "hp102.jpg"
   },
   {
-    "_id": "hp103",
+    "_id": "HP3",
     "name": "Transfiguration",
     "number": "HP4552",
     "startDate": "2023-09-01",
@@ -24,7 +24,7 @@
     "image": "hp103.jpg"
   },
   {
-    "_id": "hp104",
+    "_id": "HP4",
     "name": "Charms",
     "number": "HP4553",
     "startDate": "2023-09-01",
@@ -32,7 +32,7 @@
     "image": "hp104.jpg"
   },
   {
-    "_id": "hp105",
+    "_id": "HP5",
     "name": "Herbology",
     "number": "HP4554",
     "startDate": "2023-09-01",
@@ -40,7 +40,7 @@
     "image": "hp105.jpg"
   },
   {
-    "_id": "hp106",
+    "_id": "HP6",
     "name": "Astronomy",
     "number": "HP4555",
     "startDate": "2023-09-01",
@@ -48,7 +48,7 @@
     "image": "hp106.jpg"
   },
   {
-    "_id": "hp107",
+    "_id": "HP7",
     "name": "History of Magic",
     "number": "HP4556",
     "startDate": "2023-09-01",
@@ -56,7 +56,7 @@
     "image": "hp107.jpg"
   },
   {
-    "_id": "hp108",
+    "_id": "HP8",
     "name": "Care of Magical Creatures",
     "number": "HP4557",
     "startDate": "2023-09-01",

@@ -14,11 +14,11 @@
   border-left: none !important;
 }
 .wd-modules > li > div {
-  padding: 6px;
+  padding: 20px 0px;
   border-left: 1px solid gray !important;
 }
 .wd-modules > li > ul > li {
-  padding: 6px;
+  padding: 15px 0px;
   border-top: 1px solid #c0c6ca !important;
   border-left: 4px solid #4b7b51;
 }
