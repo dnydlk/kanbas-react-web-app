@@ -24,7 +24,7 @@
 // export default App;
 
 // import './App.css';
-import Labs from "./labs";
+import Labs from "./labs/Labs";
 //* imports ./Labs/index.tsx
 import HelloWorld from "./labs/a3/HelloWorld";
 //* if the HelloWorld component would have been implemented in HelloWorld/index.tsx, the import statement would have been the same. This simplifies deciding implementing components as single file or a folder. If the extension is omitted from the import statement, then first it will attempt to import a file called HelloWorld.tsx. If it fails it will then attempt to import index.tsx in a folder called HelloWorld, e.g., HelloWorld/tsx. Since the HelloWorld component is trivial, we decided to use a single file, e.g., HelloWorld.tsx

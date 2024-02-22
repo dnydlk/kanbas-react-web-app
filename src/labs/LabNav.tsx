@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function NavLab() {
+function LabNav() {
   return (
     <nav className="nav nav-tabs mt-2">
       <Link to="/labs/a3" className=" nav-link">
@@ -13,4 +13,4 @@ function NavLab() {
   );
 }
 
-export default NavLab;
+export default LabNav;
