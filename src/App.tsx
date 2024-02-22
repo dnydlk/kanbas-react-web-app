@@ -39,6 +39,7 @@ function App() {
     <HashRouter>
       <div id="app">
         <Routes>
+          <Route path="/" element={<Navigate to="/Labs" />} />
           <Route path="/labs/*" element={<Labs />} />
           <Route path="/kanbas/*" element={<Kanbas />} />
           <Route path="/hello" element={<HelloWorld />} />
