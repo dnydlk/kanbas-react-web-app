@@ -1,5 +1,6 @@
 import Classes from "./Classes";
 import ConditionalOutput from "./ConditionalOutput";
+import Highlight from "./Highlight";
 import JavaScript from "./JavaScript";
 import PathParameters from "./routing/PathParameters";
 import Styles from "./Styles";
@@ -14,6 +15,12 @@ function Assignment3() {
       <Classes />
       <PathParameters />
       <JavaScript />
+      <Highlight>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi
+        excepturi molestias quis eum mollitia nostrum provident rerum, in iusto
+        at accusamus. Ipsa repellat veritatis earum. Omnis obcaecati quaerat hic
+        quod?
+      </Highlight>
     </div>
   );
 }
