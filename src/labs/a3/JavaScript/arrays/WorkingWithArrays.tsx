@@ -11,6 +11,7 @@ import TemplateLiterals from "../string/TemplateLiterals";
 import House from "../json/House";
 import Spreading from "../json/Spreading";
 import Destructing from "../json/Destructing";
+import FunctionDestructing from "../functions/FunctionDestructing";
 
 function WorkingWithArrays() {
   return (
@@ -29,6 +30,7 @@ function WorkingWithArrays() {
       <House />
       <Spreading />
       <Destructing />
+      <FunctionDestructing />
     </div>
   );
 }
