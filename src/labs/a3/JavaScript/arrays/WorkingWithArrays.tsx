@@ -1,6 +1,7 @@
 import Arrays from "./Arrays";
 import ArrayIndexAndLength from "./ArrayIndexAndLength";
 import AddingAndRemovingDataToFromArrays from "./AddingAndRemovingDataToFromArrays";
+import ForLoops from "./ForLoops";
 
 function WorkingWithArrays() {
   return (
@@ -9,6 +10,7 @@ function WorkingWithArrays() {
       <Arrays />
       <ArrayIndexAndLength />
       <AddingAndRemovingDataToFromArrays />
+      <ForLoops />
     </div>
   );
 }
