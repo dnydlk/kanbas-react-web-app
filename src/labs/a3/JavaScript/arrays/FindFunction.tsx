@@ -6,7 +6,7 @@ const string3 = stringArray1.find((a) => a === "string3");
 function FindFunction() {
   return (
     <div id="find-function" className="mt-1">
-      <h2>FindFunction</h2>
+      <h2>Find function</h2>
       four: {four} <br />
       string3: {string3} <br />
     </div>

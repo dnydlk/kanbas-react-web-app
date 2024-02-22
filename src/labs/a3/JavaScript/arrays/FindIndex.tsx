@@ -6,7 +6,7 @@ const string3Index = stringArray1.findIndex((a) => a === "string3");
 function findIndex() {
   return (
     <div id="find-index" className="mt-1">
-      <h2>findIndex</h2>
+      <h2>Find index function</h2>
       fourIndex: {fourIndex} <br />
       string3Index: {string3Index} <br />
     </div>

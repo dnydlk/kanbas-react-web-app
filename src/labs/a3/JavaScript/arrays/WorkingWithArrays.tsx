@@ -6,6 +6,7 @@ import MapFunction from "./MapFunction";
 import JsonStringify from "../json/JsonStringify";
 import FindFunction from "./FindFunction";
 import FindIndex from "./FindIndex";
+import FilterFunction from "./FilterFunction";
 
 function WorkingWithArrays() {
   return (
@@ -19,6 +20,7 @@ function WorkingWithArrays() {
       <JsonStringify />
       <FindFunction />
       <FindIndex />
+      <FilterFunction />
     </div>
   );
 }
