@@ -5,6 +5,7 @@ import ForLoops from "./ForLoops";
 import MapFunction from "./MapFunction";
 import JsonStringify from "../json/JsonStringify";
 import FindFunction from "./FindFunction";
+import FindIndex from "./FindIndex";
 
 function WorkingWithArrays() {
   return (
@@ -17,6 +18,7 @@ function WorkingWithArrays() {
       <MapFunction />
       <JsonStringify />
       <FindFunction />
+      <FindIndex />
     </div>
   );
 }
