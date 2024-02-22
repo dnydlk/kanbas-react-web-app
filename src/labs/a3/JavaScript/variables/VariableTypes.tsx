@@ -7,7 +7,7 @@ function VariableTypes() {
   let isString = typeof stringVariable;
   let isBoolean = typeof booleanVariable;
   return (
-    <div id="variable-types">
+    <div id="variable-types" className="mt-1">
       <h2>Variables Types</h2>
       numberVariable = {numberVariable} <br />
       floatingPointNumber = {floatingPointNumber} <br />

@@ -5,7 +5,7 @@ const threePlusOne = plusOne(3);
 
 function FunctionParenthesisAndParameters() {
   return (
-    <div id="function-parenthesis-and-parameters">
+    <div id="function-parenthesis-and-parameters" className="mt-1">
       <h3>Parenthesis and Parameters</h3>
       twoSquared = {twoSquared} <br />
       square(2) = {square(2)} <br />

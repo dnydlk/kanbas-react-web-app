@@ -7,12 +7,12 @@ console.log(twoPlusFour);
 
 function ES5Functions() {
   return (
-    <>
+    <div id="es5-functions" className="mt-1">
       <h2>Functions</h2>
       <h3>Legacy ES5 functions</h3>
       twoPlusFour = {twoPlusFour} <br />
       add(2, 4) = {add(2, 4)} <br />
-    </>
+    </div>
   );
 }
 
