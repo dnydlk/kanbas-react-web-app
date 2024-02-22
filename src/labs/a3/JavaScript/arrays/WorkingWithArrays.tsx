@@ -7,6 +7,7 @@ import JsonStringify from "../json/JsonStringify";
 import FindFunction from "./FindFunction";
 import FindIndex from "./FindIndex";
 import FilterFunction from "./FilterFunction";
+import TemplateLiterals from "../string/TemplateLiterals";
 
 function WorkingWithArrays() {
   return (
@@ -21,6 +22,7 @@ function WorkingWithArrays() {
       <FindFunction />
       <FindIndex />
       <FilterFunction />
+      <TemplateLiterals />
     </div>
   );
 }
