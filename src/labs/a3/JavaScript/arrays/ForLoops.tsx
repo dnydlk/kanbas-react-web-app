@@ -7,7 +7,7 @@ for (let i = 0; i < stringArray1.length; i++) {
 
 function ForLoops() {
   return (
-    <div>
+    <div id="for-loops" className="mt-1">
       <h2>ForLoops</h2>
       stringArray2 = {stringArray2} <br />
     </div>

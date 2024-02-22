@@ -27,7 +27,7 @@
       "function ${functionName}() {",
       "  return (",
       "    <div>",
-      "      ${functionName}",
+      "      <h2>${functionName}</h2>",
       "    </div>",
       "  );",
       "}",
