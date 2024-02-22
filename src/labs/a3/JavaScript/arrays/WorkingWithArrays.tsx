@@ -9,6 +9,7 @@ import FindIndex from "./FindIndex";
 import FilterFunction from "./FilterFunction";
 import TemplateLiterals from "../string/TemplateLiterals";
 import House from "../json/House";
+import Spreading from "../json/Spreading";
 
 function WorkingWithArrays() {
   return (
@@ -25,6 +26,7 @@ function WorkingWithArrays() {
       <FilterFunction />
       <TemplateLiterals />
       <House />
+      <Spreading />
     </div>
   );
 }
