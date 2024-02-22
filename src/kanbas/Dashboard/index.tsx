@@ -4,7 +4,7 @@ import { courses } from "../Database";
 import "../styles.css";
 function Dashboard() {
   return (
-    <div className="p-4">
+    <div id="dashboard">
       <h1>Dashboard</h1> <hr />
       <h2>Published Courses ({courses.length})</h2> <hr />
       <div className="row justify-content-center">
@@ -20,24 +20,24 @@ function Dashboard() {
                 <div className="card-body">
                   <Link
                     className="card-title"
-                    to={`/Kanbas/Courses/${course._id}`} //! to={`/Kanbas/Courses/${course._id}/Home`}
+                    to={`/Kanbas/Courses/${course._id}`} //? to={`/Kanbas/Courses/${course._id}/Home`}
                     style={{
                       textDecoration: "none",
                       color: "navy",
                       fontWeight: "bold",
                     }}>
-                    {course.name}{" "}
+                    {course.name}
                   </Link>
                   <p className="card-text">{course.name}</p>
                   <Link
-                    to={`/Kanbas/Courses/${course._id}`} //! to={`/Kanbas/Courses/${course._id}/Home`}
+                    to={`/Kanbas/Courses/${course._id}`} //? to={`/Kanbas/Courses/${course._id}/Home`}
                     className="btn btn-primary">
-                    Go{" "}
+                    Go
                   </Link>
                 </div>
               </div>
             </div>
-          ))}{" "}
+          ))}
         </div>
       </div>
     </div>
