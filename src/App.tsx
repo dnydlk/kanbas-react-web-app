@@ -30,14 +30,21 @@ import HelloWorld from "./labs/a3/HelloWorld";
 //* if the HelloWorld component would have been implemented in HelloWorld/index.tsx, the import statement would have been the same. This simplifies deciding implementing components as single file or a folder. If the extension is omitted from the import statement, then first it will attempt to import a file called HelloWorld.tsx. If it fails it will then attempt to import index.tsx in a folder called HelloWorld, e.g., HelloWorld/tsx. Since the HelloWorld component is trivial, we decided to use a single file, e.g., HelloWorld.tsx
 import Kanbas from "./kanbas";
 //* this import statement will first attempt to import a file called Kanbas.tsx, and if it fails it will then attempt to import index.tsx in a folder called Kanbas, e.g., Kanbas/index.tsx, which is what we have here
+import { HashRouter } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router";
+
 function App() {
   return (
     //* return can only return a single component that's why we wrap the whole content with a <div>
-    <div id="app">
-      <Labs />
-      <Kanbas />
-      <HelloWorld />
-    </div>
+    <HashRouter>
+      <div id="app">
+        <Routes>
+          <Route path="/labs/*" element={<Labs />} />
+          <Route path="/kanbas/*" element={<Kanbas />} />
+          <Route path="/hello" element={<HelloWorld />} />
+        </Routes>
+      </div>
+    </HashRouter>
   );
 }
 export default App;
