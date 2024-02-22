@@ -1,58 +1,66 @@
 [
   {
-    "_id": "RS103",
-    "name": "The Sorcerer's Stone",
-    "number": "RS4570",
-    "startDate": "1997-06-26",
-    "endDate": "1997-07-26",
-    "image": "../images/hp1.png"
+    "_id": "hp101",
+    "name": "Defense Against the Dark Arts",
+    "number": "HP4550",
+    "startDate": "2023-09-01",
+    "endDate": "2024-06-15",
+    "image": "hp101.jpg"
   },
   {
-    "_id": "RS103",
-    "name": "The Chamber of Secrets",
-    "number": "RS4570",
-    "startDate": "1998-06-02",
-    "endDate": "1998-07-02",
-    "image": "../images/hp2.png"
+    "_id": "hp102",
+    "name": "Potions",
+    "number": "HP4551",
+    "startDate": "2023-09-01",
+    "endDate": "2024-06-15",
+    "image": "hp102.jpg"
   },
   {
-    "_id": "RS103",
-    "name": "The Prisoner of Azkaban",
-    "number": "RS4570",
-    "startDate": "1999-07-08",
-    "endDate": "1999-08-08",
-    "image": "../images/hp3.png"
+    "_id": "hp103",
+    "name": "Transfiguration",
+    "number": "HP4552",
+    "startDate": "2023-09-01",
+    "endDate": "2024-06-15",
+    "image": "hp103.jpg"
   },
   {
-    "_id": "RS103",
-    "name": "The Goblet of Fire",
-    "number": "RS4570",
-    "startDate": "2000-07-08",
-    "endDate": "2000-08-08",
-    "image": "../images/hp4.png"
+    "_id": "hp104",
+    "name": "Charms",
+    "number": "HP4553",
+    "startDate": "2023-09-01",
+    "endDate": "2024-06-15",
+    "image": "hp104.jpg"
   },
   {
-    "_id": "RS103",
-    "name": "The Order of the Phoenix",
-    "number": "RS4570",
-    "startDate": "2003-06-21",
-    "endDate": "2003-07-21",
-    "image": "../images/hp5.png"
+    "_id": "hp105",
+    "name": "Herbology",
+    "number": "HP4554",
+    "startDate": "2023-09-01",
+    "endDate": "2024-06-15",
+    "image": "hp105.jpg"
   },
   {
-    "_id": "RS103",
-    "name": "The Half-Blood Prince",
-    "number": "RS4570",
-    "startDate": "2005-07-16",
-    "endDate": "2005-08-16",
-    "image": "../images/hp6.png"
+    "_id": "hp106",
+    "name": "Astronomy",
+    "number": "HP4555",
+    "startDate": "2023-09-01",
+    "endDate": "2024-06-15",
+    "image": "hp106.jpg"
   },
   {
-    "_id": "RS103",
-    "name": "The Deathly Hallows",
-    "number": "RS4570",
-    "startDate": "2007-07-21",
-    "endDate": "2007-08-21",
-    "image": "../images/hp7.png"
+    "_id": "hp107",
+    "name": "History of Magic",
+    "number": "HP4556",
+    "startDate": "2023-09-01",
+    "endDate": "2024-06-15",
+    "image": "hp107.jpg"
+  },
+  {
+    "_id": "hp108",
+    "name": "Care of Magical Creatures",
+    "number": "HP4557",
+    "startDate": "2023-09-01",
+    "endDate": "2024-06-15",
+    "image": "hp108.jpg"
   }
 ]

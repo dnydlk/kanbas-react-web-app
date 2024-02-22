@@ -13,14 +13,14 @@ function Dashboard() {
             <div key={course._id} className="col" style={{ width: "300px" }}>
               <div className="card">
                 <img
-                  src={`/images/${course.image}`}
+                  src={`./images/${course.image}`}
                   className="card-img-top"
                   style={{ height: "150px" }}
                 />
                 <div className="card-body">
                   <Link
                     className="card-title"
-                    to={`/Kanbas/Courses/${course._id}/Home`}
+                    to={`/Kanbas/Courses/${course._id}`} //! to={`/Kanbas/Courses/${course._id}/Home`}
                     style={{
                       textDecoration: "none",
                       color: "navy",
@@ -30,7 +30,7 @@ function Dashboard() {
                   </Link>
                   <p className="card-text">{course.name}</p>
                   <Link
-                    to={`/Kanbas/Courses/${course._id}/Home`}
+                    to={`/Kanbas/Courses/${course._id}`} //! to={`/Kanbas/Courses/${course._id}/Home`}
                     className="btn btn-primary">
                     Go{" "}
                   </Link>
