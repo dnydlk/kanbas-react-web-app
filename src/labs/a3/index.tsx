@@ -1,4 +1,5 @@
 import JavaScript from "./JavaScript";
+import PathParameters from "./routing/PathParameters";
 function Assignment3() {
   return (
     //* "container" is a Bootstrap class.
@@ -6,6 +7,7 @@ function Assignment3() {
     <div id="a3" className="container">
       <h1>Assignment 3</h1>
       <JavaScript />
+      <PathParameters />
     </div>
   );
 }
