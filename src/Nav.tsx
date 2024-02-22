@@ -1,15 +1,22 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Nav() {
+  const { pathname } = useLocation();
   return (
     <nav className="nav nav-tabs mt-2">
-      <Link className="nav-link" to="/labs">
+      <Link
+        to="/labs"
+        className={`nav-link ${pathname.includes("labs") ? "active" : ""}`}>
         Labs
       </Link>
-      <Link className="nav-link" to="/kanbas">
+      <Link
+        to="/kanbas"
+        className={`nav-link ${pathname.includes("kanbas") ? "active" : ""}`}>
         Kanbas
       </Link>
-      <Link className="nav-link" to="/hello">
+      <Link
+        to="/hello"
+        className={`nav-link ${pathname.includes("hello") ? "active" : ""}`}>
         Hello
       </Link>
     </nav>
