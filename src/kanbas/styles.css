@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  padding: 0;
+  color: #28343c;
+}
+body * {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.wd-dani-breadcrumb-item a {
+  color: #cd172a;
+  text-decoration: none;
+}
+
+.wd-dani-breadcrumb-item .active a::before {
+  content: ">";
+  padding-right: 0 5px;
+}
+
+.wd-dani-breadcrumb-item + .wd-dani-breadcrumb-item::before {
+  float: left;
+
+  content: ">";
+}
+
+.wd-dani-btn {
+  background-color: #e8e8e8;
+  color: #28343c;
+  border: 1px solid #c0c6ca;
+  padding: 5px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.wd-dani-btn-red {
+  background-color: #cd172a;
+  color: #ffffff;
+  border: 1px solid #c0c6ca;
+  padding: 5px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+p#published {
+  color: #4b7b51;
+}
+
+.wd-dani-course-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjusts the space between cards */
+  justify-content: center; /* Center cards in the row */
+}
+
+.wd-dani-course-card {
+  width: 300px;
+}
