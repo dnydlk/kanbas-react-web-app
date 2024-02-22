@@ -23,7 +23,7 @@ function Dashboard() {
                     to={`/Kanbas/Courses/${course._id}`} //? to={`/Kanbas/Courses/${course._id}/Home`}
                     style={{
                       textDecoration: "none",
-                      color: "navy",
+                      color: "black",
                       fontWeight: "bold",
                     }}>
                     {course.name}

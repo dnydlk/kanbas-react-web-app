@@ -13,4 +13,5 @@ function CourseNavigation() {
     </ul>
   );
 }
+
 export default CourseNavigation;
