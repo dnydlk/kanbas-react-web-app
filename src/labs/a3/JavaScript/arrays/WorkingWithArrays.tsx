@@ -4,6 +4,7 @@ import AddingAndRemovingDataToFromArrays from "./AddingAndRemovingDataToFromArra
 import ForLoops from "./ForLoops";
 import MapFunction from "./MapFunction";
 import JsonStringify from "../json/JsonStringify";
+import FindFunction from "./FindFunction";
 
 function WorkingWithArrays() {
   return (
@@ -15,6 +16,7 @@ function WorkingWithArrays() {
       <ForLoops />
       <MapFunction />
       <JsonStringify />
+      <FindFunction />
     </div>
   );
 }
