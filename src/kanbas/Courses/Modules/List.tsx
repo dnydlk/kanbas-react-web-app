@@ -47,7 +47,7 @@ function ModuleList() {
       <ul className="list-group wd-modules">
         {modulesList.map((module) => (
           <li
-            className="list-group-item"
+            className="list-group-item rounded"
             onClick={() => setSelectedModule(module)}>
             <div>
               <FaEllipsisV className="me-2 ms-2" />
@@ -62,7 +62,7 @@ function ModuleList() {
               <ul className="list-group">
                 {module.lessons?.map((lesson) => (
                   <li className="list-group-item">
-                    <FaEllipsisV className="ms-2 me-2" />
+                    <FaEllipsisV className="me-2 ms-2" />
                     {lesson.name}
                     <span className="float-end">
                       <FaCheckCircle className="text-success" />
