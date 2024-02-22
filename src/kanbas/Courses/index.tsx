@@ -2,6 +2,7 @@ import { courses } from "../Database";
 import { Navigate, Route, Routes, useParams } from "react-router-dom";
 import CourseNavigation from "./Navigation";
 import Breadcrumb from "./Navigation/Breadcrumb";
+import ModuleList from "./Modules/List";
 function Courses() {
   const params = useParams();
   const { courseId } = useParams();
@@ -22,7 +23,7 @@ function Courses() {
               </div>
             }
           />
-          <Route path="Modules" element={<h1>Modules</h1>} />
+          <Route path="Modules" element={<ModuleList />} />
           <Route path="Piazza" element={<h1>Piazza</h1>} />
           <Route path="Assignments" element={<h1>Assignments</h1>} />
           <Route
