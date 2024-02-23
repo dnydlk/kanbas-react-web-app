@@ -34,7 +34,7 @@ const todoItems = [
 
 function Sidebar() {
   return (
-    <div className="col pe-0 me-0 mt-2 ">
+    <div className="col pe-0 me-0 mt-2">
       <div id="Sidebar" className="w-100">
         {sidebarButtons.map((button, index) => (
           <div className="row" key={index}>

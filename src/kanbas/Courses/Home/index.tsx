@@ -9,7 +9,7 @@ function Home() {
           <div className="col">
             <ModuleList />
           </div>
-          <div className="col-3 pe-0 me-0 mt-2 ">
+          <div className="col-3 pe-0 me-0 mt-2 d-sm-none d-md-block">
             <Sidebar />
           </div>
         </div>
