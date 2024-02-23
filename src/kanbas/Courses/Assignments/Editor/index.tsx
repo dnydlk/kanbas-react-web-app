@@ -6,7 +6,7 @@ import { IoMdCheckmarkCircle } from "react-icons/io";
 function AssignmentEditor() {
   const { assignmentId } = useParams();
   const assignment = assignments.find(
-    (assignment) => assignment._id === assignmentId
+    (assignment: { _id: string | undefined }) => assignment._id === assignmentId
   );
   const { courseId } = useParams();
   const navigate = useNavigate();
