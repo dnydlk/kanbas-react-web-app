@@ -4,6 +4,7 @@ import Breadcrumb from "./Navigation/Breadcrumb";
 import ModuleList from "./Modules/List";
 import Home from "./Home";
 import Assignments from "./Assignments";
+import AssignmentEditor from "./Assignments/Editor";
 
 function Courses() {
   return (
@@ -20,7 +21,7 @@ function Courses() {
           <Route path="Assignments" element={<Assignments />} />
           <Route
             path="Assignments/:assignmentId"
-            element={<h1>Assignment Editor</h1>}
+            element={<AssignmentEditor />}
           />
           <Route path="Grades" element={<h1>Grades</h1>} />
         </Routes>
