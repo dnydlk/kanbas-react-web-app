@@ -2,7 +2,7 @@ import Nav from "../../Nav";
 
 function HelloWorld() {
   return (
-    <div>
+    <div className="container m-0">
       <Nav />
       <h1>Hello World!</h1>
     </div>

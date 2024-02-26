@@ -6,7 +6,7 @@ import LabNav from "./LabNav";
 
 function Labs() {
   return (
-    <div id="labs">
+    <div id="labs" className="container m-0">
       <Nav />
       <h1>Labs</h1>
       <LabNav />
