@@ -4,7 +4,7 @@ import { courses } from "../../Database";
 import { HiMiniBars3 } from "react-icons/hi2";
 
 function Breadcrumb() {
-  const params = useParams();
+  // const params = useParams();
   const { courseId } = useParams();
   const course = courses.find((course) => course._id === courseId);
   const { pathname } = useLocation();

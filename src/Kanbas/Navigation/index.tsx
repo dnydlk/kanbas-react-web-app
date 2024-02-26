@@ -61,6 +61,7 @@ function KanbasNavigation() {
           <Link to={"http://northeastern.edu"}>
             <img
               src="/images/n.png"
+              alt="Northeastern logo"
               style={{ width: "60px", height: "60px" }}
             />
           </Link>
