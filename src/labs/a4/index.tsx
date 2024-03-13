@@ -1,6 +1,7 @@
 import BooleanStateVariables from "./BooleanStateVariables";
 import ClickEvent from "./ClickEvent";
 import Counter from "./Counter";
+import DateStateVariable from "./DateStateVariable";
 import EventObject from "./EventObject";
 import PassingDataOnEvent from "./PassingDataOnEvent";
 import PassingFunctions from "./PassingFunctions";
@@ -20,6 +21,22 @@ const Assignment4 = () => {
       <Counter />
       <BooleanStateVariables />
       <StringStateVariables />
+      <DateStateVariable />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 };

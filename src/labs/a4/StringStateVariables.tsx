@@ -12,6 +12,7 @@ function StringStateVariables() {
         value={firstName}
         onChange={(e) => setFirstName(e.target.value)}
       />
+      <br />
     </div>
   );
 }
