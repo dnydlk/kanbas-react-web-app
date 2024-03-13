@@ -1,3 +1,4 @@
+import AddRedux from "./AddRedux";
 import CounterRedux from "./CounterRedux";
 import HelloRedux from "./HelloRedux";
 
@@ -8,6 +9,7 @@ const ReduxExamples = () => {
       <hr />
       <HelloRedux />
       <CounterRedux />
+      <AddRedux />
     </div>
   );
 };
