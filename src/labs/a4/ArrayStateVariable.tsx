@@ -31,6 +31,7 @@ function ArrayStateVariable() {
           </li>
         ))}
       </ul>
+      <br />
     </div>
   );
 }

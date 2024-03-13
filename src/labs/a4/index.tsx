@@ -5,6 +5,7 @@ import Counter from "./Counter";
 import DateStateVariable from "./DateStateVariable";
 import EventObject from "./EventObject";
 import ObjectStateVariable from "./ObjectStateVariable";
+import ParentStateComponent from "./ParentStateComponent";
 import PassingDataOnEvent from "./PassingDataOnEvent";
 import PassingFunctions from "./PassingFunctions";
 import StringStateVariables from "./StringStateVariables";
@@ -26,7 +27,7 @@ const Assignment4 = () => {
       <DateStateVariable />
       <ObjectStateVariable />
       <ArrayStateVariable />
-      <br />
+      <ParentStateComponent />
       <br />
       <br />
       <br />
