@@ -24,6 +24,8 @@ function Counter() {
         className="btn btn-danger ms-1">
         Down
       </button>
+      <br />
+      <br />
     </div>
   );
 }
