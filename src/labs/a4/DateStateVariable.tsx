@@ -19,6 +19,7 @@ function DateStateVariable() {
         value={dateObjectToHtmlDateString(startDate)}
         onChange={(e) => setStartDate(new Date(e.target.value))}
       />
+      <br />
     </div>
   );
 }

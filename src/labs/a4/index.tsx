@@ -3,6 +3,7 @@ import ClickEvent from "./ClickEvent";
 import Counter from "./Counter";
 import DateStateVariable from "./DateStateVariable";
 import EventObject from "./EventObject";
+import ObjectStateVariable from "./ObjectStateVariable";
 import PassingDataOnEvent from "./PassingDataOnEvent";
 import PassingFunctions from "./PassingFunctions";
 import StringStateVariables from "./StringStateVariables";
@@ -22,7 +23,7 @@ const Assignment4 = () => {
       <BooleanStateVariables />
       <StringStateVariables />
       <DateStateVariable />
-      <br />
+      <ObjectStateVariable />
       <br />
       <br />
       <br />
