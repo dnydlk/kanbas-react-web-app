@@ -1,3 +1,4 @@
+import ArrayStateVariable from "./ArrayStateVariable";
 import BooleanStateVariables from "./BooleanStateVariables";
 import ClickEvent from "./ClickEvent";
 import Counter from "./Counter";
@@ -24,7 +25,7 @@ const Assignment4 = () => {
       <StringStateVariables />
       <DateStateVariable />
       <ObjectStateVariable />
-      <br />
+      <ArrayStateVariable />
       <br />
       <br />
       <br />

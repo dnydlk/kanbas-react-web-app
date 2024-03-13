@@ -17,6 +17,8 @@ function ObjectStateVariable() {
           setPerson({ ...person, age: parseInt(e.target.value) })
         }
       />
+      <br />
+      <br />
     </div>
   );
 }
