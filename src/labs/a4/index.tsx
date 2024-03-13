@@ -8,6 +8,7 @@ import ObjectStateVariable from "./ObjectStateVariable";
 import ParentStateComponent from "./ParentStateComponent";
 import PassingDataOnEvent from "./PassingDataOnEvent";
 import PassingFunctions from "./PassingFunctions";
+import ReduxExamples from "./ReduxExamples";
 import StringStateVariables from "./StringStateVariables";
 
 const Assignment4 = () => {
@@ -17,6 +18,7 @@ const Assignment4 = () => {
   return (
     <div id="a4" className="container">
       <h1>Assignment 4</h1>
+      <ReduxExamples />
       <ClickEvent />
       <PassingDataOnEvent />
       <PassingFunctions theFunction={sayHello} />
