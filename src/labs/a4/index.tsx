@@ -1,4 +1,5 @@
 import ClickEvent from "./ClickEvent";
+import EventObject from "./EventObject";
 import PassingDataOnEvent from "./PassingDataOnEvent";
 import PassingFunctions from "./PassingFunctions";
 
@@ -12,6 +13,7 @@ const Assignment4 = () => {
       <ClickEvent />
       <PassingDataOnEvent />
       <PassingFunctions theFunction={sayHello} />
+      <EventObject />
     </div>
   );
 };
