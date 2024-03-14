@@ -15,6 +15,7 @@ function TodoList() {
           <TodoItem todo={todo} />
         ))}
       </ul>
+      <hr />
     </div>
   );
 }
