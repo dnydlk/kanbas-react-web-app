@@ -15,7 +15,7 @@ body * {
 }
 
 :root {
-  --navigation-width: 100px;
+  --navigation-width: 20px;
   --main-content-margin-top: 20px;
   --main-content-padding-right: 20px;
 }
@@ -52,7 +52,8 @@ body * {
   background-color: #e8e8e8;
   color: #28343c;
   border: 1px solid #c0c6ca;
-  padding: 5px 20px;
+  /* padding: 5px 20px; */
+  padding: 5px 10px;
   cursor: pointer;
   text-decoration: none;
   border-radius: 5px;
