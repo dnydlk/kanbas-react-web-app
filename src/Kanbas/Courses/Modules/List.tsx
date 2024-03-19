@@ -11,7 +11,7 @@ function ModuleList() {
   return (
     //? <div id="module-list">
     // <div id="module-list" className="flex-fill p-2"fixme:>
-    <div id="module-list" className="container p-2">
+    <div id="module-list" className="container-fluid p-2">
       <div id="module-buttons" className="row justify-content-end ">
         {/* <div id="module-buttons" className="d-flex justify-content-end mb-3"> */}
         <div className="col-auto p-0">

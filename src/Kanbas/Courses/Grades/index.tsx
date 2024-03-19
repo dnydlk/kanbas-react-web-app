@@ -13,7 +13,7 @@ function Grades() {
   const as = assignments.filter((assignment) => assignment.course === courseId);
   const es = enrollments.filter((enrollment) => enrollment.course === courseId);
   return (
-    <div className=" container-fluid">
+    <div className="container-fluid">
       <div className="row">
         <div className="col">
           <div className="float-end">
