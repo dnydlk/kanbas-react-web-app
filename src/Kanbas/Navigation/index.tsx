@@ -55,7 +55,7 @@ function KanbasNavigation() {
   ];
   const { pathname } = useLocation();
   return (
-    <div id="KanbasNavigation">
+    <div id="kanbas-navigation">
       <ul className="wd-kanbas-navigation d-none d-sm-none d-md-block">
         <li>
           <Link to={"http://northeastern.edu"}>
