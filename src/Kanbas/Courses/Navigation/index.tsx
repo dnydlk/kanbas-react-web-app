@@ -4,7 +4,7 @@ function CourseNavigation() {
   const links = ["Home", "Modules", "Piazza", "Grades", "Assignments"];
   const { pathname } = useLocation();
   return (
-    <ul className="wd-course-navigation d-sm-none d-md-block">
+    <ul className="wd-course-navigation d-none d-md-block">
       {links.map((link, index) => (
         <li key={index} className={pathname.includes(link) ? "wd-active" : ""}>
           <Link to={link}>{link}</Link>
