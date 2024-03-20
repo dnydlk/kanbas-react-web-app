@@ -3,7 +3,7 @@ function add(a: number, b: number) {
 }
 
 const twoPlusFour = add(2, 4);
-console.log(twoPlusFour);
+// console.log(twoPlusFour);
 
 function ES5Functions() {
   return (
