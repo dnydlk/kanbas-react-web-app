@@ -3,8 +3,41 @@ import Dashboard from "./Dashboard";
 import KanbasNavigation from "./Navigation";
 import "./styles.css";
 import Courses from "./Courses";
+import { useState } from "react";
+import db from "./Database";
 
 function Kanbas() {
+  const [courses, setCourses] = useState(db.courses);
+  const [course, setCourse] = useState({
+    _id: "0",
+    name: "New Course",
+    number: "New Number",
+    startDate: "2024-09-10",
+    endDate: "2024-12-15",
+    image: "C00.jpg",
+  });
+
+  const addNewCourse = () => {
+    const newCourse = { ...course, _id: new Date().getTime().toString() };
+    setCourses([...courses, { ...course, ...newCourse }]);
+  };
+
+  const deleteCourse = (courseId: string) => {
+    setCourses(courses.filter((course) => course._id !== courseId));
+  };
+
+  const updateCourse = () => {
+    setCourses(
+      courses.map((c) => {
+        if (c._id === course._id) {
+          return course;
+        } else {
+          return c;
+        }
+      })
+    );
+  };
+
   return (
     <div id="kanbas" className="d-flex">
       <KanbasNavigation />
@@ -12,7 +45,20 @@ function Kanbas() {
         <Routes>
           <Route path="/" element={<Navigate to="Dashboard" />} />
           <Route path="Account" element={<h1>Account</h1>} />
-          <Route path="Dashboard" element={<Dashboard />} />
+          <Route
+            path="Dashboard"
+            element={
+              <Dashboard
+                course={course}
+                courses={courses}
+                setCourse={setCourse}
+                addNewCourse={addNewCourse}
+                deleteCourse={deleteCourse}
+                updateCourse={updateCourse}
+              />
+            }
+          />
+          {/* <Route path="Dashboard" element={<Dashboard />} /> */}
           <Route path="Courses/:courseId/*" element={<Courses />} />
         </Routes>
       </div>
