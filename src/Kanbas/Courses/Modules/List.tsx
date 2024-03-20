@@ -9,8 +9,6 @@ function ModuleList() {
   const modulesList = modules.filter((module) => module.course === courseId);
   const [selectedModule, setSelectedModule] = useState(modulesList[0]);
   return (
-    //? <div id="module-list">
-    // <div id="module-list" className="flex-fill p-2"fixme:>
     <div id="module-list" className="container-fluid p-2">
       <div id="module-buttons" className="row">
         <div className="col-auto p-0 ms-auto">
@@ -23,7 +21,7 @@ function ModuleList() {
           <button className="wd-dani-btn">View Progress</button>
         </div>
         <div className="col-auto p-0">
-          <select style={{ marginLeft: "5px", marginBottom: "auto" }}>
+          <select style={{ marginLeft: "5px", marginTop: "13px" }}>
             <option>Publish All</option>
             <option>Unpublish All</option>
           </select>
@@ -36,13 +34,10 @@ function ModuleList() {
             <BsThreeDotsVertical />
           </button>
         </div>
-
-        {/* </div> */}
       </div>
       {/* <pre>
         <code>{JSON.stringify(modulesList, null, 2)}</code>
       </pre> */}
-      {/* <ul className="list-group wd-modules">fixme: */}
       <ul className="list-group wd-modules">
         {modulesList.map((module) => (
           <li
