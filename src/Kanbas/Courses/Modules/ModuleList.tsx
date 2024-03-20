@@ -7,47 +7,40 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 function ModuleList() {
   const { courseId } = useParams();
   const course = courses.find((course) => course._id === courseId);
-  // const modulesList = modules.filter((module) => module.course === courseId);
   const [modulesList, setModulesList] = useState(modules);
 
-  const [selectedModule, setSelectedModule] = useState(modulesList[0]);
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [expandedModuleId, setExpandedModuleId] = useState<string | null>(null);
-
-  const handleCollapseAll = () => {
-    setIsExpanded(false);
-  };
-
-  const handleExpandAll = () => {
-    setIsExpanded(true);
-  };
-
+  const [expandedModules, setExpandedModules] = useState(new Set<string>());
   const toggleModule = (moduleId: string) => {
-    setExpandedModuleId((currentId) =>
-      currentId === moduleId ? null : moduleId
-    );
+    setExpandedModules((prevExpandedModules) => {
+      const newExpandedModules = new Set(prevExpandedModules);
+      if (newExpandedModules.has(moduleId)) {
+        newExpandedModules.delete(moduleId);
+      } else {
+        newExpandedModules.add(moduleId);
+      }
+      return newExpandedModules;
+    });
+  };
+
+  const collapseAll = () => {
+    setExpandedModules(new Set());
+  };
+
+  const expandAll = () => {
+    const allModuleIds = new Set(modules.map((module) => module._id));
+    setExpandedModules(allModuleIds);
   };
 
   return (
     <div id="module-list" className="container-fluid p-2">
       <div id="module-buttons" className="row">
         <div className="col-auto p-0 ms-auto">
-          <button
-            className="wd-dani-btn"
-            onClick={(e) => {
-              e.preventDefault();
-              handleCollapseAll();
-            }}>
+          <button className="wd-dani-btn" onClick={collapseAll}>
             Collapse All
           </button>
         </div>
         <div className="col-auto p-0">
-          <button
-            className="wd-dani-btn"
-            onClick={(e) => {
-              e.preventDefault();
-              handleExpandAll();
-            }}>
+          <button className="wd-dani-btn" onClick={expandAll}>
             Expand All
           </button>
         </div>
@@ -77,11 +70,7 @@ function ModuleList() {
         {modulesList
           .filter((module) => module.course === courseId)
           .map((module, index) => (
-            <li
-              key={index}
-              className="list-group-item rounded"
-              // onClick={() => setSelectedModule(module)}
-            >
+            <li key={index} className="list-group-item rounded">
               <div className="d-flex align-items-center">
                 <FaEllipsisV className="me-2 ms-2 fs-5" />
                 <div
@@ -96,21 +85,7 @@ function ModuleList() {
                   <FaEllipsisV className="ms-1 me-1" />
                 </span>
               </div>
-              {/* {isExpanded && (
-                <ul className="list-group">
-                  {module.lessons?.map((lesson, lessonIndex) => (
-                    <li key={lessonIndex} className="list-group-item">
-                      <FaEllipsisV className="me-2 ms-2" />
-                      {lesson.name}
-                      <span className="float-end">
-                        <FaCheckCircle className="text-success" />
-                        <FaEllipsisV className="ms-2 me-1" />
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              )} */}
-              {expandedModuleId === module._id && (
+              {expandedModules.has(module._id) && (
                 <ul className="list-group">
                   {module.lessons?.map((lesson, lessonIndex) => (
                     <li key={lessonIndex} className="list-group-item">
@@ -124,21 +99,6 @@ function ModuleList() {
                   ))}
                 </ul>
               )}
-
-              {/* {selectedModule._id === module._id && (
-                <ul className="list-group">
-                  {module.lessons?.map((lesson) => (
-                    <li className="list-group-item">
-                      <FaEllipsisV className="me-2 ms-2" />
-                      {lesson.name}
-                      <span className="float-end">
-                        <FaCheckCircle className="text-success" />
-                        <FaEllipsisV className="ms-2 me-1" />
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              )} */}
             </li>
           ))}
       </ul>
