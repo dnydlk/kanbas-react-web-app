@@ -1,4 +1,4 @@
-import ModuleList from "../Modules/List";
+import ModuleList from "../Modules/ModuleList";
 import Sidebar from "./Sidebar";
 function Home() {
   return (
