@@ -12,9 +12,8 @@ function ModuleList() {
     //? <div id="module-list">
     // <div id="module-list" className="flex-fill p-2"fixme:>
     <div id="module-list" className="container-fluid p-2">
-      <div id="module-buttons" className="row justify-content-end ">
-        {/* <div id="module-buttons" className="d-flex justify-content-end mb-3"> */}
-        <div className="col-auto p-0">
+      <div id="module-buttons" className="row">
+        <div className="col-auto p-0 ms-auto">
           <button className="wd-dani-btn">Collapse All</button>
         </div>
         <div className="col-auto p-0">
@@ -24,7 +23,7 @@ function ModuleList() {
           <button className="wd-dani-btn">View Progress</button>
         </div>
         <div className="col-auto p-0">
-          <select style={{ marginLeft: "5px" }}>
+          <select style={{ marginLeft: "5px", marginBottom: "auto" }}>
             <option>Publish All</option>
             <option>Unpublish All</option>
           </select>

@@ -11,7 +11,6 @@ function Courses() {
   return (
     <>
       <Breadcrumb />
-      <hr />
       <div className="d-flex">
         <CourseNavigation />
         <Routes>
