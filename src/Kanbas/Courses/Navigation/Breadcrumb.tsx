@@ -14,7 +14,7 @@ function Breadcrumb() {
     .slice(3);
   console.log(fullPath);
   return (
-    <div id="breadcrumb" className="">
+    <div id="breadcrumb" className="d-none d-md-block">
       <nav aria-label="breadcrumb">
         {/* <pre>
         <code>{JSON.stringify(params, null, 2)}</code>
@@ -53,6 +53,7 @@ function Breadcrumb() {
         <code>{JSON.stringify(course, null, 2)}</code>
       </pre> */}
       </nav>
+      <hr />
     </div>
   );
 }
