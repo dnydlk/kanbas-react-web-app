@@ -22,5 +22,45 @@
     "startDate": "2023-09-01",
     "endDate": "2024-06-15",
     "image": "C03.jpg"
+  },
+  {
+    "_id": "C04",
+    "name": "Charms",
+    "number": "HP0004",
+    "startDate": "2023-09-01",
+    "endDate": "2024-06-15",
+    "image": "C04.jpg"
+  },
+  {
+    "_id": "C05",
+    "name": "Herbology",
+    "number": "HP0005",
+    "startDate": "2023-09-01",
+    "endDate": "2024-06-15",
+    "image": "C05.jpg"
+  },
+  {
+    "_id": "C06",
+    "name": "Astronomy",
+    "number": "HP0006",
+    "startDate": "2023-09-01",
+    "endDate": "2024-06-15",
+    "image": "C06.jpg"
+  },
+  {
+    "_id": "C07",
+    "name": "History of Magic",
+    "number": "HP0007",
+    "startDate": "2023-09-01",
+    "endDate": "2024-06-15",
+    "image": "C07.jpg"
+  },
+  {
+    "_id": "C08",
+    "name": "Care of Magical Creatures",
+    "number": "HP0008",
+    "startDate": "2023-09-01",
+    "endDate": "2024-06-15",
+    "image": "C08.jpg"
   }
 ]

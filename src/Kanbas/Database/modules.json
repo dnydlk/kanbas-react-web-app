@@ -7,19 +7,19 @@
     "lessons": [
       {
         "_id": "D001",
-        "name": "Introduction to basic and advanced defensive spells.",
+        "name": "Introduction to basic and advanced defensive spells",
         "description": "Foundations of defensive spellwork for all levels.",
         "module": "D101"
       },
       {
         "_id": "D002",
-        "name": "Practicing counter-curses against common dark spells.",
+        "name": "Practicing counter-curses against common dark spells",
         "description": "Hands-on counter-curse application in controlled setups.",
         "module": "D101"
       },
       {
         "_id": "D003",
-        "name": "Dueling simulations to apply learned spells in real-time scenarios.",
+        "name": "Dueling simulations to apply learned spells in real-time scenarios",
         "description": "Simulated duels to test defensive skills under pressure.",
         "module": "D101"
       }
@@ -33,19 +33,19 @@
     "lessons": [
       {
         "_id": "D004",
-        "name": "Learning offensive spells beyond the standard curriculum.",
+        "name": "Learning offensive spells beyond the standard curriculum",
         "description": "Expanding arsenal with advanced offensive spells.",
         "module": "D102"
       },
       {
         "_id": "D005",
-        "name": "Strategies for offensive spell combinations.",
+        "name": "Strategies for offensive spell combinations",
         "description": "Crafting effective spell combos for strategic advantage.",
         "module": "D102"
       },
       {
         "_id": "D006",
-        "name": "Ethical considerations and controlled practice environments.",
+        "name": "Ethical considerations and controlled practice environments",
         "description": "Navigating the ethics of offensive magic with care.",
         "module": "D102"
       }
@@ -59,19 +59,19 @@
     "lessons": [
       {
         "_id": "D007",
-        "name": "Stance, movement, and anticipation in magical duels.",
+        "name": "Stance, movement, and anticipation in magical duels",
         "description": "Optimizing physical readiness and tactics in duels.",
         "module": "D103"
       },
       {
         "_id": "D008",
-        "name": "Psychological aspects of dueling, including intimidation tactics.",
+        "name": "Psychological aspects of dueling, including intimidation tactics",
         "description": "Leveraging psychology for an edge in duels.",
         "module": "D103"
       },
       {
         "_id": "D009",
-        "name": "Mock duels with classmates to hone skills.",
+        "name": "Mock duels with classmates to hone skills",
         "description": "Practical dueling experience with peer feedback.",
         "module": "D103"
       }
@@ -85,7 +85,7 @@
     "lessons": [
       {
         "_id": "P001",
-        "name": "Understanding Potion Ingredients.",
+        "name": "Understanding Potion Ingredients",
         "description": "Explore the nature and use of basic ingredients like Infusion of Wormwood and Aconite.",
         "module": "P101"
       },

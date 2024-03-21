@@ -6,17 +6,32 @@ import { TiDelete } from "react-icons/ti";
 import { RiEditCircleFill } from "react-icons/ri";
 import { useParams } from "react-router";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { UseSelector, useDispatch, useSelector } from "react-redux";
+import { KanbasState } from "../../store";
+import {
+  addModule,
+  deleteModule,
+  setModule,
+  updateModule,
+} from "./modulesReducer";
 function ModuleList() {
   const { courseId } = useParams();
   const course = courses.find((course) => course._id === courseId);
   const [isAddModuleFormVisible, setIsAddModuleFormVisible] = useState(true);
-  const [moduleList, setModuleList] = useState(modules);
-  const [module, setModule] = useState({
-    _id: "0",
-    name: "New Module",
-    description: "New Description",
-    course: courseId,
-  });
+  // const [moduleList, setModuleList] = useState(modules);
+  const moduleList = useSelector(
+    (state: KanbasState) => state.modulesReducer.modules
+  );
+  // const [module, setModule] = useState({
+  //   _id: "0",
+  //   name: "New Module",
+  //   description: "New Description",
+  //   course: courseId,
+  // });
+  const module = useSelector(
+    (state: KanbasState) => state.modulesReducer.module
+  );
+  const dispatch = useDispatch();
   const [expandedModules, setExpandedModules] = useState(new Set<string>());
 
   const toggleModule = (moduleId: string) => {
@@ -40,38 +55,38 @@ function ModuleList() {
     setExpandedModules(allModuleIds);
   };
 
-  const addModule = (module: any) => {
-    const newModule = {
-      ...module,
-      _id: new Date().getTime().toString(),
-      lessons: [],
-    };
-    const newModuleList = [newModule, ...moduleList];
-    setModuleList(newModuleList);
-  };
+  // const addModule = (module: any) => {
+  //   const newModule = {
+  //     ...module,
+  //     _id: new Date().getTime().toString(),
+  //     lessons: [],
+  //   };
+  //   const newModuleList = [newModule, ...moduleList];
+  //   setModuleList(newModuleList);
+  // };
 
-  const deleteModule = (moduleId: string) => {
-    const newModuleList = moduleList.filter(
-      (module) => module._id !== moduleId
-    );
-    setModuleList(newModuleList);
-  };
+  // const deleteModule = (moduleId: string) => {
+  //   const newModuleList = moduleList.filter(
+  //     (module) => module._id !== moduleId
+  //   );
+  //   setModuleList(newModuleList);
+  // };
 
-  const updateModule = (updatedModule: any) => {
-    const newModuleList = moduleList.map((m) => {
-      if (m._id === updatedModule._id) {
-        // return module; //* backup
-        return { ...m, ...updatedModule, lessons: m.lessons };
-      } else {
-        return m;
-      }
-    });
-    setModuleList(newModuleList);
-  };
+  // const updateModule = (updatedModule: any) => {
+  //   const newModuleList = moduleList.map((m) => {
+  //     if (m._id === updatedModule._id) {
+  //       // return module; //* backup
+  //       return { ...m, ...updatedModule, lessons: m.lessons };
+  //     } else {
+  //       return m;
+  //     }
+  //   });
+  //   setModuleList(newModuleList);
+  // };
 
   return (
     <div id="module-list" className="container-fluid p-2">
-      <div id="module-buttons" className="row">
+      <div id="module-buttons" className="d-flex row">
         <div className="col-auto p-0 ms-auto">
           <button className="wd-dani-btn" onClick={collapseAll}>
             Collapse All
@@ -119,14 +134,18 @@ function ModuleList() {
                   className="form-control m-1 me-auto"
                   value={module.name}
                   onChange={(e) =>
-                    setModule({ ...module, name: e.target.value })
+                    // setModule({ ...module, name: e.target.value })
+                    dispatch(setModule({ ...module, name: e.target.value }))
                   }
                 />
                 <textarea
                   className="form-control m-1"
                   value={module.description}
                   onChange={(e) =>
-                    setModule({ ...module, description: e.target.value })
+                    // setModule({ ...module, description: e.target.value })
+                    dispatch(
+                      setModule({ ...module, description: e.target.value })
+                    )
                   }
                 />
               </div>
@@ -135,14 +154,16 @@ function ModuleList() {
                   className="btn btn-danger m-1"
                   style={{ backgroundColor: "#a32424" }}
                   onClick={() => {
-                    addModule(module);
+                    // addModule(module);
+                    dispatch(addModule(module));
                   }}>
                   Add
                 </button>
                 <button
                   className="btn btn-success m-1"
                   onClick={() => {
-                    updateModule(module);
+                    // updateModule(module);
+                    dispatch(updateModule(module));
                   }}>
                   Update
                 </button>
@@ -163,30 +184,39 @@ function ModuleList() {
                   style={{ cursor: "pointer" }}
                   onClick={() => toggleModule(module._id)}>
                   {module.name}
+                  <br />
+                  <div style={{ fontWeight: "normal", fontSize: "0.9em" }}>
+                    {module.description}
+                  </div>
                 </div>
-                <span>
+                <div className="d-flex flex-nowrap align-items-center justify-content-between">
                   <FaCheckCircle className="text-success ms-1 me-2" />
                   <FaPlusCircle className="ms-1 me-1" />
+                  {/* //- Delete button */}
                   <TiDelete
                     className="ms-1 me-0 fs-4 wd-dani-modules-icon-btn"
                     style={{ color: "#a32424" }}
                     onClick={() => {
-                      deleteModule(module._id);
+                      // deleteModule(module._id);
+                      dispatch(deleteModule(module._id));
                     }}
                   />
+                  {/* //- Edit button */}
                   <RiEditCircleFill
                     className="text-success ms-1 me-1 fs-5 wd-dani-modules-icon-btn"
                     style={{ color: "#a32424" }}
                     onClick={() => {
-                      setModule(module);
+                      // setModule(module);
+                      dispatch(setModule(module));
                     }}
                   />
                   <FaEllipsisV className="ms-1 me-1" />
-                </span>
+                </div>
               </div>
               {expandedModules.has(module._id) && (
                 <ul className="list-group rounded-0">
-                  {module.lessons?.map((lesson, lessonIndex) => (
+                  {/* {module.lessons?.map((lesson, lessonIndex) => ( */}
+                  {module.lessons?.map((lesson: any, lessonIndex: any) => (
                     <li key={lessonIndex} className="list-group-item">
                       <FaEllipsisV className="me-2 ms-2" />
                       {lesson.name}
