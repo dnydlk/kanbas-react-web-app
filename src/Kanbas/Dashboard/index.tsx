@@ -73,58 +73,66 @@ function Dashboard({
       <h2 className="me-auto">Published Courses ({courses.length})</h2>
       <hr className="m-0 mt-2 mb-3" />
       <h5>Course</h5>
-      <input
-        type="text"
-        value={course.name}
-        className="form-control"
-        onChange={(e) => setCourse({ ...course, name: e.target.value })}
-      />
-      <input
-        type="text"
-        value={course.number}
-        className="form-control"
-        onChange={(e) =>
-          setCourse({
-            ...course,
-            number: e.target.value,
-          })
-        }
-      />
-      <input
-        typeof="date"
-        value={course.startDate}
-        className="form-control"
-        type="date"
-        onChange={(e) =>
-          setCourse({
-            ...course,
-            startDate: e.target.value,
-          })
-        }
-      />
-      <input
-        typeof="date"
-        value={course.endDate}
-        className="form-control"
-        type="date"
-        onChange={(e) =>
-          setCourse({
-            ...course,
-            endDate: e.target.value,
-          })
-        }
-      />
-      <button onClick={addNewCourse} className="wd-dani-btn-red float-end mt-1">
-        <FaPlus /> Add
-      </button>
-      <button
-        className="wd-dani-btn-red bg-success float-end mt-1"
-        onClick={(event) => {
-          event.preventDefault();
-          updateCourse();
-        }}>
-        Update
-      </button>
+      <div className="container-fluid m-0 p-0">
+        <div className="row">
+          <div className="col">
+            <input
+              type="text"
+              value={course.name}
+              className="form-control"
+              onChange={(e) => setCourse({ ...course, name: e.target.value })}
+            />
+            <input
+              type="text"
+              value={course.number}
+              className="form-control"
+              onChange={(e) =>
+                setCourse({
+                  ...course,
+                  number: e.target.value,
+                })
+              }
+            />
+            <input
+              typeof="date"
+              value={course.startDate}
+              className="form-control"
+              type="date"
+              onChange={(e) =>
+                setCourse({
+                  ...course,
+                  startDate: e.target.value,
+                })
+              }
+            />
+            <input
+              typeof="date"
+              value={course.endDate}
+              className="form-control"
+              type="date"
+              onChange={(e) =>
+                setCourse({
+                  ...course,
+                  endDate: e.target.value,
+                })
+              }
+            />
+          </div>
+          <div className="col">
+            <button onClick={addNewCourse} className="wd-dani-btn-red mt-1">
+              <FaPlus /> Add
+            </button>
+            <button
+              className="wd-dani-btn-red bg-success mt-1"
+              onClick={(event) => {
+                event.preventDefault();
+                updateCourse();
+              }}>
+              Update
+            </button>
+          </div>
+        </div>
+      </div>
       <div className="row justify-content-center mt-1">
         <div className="row row-cols-1 g-4 ">
           {courses.map((course) => (
