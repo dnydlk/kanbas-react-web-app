@@ -56,8 +56,11 @@
 }
 
 .wd-dani-modules-module-heading {
-  font-size: 1.1em;
+  font-size: 1.2em;
   font-weight: bold;
   color: #28343c;
+}
+
+.wd-dani-modules-icon-btn {
   cursor: pointer;
 }

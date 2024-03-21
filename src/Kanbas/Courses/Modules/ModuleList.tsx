@@ -2,13 +2,15 @@ import react, { useState } from "react";
 import "./index.css";
 import { courses, modules } from "../../Database";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from "react-icons/fa";
+import { TiDelete } from "react-icons/ti";
+import { RiEditCircleFill } from "react-icons/ri";
 import { useParams } from "react-router";
 import { BsThreeDotsVertical } from "react-icons/bs";
 function ModuleList() {
   const { courseId } = useParams();
   const course = courses.find((course) => course._id === courseId);
   const [isAddModuleFormVisible, setIsAddModuleFormVisible] = useState(true);
-  const [modulesList, setModulesList] = useState(modules);
+  const [moduleList, setModuleList] = useState(modules);
   const [module, setModule] = useState({
     _id: "0",
     name: "New Module",
@@ -39,9 +41,32 @@ function ModuleList() {
   };
 
   const addModule = (module: any) => {
-    const newModule = { ...module, _id: new Date().getTime().toString() };
-    const newModuleList = [newModule, ...modulesList];
-    setModulesList(newModuleList);
+    const newModule = {
+      ...module,
+      _id: new Date().getTime().toString(),
+      lessons: [],
+    };
+    const newModuleList = [newModule, ...moduleList];
+    setModuleList(newModuleList);
+  };
+
+  const deleteModule = (moduleId: string) => {
+    const newModuleList = moduleList.filter(
+      (module) => module._id !== moduleId
+    );
+    setModuleList(newModuleList);
+  };
+
+  const updateModule = (updatedModule: any) => {
+    const newModuleList = moduleList.map((m) => {
+      if (m._id === updatedModule._id) {
+        // return module; //* backup
+        return { ...m, ...updatedModule, lessons: m.lessons };
+      } else {
+        return m;
+      }
+    });
+    setModuleList(newModuleList);
   };
 
   return (
@@ -107,11 +132,19 @@ function ModuleList() {
               </div>
               <div className="col">
                 <button
-                  className="btn btn-success m-1"
+                  className="btn btn-danger m-1"
+                  style={{ backgroundColor: "#a32424" }}
                   onClick={() => {
                     addModule(module);
                   }}>
                   Add
+                </button>
+                <button
+                  className="btn btn-success m-1"
+                  onClick={() => {
+                    updateModule(module);
+                  }}>
+                  Update
                 </button>
               </div>
             </div>
@@ -119,14 +152,14 @@ function ModuleList() {
         )}
       </div>
       <ul className="list-group wd-modules">
-        {modulesList
+        {moduleList
           .filter((module) => module.course === courseId)
           .map((module, index) => (
-            <li key={index} className="list-group-item rounded">
-              <div className="d-flex align-items-center">
-                <FaEllipsisV className="me-2 ms-2 fs-5" />
+            <li key={index} className="list-group-item rounded-1 m-1 p-0">
+              <div className="d-flex align-items-center pt-3 pb-3">
+                <FaEllipsisV className="ms-2 me-2 fs-5" />
                 <div
-                  className="row me-auto wd-dani-modules-module-heading"
+                  className="row ms-0 me-auto wd-dani-modules-module-heading"
                   style={{ cursor: "pointer" }}
                   onClick={() => toggleModule(module._id)}>
                   {module.name}
@@ -134,11 +167,25 @@ function ModuleList() {
                 <span>
                   <FaCheckCircle className="text-success ms-1 me-2" />
                   <FaPlusCircle className="ms-1 me-1" />
+                  <TiDelete
+                    className="ms-1 me-0 fs-4 wd-dani-modules-icon-btn"
+                    style={{ color: "#a32424" }}
+                    onClick={() => {
+                      deleteModule(module._id);
+                    }}
+                  />
+                  <RiEditCircleFill
+                    className="text-success ms-1 me-1 fs-5 wd-dani-modules-icon-btn"
+                    style={{ color: "#a32424" }}
+                    onClick={() => {
+                      setModule(module);
+                    }}
+                  />
                   <FaEllipsisV className="ms-1 me-1" />
                 </span>
               </div>
               {expandedModules.has(module._id) && (
-                <ul className="list-group">
+                <ul className="list-group rounded-0">
                   {module.lessons?.map((lesson, lessonIndex) => (
                     <li key={lessonIndex} className="list-group-item">
                       <FaEllipsisV className="me-2 ms-2" />
