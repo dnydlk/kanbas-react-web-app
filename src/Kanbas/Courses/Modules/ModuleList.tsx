@@ -7,9 +7,16 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 function ModuleList() {
   const { courseId } = useParams();
   const course = courses.find((course) => course._id === courseId);
+  const [isAddModuleFormVisible, setIsAddModuleFormVisible] = useState(true);
   const [modulesList, setModulesList] = useState(modules);
-
+  const [module, setModule] = useState({
+    _id: "0",
+    name: "New Module",
+    description: "New Description",
+    course: courseId,
+  });
   const [expandedModules, setExpandedModules] = useState(new Set<string>());
+
   const toggleModule = (moduleId: string) => {
     setExpandedModules((prevExpandedModules) => {
       const newExpandedModules = new Set(prevExpandedModules);
@@ -29,6 +36,12 @@ function ModuleList() {
   const expandAll = () => {
     const allModuleIds = new Set(modules.map((module) => module._id));
     setExpandedModules(allModuleIds);
+  };
+
+  const addModule = (module: any) => {
+    const newModule = { ...module, _id: new Date().getTime().toString() };
+    const newModuleList = [newModule, ...modulesList];
+    setModulesList(newModuleList);
   };
 
   return (
@@ -54,7 +67,13 @@ function ModuleList() {
           </select>
         </div>
         <div className="col-auto p-0">
-          <button className="wd-dani-btn-red">+ Module</button>
+          <button
+            className="wd-dani-btn-red"
+            onClick={() => {
+              setIsAddModuleFormVisible(!isAddModuleFormVisible);
+            }}>
+            + Module
+          </button>
         </div>
         <div className="col-auto p-0 me-3">
           <button className="wd-dani-btn">
@@ -66,6 +85,39 @@ function ModuleList() {
       {/* <pre>
         <code>{JSON.stringify(modulesList, null, 2)}</code>
       </pre> */}
+      <div id="add-module-form">
+        {isAddModuleFormVisible && (
+          <div className="container">
+            <div className="row">
+              <div className="col">
+                <input
+                  className="form-control m-1 me-auto"
+                  value={module.name}
+                  onChange={(e) =>
+                    setModule({ ...module, name: e.target.value })
+                  }
+                />
+                <textarea
+                  className="form-control m-1"
+                  value={module.description}
+                  onChange={(e) =>
+                    setModule({ ...module, description: e.target.value })
+                  }
+                />
+              </div>
+              <div className="col">
+                <button
+                  className="btn btn-success m-1"
+                  onClick={() => {
+                    addModule(module);
+                  }}>
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
       <ul className="list-group wd-modules">
         {modulesList
           .filter((module) => module.course === courseId)
