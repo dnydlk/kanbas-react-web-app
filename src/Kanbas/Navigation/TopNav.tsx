@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { courses } from "../Database";
+import path from "path";
 
 function TopNav() {
   const links = [
@@ -88,6 +89,16 @@ function TopNav() {
           ))}
         </ul>
       </div>
+
+      {pathname.split("/").length === 3 ? (
+        <>
+          <div className="row wd-dani-t-nav-mid fs-4">
+            {pathname.split("/")[pathname.split("/").length - 1]}
+          </div>
+        </>
+      ) : null}
+      <div className=" opacity-0">{pathname.split("/").length}</div>
+
       {pathname.match("Courses") ? (
         <>
           <div className="row wd-dani-t-nav-mid">
