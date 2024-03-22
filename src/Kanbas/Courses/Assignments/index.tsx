@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { FaCheckCircle, FaEllipsisV, FaPlusCircle } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
-import { assignments } from "../../Database";
 import { TiDelete } from "react-icons/ti";
 import { useDispatch, useSelector } from "react-redux";
 import { KanbasState } from "../../store";
@@ -26,18 +25,13 @@ function Assignments() {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedAssignmentId, setSelectedAssignmentId] = useState(null);
-  // Function to open the modal and set which assignment is selected
   const openModal = (assignmentId: any) => {
     setSelectedAssignmentId(assignmentId);
     setIsModalOpen(true);
   };
-
-  // Function to close the modal
   const closeModal = () => {
     setIsModalOpen(false);
   };
-
-  // Function to confirm deletion
   const confirmDelete = () => {
     if (selectedAssignmentId) {
       dispatch(deleteAssignment(selectedAssignmentId));

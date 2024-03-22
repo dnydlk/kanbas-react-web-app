@@ -12,26 +12,22 @@ import {
   addModule,
   deleteModule,
   setModule,
+  setModuleCourse,
   updateModule,
 } from "./modulesReducer";
 function ModuleList() {
   const { courseId } = useParams();
   const course = courses.find((course) => course._id === courseId);
   const [isAddModuleFormVisible, setIsAddModuleFormVisible] = useState(true);
-  // const [moduleList, setModuleList] = useState(modules);
+  const dispatch = useDispatch();
   const moduleList = useSelector(
     (state: KanbasState) => state.modulesReducer.modules
   );
-  // const [module, setModule] = useState({
-  //   _id: "0",
-  //   name: "New Module",
-  //   description: "New Description",
-  //   course: courseId,
-  // });
   const module = useSelector(
     (state: KanbasState) => state.modulesReducer.module
   );
-  const dispatch = useDispatch();
+  dispatch(setModuleCourse(courseId));
+  console.log("🚀 ~ module:", module);
   const [expandedModules, setExpandedModules] = useState(new Set<string>());
 
   const toggleModule = (moduleId: string) => {

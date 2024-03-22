@@ -1,6 +1,4 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import db from "../Database";
 import "../styles.css";
 import { FaPlus } from "react-icons/fa";
 
@@ -30,38 +28,6 @@ function Dashboard({
   deleteCourse,
   updateCourse,
 }: DashboardProps) {
-  // function Dashboard() {
-  // const [courses, setCourses] = useState(db.courses);
-  // const [course, setCourse] = useState({
-  //   _id: "0",
-  //   name: "New Course",
-  //   number: "New Number",
-  //   startDate: "2024-09-10",
-  //   endDate: "2024-12-15",
-  //   image: "C00.jpg",
-  // });
-
-  // const addNewCourse = () => {
-  //   const newCourse = { ...course, _id: new Date().getTime().toString() };
-  //   setCourses([...courses, { ...course, ...newCourse }]);
-  // };
-
-  // const deleteCourse = (courseId: string) => {
-  //   setCourses(courses.filter((course) => course._id !== courseId));
-  // };
-
-  // const updateCourse = () => {
-  //   setCourses(
-  //     courses.map((c) => {
-  //       if (c._id === course._id) {
-  //         return course;
-  //       } else {
-  //         return c;
-  //       }
-  //     })
-  //   );
-  // };
-
   const editCourse = (courseId: string) => {
     const courseToEdit = courses.filter((course) => course._id === courseId);
     setCourse(courseToEdit[0]);

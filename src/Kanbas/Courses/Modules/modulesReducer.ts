@@ -40,9 +40,17 @@ const modulesSlice = createSlice({
     setModule: (state, action) => {
       state.module = action.payload;
     },
+    setModuleCourse: (state, action) => {
+      state.module.course = action.payload;
+    },
   },
 });
 
-export const { addModule, deleteModule, updateModule, setModule } =
-  modulesSlice.actions;
+export const {
+  addModule,
+  deleteModule,
+  updateModule,
+  setModule,
+  setModuleCourse,
+} = modulesSlice.actions;
 export default modulesSlice.reducer;
