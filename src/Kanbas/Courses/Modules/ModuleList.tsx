@@ -6,7 +6,7 @@ import { TiDelete } from "react-icons/ti";
 import { RiEditCircleFill } from "react-icons/ri";
 import { useParams } from "react-router";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import { UseSelector, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { KanbasState } from "../../store";
 import {
   addModule,

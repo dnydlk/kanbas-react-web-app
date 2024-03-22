@@ -18,12 +18,12 @@ function Courses() {
           <Route path="Home" element={<Home />} />
           <Route path="Modules" element={<ModuleList />} />
           <Route path="Piazza" element={<h1>Piazza</h1>} />
+          <Route path="Grades" element={<Grades />} />
           <Route path="Assignments" element={<Assignments />} />
           <Route
             path="Assignments/:assignmentId"
             element={<AssignmentEditor />}
           />
-          <Route path="Grades" element={<Grades />} />
         </Routes>
       </div>
     </>

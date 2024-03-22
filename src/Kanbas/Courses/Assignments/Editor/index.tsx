@@ -1,56 +1,97 @@
-import React from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { assignments } from "../../../Database";
 import { IoMdCheckmarkCircle } from "react-icons/io";
+import { useDispatch, useSelector } from "react-redux";
+import { KanbasState } from "../../../store";
+import {
+  addAssignment,
+  updateAssignment,
+  setAssignment,
+} from "../assignmentsReducer";
 
 function AssignmentEditor() {
   const { assignmentId } = useParams();
-  const assignment = assignments.find(
-    (assignment: { _id: string | undefined }) => assignment._id === assignmentId
-  );
+  console.log("🚀 ~ AssignmentEditor ~ assignmentId:", assignmentId);
   const { courseId } = useParams();
   const navigate = useNavigate();
+  const assignmentList = useSelector(
+    (state: KanbasState) => state.assignmentsReducer.assignments
+  );
+  const assignment = useSelector(
+    (state: KanbasState) => state.assignmentsReducer.assignment
+  );
+  console.log(
+    "🚀 ~ AssignmentEditor ~ assignment's Id is:\n",
+    assignment.course
+  );
+
+  const dispatch = useDispatch();
   const handleSave = () => {
-    console.log("Actually saving assignment TBD in later assignments");
+    if (assignmentId === "New-Assignment") {
+      dispatch(addAssignment(assignment));
+    } else {
+      dispatch(updateAssignment(assignment));
+    }
     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
   };
   return (
     <div id="assignment-editor" className="container p-2 ms-4">
       <div className="row">
-        <div className="col"></div>
-        <div className="col-auto text-end p-0 mb-0">
-          <p id="published" className=" mb-0">
-            <IoMdCheckmarkCircle className=" fs-3 me-1" />
+        {/*//- Published * ... btn */}
+        <div className="d-flex align-items-center col text-end p-0 mb-0">
+          <div className="col me-auto"></div>
+          course: {courseId}
+          <p id="published" className="mb-0">
+            <IoMdCheckmarkCircle className="fs-3 me-1" />
             Published
           </p>
-        </div>
-        <div className="col-auto">
-          <button className="wd-dani-btn">...</button>
+          <div className="col-auto me-3">
+            <button className="wd-dani-btn">...</button>
+          </div>
         </div>
       </div>
       <hr />
       <h2>Assignment Name</h2>
-      <input value={assignment?.title} className="form-control mb-4" />
+      {/*//- A-name */}
+      <input
+        type="text"
+        className="form-control mb-4"
+        value={assignment?.name ?? ""}
+        onChange={(e) => {
+          dispatch(setAssignment({ ...assignment, name: e.target.value }));
+        }}
+      />
       <div className="row">
         <div className="col">
-          <textarea id="description" className=" form-control " rows={5}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Exercitationem, ipsam et! Culpa, enim fugiat dolor officia
-            consequuntur quas possimus soluta, earum illo dignissimos at magni
-            repellendus minima autem impedit esse.
+          {/*//- A-description */}
+          <textarea
+            id="a-description"
+            className="form-control"
+            rows={5}
+            onChange={(e) => {
+              dispatch(
+                setAssignment({ ...assignment, description: e.target.value })
+              );
+            }}>
+            {assignment?.description}
           </textarea>
-          <div className="row mt-2 mb-4">
+          <div id="a-points" className="row mt-2 mb-4">
             <label
               htmlFor="points"
               className="col-2 col-form-label text-end m-1">
               Points
             </label>
+            {/*//- A-points */}
             <div className="col-8 m-1">
               <input
                 type="number"
                 className="form-control"
                 id="points"
-                value="100"
+                value={assignment.points}
+                onChange={(e) => {
+                  dispatch(
+                    setAssignment({ ...assignment, points: e.target.value })
+                  );
+                }}
               />
             </div>
           </div>
@@ -116,21 +157,25 @@ function AssignmentEditor() {
                   value="Everyone"
                 />
               </div>
-              {/* <!-- * due --> */}
               <label
                 htmlFor="duedate"
                 className="row col-form-label ms-1 me-1 mt-1">
                 Due
               </label>
+              {/*//- Due */}
               <div className="row ms-1 me-1 mb-2">
                 <input
                   type="date"
                   className="form-control border border-light-subtle rounded p-2"
                   id="assignment-name"
-                  value="2024-02-08"
+                  value={assignment.dueDate}
+                  onChange={(e) => {
+                    dispatch(
+                      setAssignment({ ...assignment, dueDate: e.target.value })
+                    );
+                  }}
                 />
               </div>
-              {/* <!-- * available from --> */}
               <div className="row ms-1 me-1 mb-2">
                 <div className="col">
                   <label htmlFor="available-from">Available from</label>
@@ -141,26 +186,44 @@ function AssignmentEditor() {
               </div>
               <div className="row ms-1 me-1 mb-2">
                 <div className="col">
+                  {/*//- Available from */}
                   <input
                     type="date"
                     className="form-control assigne-to p-2"
                     id="available-from"
-                    value="2024-02-01"
+                    value={assignment.availableFromDate}
+                    onChange={(e) => {
+                      dispatch(
+                        setAssignment({
+                          ...assignment,
+                          availableFromDate: e.target.value,
+                        })
+                      );
+                    }}
                   />
                 </div>
                 <div className="col">
+                  {/*//- Available until */}
                   <input
                     type="date"
                     className="form-control assigne-to p-2"
                     id="until"
-                    value="2024-02-08"
+                    value={assignment.availableUntilDate}
+                    onChange={(e) => {
+                      dispatch(
+                        setAssignment({
+                          ...assignment,
+                          availableUntilDate: e.target.value,
+                        })
+                      );
+                    }}
                   />
+                  <br />
                 </div>
               </div>
-              {/* <!-- * due --> */}
-              <div className="row mt-4">
+              {/* <div className="row mt-4">
                 <button className="wd-dani-btn">+Add</button>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="row mt-2 mb-1">

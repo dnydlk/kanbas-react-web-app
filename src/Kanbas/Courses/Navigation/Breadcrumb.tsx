@@ -12,7 +12,7 @@ function Breadcrumb() {
     .split("/")
     .filter((part) => part !== "")
     .slice(3);
-  console.log(fullPath);
+  // console.log(fullPath);
   return (
     <div id="breadcrumb" className="d-none d-md-block">
       <nav aria-label="breadcrumb">
