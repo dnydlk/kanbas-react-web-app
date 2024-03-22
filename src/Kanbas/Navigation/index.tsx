@@ -1,5 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import "./index.css";
+import { MdHistory } from "react-icons/md";
+import { HiOutlineComputerDesktop } from "react-icons/hi2";
 import {
   FaTachometerAlt,
   FaRegUserCircle,
@@ -7,8 +9,6 @@ import {
   FaRegCalendarAlt,
   FaInbox,
 } from "react-icons/fa";
-import { MdHistory } from "react-icons/md";
-import { HiOutlineComputerDesktop } from "react-icons/hi2";
 function KanbasNavigation() {
   const links = [
     {

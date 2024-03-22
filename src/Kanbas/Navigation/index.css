@@ -3,7 +3,7 @@
   list-style: none;
   padding: 0px;
   width: 80px;
-  height: 100vh;
+  height: 100%;
   /* position: fixed; */
 }
 
@@ -36,4 +36,49 @@
 
 .wd-kanbas-navigation a i #text {
   color: #a32424;
+}
+
+.wd-dani-t-nav-dropdown-item {
+  display: block;
+  width: 100%;
+  padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
+  clear: both;
+  font-weight: 400;
+  color: var(--bs-dropdown-link-color);
+  text-align: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+  border-radius: var(--bs-dropdown-item-border-radius, 0);
+}
+.wd-dani-t-nav-dropdown-item:focus,
+.wd-dani-t-nav-dropdown-item:hover {
+  color: var(--bs-dropdown-link-hover-color);
+  background-color: var(--bs-dropdown-link-hover-bg);
+}
+.wd-dani-t-nav-dropdown-item.active,
+.wd-dani-t-nav-dropdown-item:active {
+  color: var(--bs-dropdown-link-active-color);
+  text-decoration: none;
+  background-color: var(--bs-dropdown-link-active-bg);
+}
+.wd-dani-t-nav-dropdown-item.disabled,
+.wd-dani-t-nav-dropdown-item:disabled {
+  color: var(--bs-dropdown-link-disabled-color);
+  pointer-events: none;
+  background-color: transparent;
+}
+
+.wd-dani-t-nav-dropdown-item * {
+  color: #28343c;
+  font-weight: bold;
+  text-decoration: none;
+} 
+
+.wd-dani-t-nav-mid {
+  color: white;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }

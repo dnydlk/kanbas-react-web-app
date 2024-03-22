@@ -7,6 +7,7 @@ import { useState } from "react";
 import db from "./Database";
 import { Provider } from "react-redux";
 import store from "./store";
+import TopNav from "./Navigation/TopNav";
 
 function Kanbas() {
   const [courses, setCourses] = useState(db.courses);
@@ -44,26 +45,29 @@ function Kanbas() {
     <Provider store={store}>
       <div id="kanbas" className="d-flex">
         <KanbasNavigation />
-        <div className="main-content" style={{ flexGrow: 1 }}>
-          <Routes>
-            <Route path="/" element={<Navigate to="Dashboard" />} />
-            <Route path="Account" element={<h1>Account</h1>} />
-            <Route
-              path="Dashboard"
-              element={
-                <Dashboard
-                  course={course}
-                  courses={courses}
-                  setCourse={setCourse}
-                  addNewCourse={addNewCourse}
-                  deleteCourse={deleteCourse}
-                  updateCourse={updateCourse}
-                />
-              }
-            />
-            {/* <Route path="Dashboard" element={<Dashboard />} /> */}
-            <Route path="Courses/:courseId/*" element={<Courses />} />
-          </Routes>
+        <div className="main-content m-0 p-0" style={{ flexGrow: 1 }}>
+          <TopNav />
+          <div className="m-2 p-2">
+            <Routes>
+              <Route path="/" element={<Navigate to="Dashboard" />} />
+              <Route path="Account" element={<h1>Account</h1>} />
+              <Route
+                path="Dashboard"
+                element={
+                  <Dashboard
+                    course={course}
+                    courses={courses}
+                    setCourse={setCourse}
+                    addNewCourse={addNewCourse}
+                    deleteCourse={deleteCourse}
+                    updateCourse={updateCourse}
+                  />
+                }
+              />
+              {/* <Route path="Dashboard" element={<Dashboard />} /> */}
+              <Route path="Courses/:courseId/*" element={<Courses />} />
+            </Routes>
+          </div>
         </div>
       </div>
     </Provider>

@@ -4,7 +4,6 @@ import { courses } from "../../Database";
 import { HiMiniBars3 } from "react-icons/hi2";
 
 function Breadcrumb() {
-  // const params = useParams();
   const { courseId } = useParams();
   const course = courses.find((course) => course._id === courseId);
   const { pathname } = useLocation();
@@ -19,14 +18,13 @@ function Breadcrumb() {
         {/* <pre>
         <code>{JSON.stringify(params, null, 2)}</code>
       </pre> */}
-
         <div className="d-flex align-items-center">
           <HiMiniBars3
             className="fs-3 ms-1 me-1"
             style={{ color: "#28343c" }}
           />
           <ol className="breadcrumb m-0 " style={{}}>
-            {/* Course Number to Home */}
+            {/*//- Course Number to Home */}
             <li className="breadcrumb-item wd-dani-breadcrumb-item">
               <Link to={`/Kanbas/Courses/${courseId + "/Home" ?? ""}`}>
                 {course?.number ?? "Home"}
@@ -43,7 +41,7 @@ function Breadcrumb() {
                   </li>
                 ))
               : ""}
-            {/* Last item plain text */}
+            {/*//- Last item plain text */}
             <li className="breadcrumb-item wd-dani-breadcrumb-item">
               {fullPath.pop()}
             </li>
