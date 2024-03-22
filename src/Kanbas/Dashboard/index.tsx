@@ -106,7 +106,7 @@ function Dashboard({
               <div className="card">
                 <img
                   src={`./images/${course.image}`}
-                  alt={`Course Image is ${course.image.toString()}`}
+                  alt={`${course.image.toString()}`}
                   className="card-img-top"
                   style={{ height: "150px" }}
                 />

@@ -13,9 +13,6 @@ function AssignmentEditor() {
   console.log("🚀 ~ AssignmentEditor ~ assignmentId:", assignmentId);
   const { courseId } = useParams();
   const navigate = useNavigate();
-  const assignmentList = useSelector(
-    (state: KanbasState) => state.assignmentsReducer.assignments
-  );
   const assignment = useSelector(
     (state: KanbasState) => state.assignmentsReducer.assignment
   );

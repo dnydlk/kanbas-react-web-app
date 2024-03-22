@@ -1,6 +1,6 @@
-import react, { useState } from "react";
+import { useState } from "react";
 import "./index.css";
-import { courses, modules } from "../../Database";
+import { modules } from "../../Database";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from "react-icons/fa";
 import { TiDelete } from "react-icons/ti";
 import { RiEditCircleFill } from "react-icons/ri";
@@ -17,7 +17,6 @@ import {
 } from "./modulesReducer";
 function ModuleList() {
   const { courseId } = useParams();
-  const course = courses.find((course) => course._id === courseId);
   const [isAddModuleFormVisible, setIsAddModuleFormVisible] = useState(true);
   const dispatch = useDispatch();
   const moduleList = useSelector(
