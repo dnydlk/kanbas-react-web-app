@@ -1,4 +1,5 @@
 import EncodingParametersInURLs from "./EncodingParametersInURLs";
+import WorkingWithObjects from "./WorkingWithObjects";
 
 const Assignment5 = () => {
   return (
@@ -10,6 +11,8 @@ const Assignment5 = () => {
         Welcome
       </a>
       <EncodingParametersInURLs />
+      <WorkingWithObjects />
+      <hr />
     </div>
   );
 };

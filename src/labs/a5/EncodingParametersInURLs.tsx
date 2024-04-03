@@ -65,6 +65,7 @@ const EncodingParametersInURLs = () => {
         className="btn btn-danger m-1">
         Divide {a} {b}
       </a>
+      <hr />
     </div>
   );
 };
