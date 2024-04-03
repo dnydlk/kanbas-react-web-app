@@ -10,7 +10,6 @@ import {
 } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { courses } from "../Database";
-import path from "path";
 
 function TopNav() {
   const links = [

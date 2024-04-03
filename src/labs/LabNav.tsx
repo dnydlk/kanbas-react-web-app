@@ -14,6 +14,11 @@ function LabNav() {
         className={`nav-link ${pathname.includes("a4") ? "active" : ""}`}>
         Lab 4
       </Link>
+      <Link
+        to="/labs/a5"
+        className={`nav-link ${pathname.includes("a5") ? "active" : ""}`}>
+        Lab 5
+      </Link>
     </nav>
   );
 }
