@@ -3,14 +3,17 @@ import Dashboard from "./Dashboard";
 import KanbasNavigation from "./Navigation";
 import "./styles.css";
 import Courses from "./Courses";
-import { useState } from "react";
-import db from "./Database";
-import { Provider } from "react-redux";
-import store from "./store";
-import TopNav from "./Navigation/TopNav";
+import { useEffect, useState } from "react"
+// import db from "./Database";
+import { Provider } from "react-redux"
+import store from "./store"
+import TopNav from "./Navigation/TopNav"
+import axios from "axios"
 
 function Kanbas() {
-  const [courses, setCourses] = useState(db.courses);
+  // const [courses, setCourses] = useState(db.courses);
+  const [courses, setCourses] = useState<any[]>([])
+
   const [course, setCourse] = useState({
     _id: "0",
     name: "New Course",
@@ -18,28 +21,63 @@ function Kanbas() {
     startDate: "2024-09-10",
     endDate: "2024-12-15",
     image: "C00.jpg",
-  });
+  })
 
-  const addNewCourse = () => {
-    const newCourse = { ...course, _id: new Date().getTime().toString() };
-    setCourses([...courses, { ...course, ...newCourse }]);
-  };
+  const COURSES_API = "http://localhost:4000/api/courses"
 
-  const deleteCourse = (courseId: string) => {
-    setCourses(courses.filter((course) => course._id !== courseId));
-  };
+  //- findAllCourses
+  const findAllCourses = async () => {
+    const response = await axios.get(COURSES_API)
+    setCourses(response.data)
+  }
 
-  const updateCourse = () => {
+  //- addNewCourse
+  // const addNewCourse = () => {
+  //   const newCourse = { ...course, _id: new Date().getTime().toString() }
+  //   setCourses([...courses, { ...course, ...newCourse }])
+  // }
+  const addNewCourse = async () => {
+    const response = await axios.post(COURSES_API, course)
+    setCourses([...courses, response.data])
+  }
+
+  //- deleteCourse
+  // const deleteCourse = (courseId: string) => {
+  //   setCourses(courses.filter((course) => course._id !== courseId))
+  // }
+  const deleteCourse = async (courseId: string) => {
+    const response = await axios.delete(`${COURSES_API}/${courseId}`)
+    setCourses(courses.filter((course) => course._id !== courseId))
+  }
+
+  //- updateCourse
+  // const updateCourse = () => {
+  //   setCourses(
+  //     courses.map((c) => {
+  //       if (c._id === course._id) {
+  //         return course
+  //       } else {
+  //         return c
+  //       }
+  //     })
+  //   )
+  // }
+  const updateCourse = async () => {
+    const response = await axios.put(`${COURSES_API}/${course._id}`, course)
     setCourses(
       courses.map((c) => {
         if (c._id === course._id) {
-          return course;
+          return course
         } else {
-          return c;
+          return c
         }
       })
-    );
-  };
+    )
+  }
+
+  useEffect(() => {
+    findAllCourses()
+  }, [])
 
   return (
     <Provider store={store}>
@@ -71,7 +109,7 @@ function Kanbas() {
         </div>
       </div>
     </Provider>
-  );
+  )
 }
 export default Kanbas;
 

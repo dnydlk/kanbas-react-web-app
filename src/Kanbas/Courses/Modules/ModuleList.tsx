@@ -1,54 +1,45 @@
-import { useState } from "react";
-import "./index.css";
-import { modules } from "../../Database";
-import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from "react-icons/fa";
-import { TiDelete } from "react-icons/ti";
-import { RiEditCircleFill } from "react-icons/ri";
-import { useParams } from "react-router";
-import { BsThreeDotsVertical } from "react-icons/bs";
-import { useDispatch, useSelector } from "react-redux";
-import { KanbasState } from "../../store";
-import {
-  addModule,
-  deleteModule,
-  setModule,
-  setModuleCourse,
-  updateModule,
-} from "./modulesReducer";
+import { useEffect, useState } from "react"
+import "./index.css"
+import { modules } from "../../Database"
+import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from "react-icons/fa"
+import { TiDelete } from "react-icons/ti"
+import { RiEditCircleFill } from "react-icons/ri"
+import { useParams } from "react-router"
+import { BsThreeDotsVertical } from "react-icons/bs"
+import { useDispatch, useSelector } from "react-redux"
+import { KanbasState } from "../../store"
+import { addModule, deleteModule, setModule, setModuleCourse, updateModule } from "./modulesReducer"
+import axios from "axios"
 function ModuleList() {
-  const { courseId } = useParams();
-  const [isAddModuleFormVisible, setIsAddModuleFormVisible] = useState(true);
-  const dispatch = useDispatch();
-  const moduleList = useSelector(
-    (state: KanbasState) => state.modulesReducer.modules
-  );
-  const module = useSelector(
-    (state: KanbasState) => state.modulesReducer.module
-  );
-  dispatch(setModuleCourse(courseId));
-  console.log("🚀 ~ module:", module);
-  const [expandedModules, setExpandedModules] = useState(new Set<string>());
+  const { courseId } = useParams()
+  const [isAddModuleFormVisible, setIsAddModuleFormVisible] = useState(true)
+  const dispatch = useDispatch()
+  const moduleList = useSelector((state: KanbasState) => state.modulesReducer.modules)
+  const module = useSelector((state: KanbasState) => state.modulesReducer.module)
+  dispatch(setModuleCourse(courseId))
+  console.log("🚀 ~ module:", module)
+  const [expandedModules, setExpandedModules] = useState(new Set<string>())
 
   const toggleModule = (moduleId: string) => {
     setExpandedModules((prevExpandedModules) => {
-      const newExpandedModules = new Set(prevExpandedModules);
+      const newExpandedModules = new Set(prevExpandedModules)
       if (newExpandedModules.has(moduleId)) {
-        newExpandedModules.delete(moduleId);
+        newExpandedModules.delete(moduleId)
       } else {
-        newExpandedModules.add(moduleId);
+        newExpandedModules.add(moduleId)
       }
-      return newExpandedModules;
-    });
-  };
+      return newExpandedModules
+    })
+  }
 
   const collapseAll = () => {
-    setExpandedModules(new Set());
-  };
+    setExpandedModules(new Set())
+  }
 
   const expandAll = () => {
-    const allModuleIds = new Set(modules.map((module) => module._id));
-    setExpandedModules(allModuleIds);
-  };
+    const allModuleIds = new Set(modules.map((module) => module._id))
+    setExpandedModules(allModuleIds)
+  }
 
   // const addModule = (module: any) => {
   //   const newModule = {
@@ -79,6 +70,20 @@ function ModuleList() {
   //   setModuleList(newModuleList);
   // };
 
+  const COURSES_API = "http://localhost:4000/api/courses"
+
+  const [course, setCourse] = useState<any>({ _id: "" })
+
+  useEffect(() => {
+    findCourseById(courseId)
+  }, [])
+
+  //- findCourseById
+  const findCourseById = async (courseId?: string) => {
+    const response = await axios.get(`${COURSES_API}/${courseId}`)
+    setCourse(response.data)
+  }
+
   return (
     <div id="module-list" className="container-fluid p-2">
       <div id="module-buttons" className="d-flex row">
@@ -105,7 +110,7 @@ function ModuleList() {
           <button
             className="wd-dani-btn-red"
             onClick={() => {
-              setIsAddModuleFormVisible(!isAddModuleFormVisible);
+              setIsAddModuleFormVisible(!isAddModuleFormVisible)
             }}>
             + Module
           </button>
@@ -138,9 +143,7 @@ function ModuleList() {
                   value={module.description}
                   onChange={(e) =>
                     // setModule({ ...module, description: e.target.value })
-                    dispatch(
-                      setModule({ ...module, description: e.target.value })
-                    )
+                    dispatch(setModule({ ...module, description: e.target.value }))
                   }
                 />
               </div>
@@ -150,7 +153,7 @@ function ModuleList() {
                   style={{ backgroundColor: "#a32424" }}
                   onClick={() => {
                     // addModule(module);
-                    dispatch(addModule(module));
+                    dispatch(addModule(module))
                   }}>
                   Add
                 </button>
@@ -158,7 +161,7 @@ function ModuleList() {
                   className="btn btn-success m-1"
                   onClick={() => {
                     // updateModule(module);
-                    dispatch(updateModule(module));
+                    dispatch(updateModule(module))
                   }}>
                   Update
                 </button>
@@ -180,29 +183,29 @@ function ModuleList() {
                   onClick={() => toggleModule(module._id)}>
                   {module.name}
                   <br />
-                  <div style={{ fontWeight: "normal", fontSize: "0.9em" }}>
-                    {module.description}
-                  </div>
+                  <div style={{ fontWeight: "normal", fontSize: "0.9em" }}>{module.description}</div>
                 </div>
                 <div className="d-flex flex-nowrap align-items-center justify-content-between">
                   <FaCheckCircle className="text-success ms-1 me-2" />
                   <FaPlusCircle className="ms-1 me-1" />
                   {/* //- Delete button */}
-                  <TiDelete
+                  ;<TiDelete
                     className="ms-1 me-0 fs-4 wd-dani-modules-icon-btn"
                     style={{ color: "#a32424" }}
                     onClick={() => {
                       // deleteModule(module._id);
-                      dispatch(deleteModule(module._id));
+                      dispatch(deleteModule(module._id))
                     }}
                   />
-                  {/* //- Edit button */}
-                  <RiEditCircleFill
+                  {
+                    /* //- Edit button */
+                  }
+                  ;<RiEditCircleFill
                     className="text-success ms-1 me-1 fs-5 wd-dani-modules-icon-btn"
                     style={{ color: "#a32424" }}
                     onClick={() => {
                       // setModule(module);
-                      dispatch(setModule(module));
+                      dispatch(setModule(module))
                     }}
                   />
                   <FaEllipsisV className="ms-1 me-1" />
@@ -227,6 +230,6 @@ function ModuleList() {
           ))}
       </ul>
     </div>
-  );
+  )
 }
-export default ModuleList;
+export default ModuleList

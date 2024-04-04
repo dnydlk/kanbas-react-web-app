@@ -101,17 +101,11 @@ function KanbasNavigation() {
       <ul className="wd-kanbas-navigation d-none d-md-block">
         <li>
           <Link to={"http://northeastern.edu"}>
-            <img
-              src="/images/n.png"
-              alt="Northeastern logo"
-              style={{ width: "60px", height: "60px" }}
-            />
+            <img src="/images/n.png" alt="Northeastern logo" style={{ width: "60px", height: "60px" }} />
           </Link>
         </li>
         {linksPart1.map((link, index) => (
-          <li
-            key={index}
-            className={pathname.includes(link.label) ? "wd-active" : ""}>
+          <li key={index} className={pathname.includes(link.label) ? "wd-active" : ""}>
             <Link to={`/Kanbas/${link.label}`}>
               {link.icon} {link.label}
             </Link>
@@ -122,7 +116,7 @@ function KanbasNavigation() {
             <FaBook className="fs-2" style={{ color: "#cd172a" }} /> Courses
           </Link>
         </li>
-        <li>
+        {/* <li> //fixme://todo implement dropdown here
           <div className="btn-group dropend">
             <button
               type="button"
@@ -137,11 +131,9 @@ function KanbasNavigation() {
               <li className="wd-dani-t-nav-dropdown-item"></li>
             </ul>
           </div>
-        </li>
+        </li> */}
         {linksPart2.map((link, index) => (
-          <li
-            key={index}
-            className={pathname.includes(link.label) ? "wd-active" : ""}>
+          <li key={index} className={pathname.includes(link.label) ? "wd-active" : ""}>
             <Link to={`/Kanbas/${link.label}`}>
               {link.icon} {link.label}
             </Link>
@@ -149,6 +141,6 @@ function KanbasNavigation() {
         ))}
       </ul>
     </div>
-  );
+  )
 }
 export default KanbasNavigation;
