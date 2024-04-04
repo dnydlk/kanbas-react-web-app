@@ -4,7 +4,7 @@ const EncodingParametersInURLs = () => {
   const [a, setA] = useState(34);
   const [b, setB] = useState(23);
   return (
-    <div>
+    <div id="encoding-parameters-in-urls">
       <h3>Encoding Parameters In URLs</h3>
       <h4>Calculator</h4>
       <input

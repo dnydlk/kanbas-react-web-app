@@ -27,7 +27,7 @@ function WorkingWithObjects() {
   const MODULE_URL = "http://localhost:4000/a5/module";
 
   return (
-    <div>
+    <div id="working-with-objects">
       <h3>Working With Objects</h3>
       <h4>Retrieving Objects</h4>
       <a
@@ -87,12 +87,6 @@ function WorkingWithObjects() {
         className="btn btn-primary m-1">
         Update Assignment Score
       </a>
-      <input
-        type="checkbox"
-        className="btn-check"
-        id="btn-check-4"
-        autoComplete="off"
-      />
       <select
         className="form-select m-1"
         name="complete-status"
@@ -100,11 +94,11 @@ function WorkingWithObjects() {
         onChange={(e) => {
           setAssignment({
             ...assignment,
-            completed: e.target.value === "true" ? true : false,
+            completed: e.target.value === "1" ? true : false,
           });
         }}>
-        <option value="true">Completed</option>
-        <option selected value="false">
+        <option value="1">Completed</option>
+        <option selected value="2">
           Incomplete
         </option>
       </select>

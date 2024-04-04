@@ -1,4 +1,5 @@
 import EncodingParametersInURLs from "./EncodingParametersInURLs";
+import WorkingWithArrays from "./WorkingWithArrays";
 import WorkingWithObjects from "./WorkingWithObjects";
 
 const Assignment5 = () => {
@@ -12,6 +13,7 @@ const Assignment5 = () => {
       </a>
       <EncodingParametersInURLs />
       <WorkingWithObjects />
+      <WorkingWithArrays />
       <hr />
     </div>
   );
