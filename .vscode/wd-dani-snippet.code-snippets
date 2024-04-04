@@ -36,5 +36,11 @@
       ""
     ],
     "description": "WD default function"
-  }
+  },
+  "Async Arrow Function": {
+    "scope": ["javascript", "typescript"],
+    "prefix": "aaf-wd-dani",
+    "body": ["const ${1:methodName} = async () => {", "\tconst response = await axios.get(`http://localhost:4000${2:}`)", "};"],
+    "description": "Async Arrow Function"
+  },
 }

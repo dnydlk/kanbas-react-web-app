@@ -1,5 +1,6 @@
 import "./index.css";
 function Classes() {
+  // eslint-disable-next-line
   const color = "blue";
   const dangerous = "true";
   return (

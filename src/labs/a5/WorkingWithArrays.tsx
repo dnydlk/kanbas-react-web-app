@@ -1,7 +1,8 @@
-import { useState } from "react";
+import axios from "axios"
+import { useEffect, useState } from "react"
 
 const WorkingWithArrays = () => {
-  const API = "http://localhost:4000/a5/todos";
+  const API = "http://localhost:4000/a5/todos"
 
   const [todo, setTodo] = useState({
     id: 1,
@@ -9,7 +10,34 @@ const WorkingWithArrays = () => {
     description: "Create a NodeJS server with ExpressJS",
     due: "2021-09-09",
     completed: false,
-  });
+  })
+
+  const [todos, setTodos] = useState<any[]>([])
+
+  const fetchTodos = async () => {
+    const response = await axios.get(API)
+    setTodos(response.data)
+  }
+  const removeTodos = async (todo: any) => {
+    const response = await axios.get(`${API}/${todo.id}/delete`)
+    setTodos(response.data)
+  }
+  const createTodos = async () => {
+    const response = await axios.get(`${API}/create`)
+    setTodos(response.data)
+  }
+  const fetchTodoById = async (todo: any) => {
+    const response = await axios.get(`${API}/${todo.id}`)
+    setTodo(response.data)
+  }
+  const updateTodoById = async () => {
+    const response = await axios.get(`${API}/${todo.id}/title/${todo.title}`)
+    setTodos(response.data)
+  }
+
+  useEffect(() => {
+    fetchTodos()
+  }, [])
 
   return (
     <div id="working-with-arrays">
@@ -28,7 +56,7 @@ const WorkingWithArrays = () => {
         value={todo.id}
         className="form-control m-1"
         onChange={(e) => {
-          setTodo({ ...todo, id: parseInt(e.target.value) });
+          setTodo({ ...todo, id: parseInt(e.target.value) })
         }}
       />
       <a href={`${API}/${todo.id}`} className="btn btn-primary m-1">
@@ -53,7 +81,7 @@ const WorkingWithArrays = () => {
         value={todo.id}
         className="form-control m-1"
         onChange={(e) => {
-          setTodo({ ...todo, id: parseInt(e.target.value) });
+          setTodo({ ...todo, id: parseInt(e.target.value) })
         }}
       />
       <a href={`${API}/${todo.id}/delete`} className="btn btn-primary m-1">
@@ -67,7 +95,7 @@ const WorkingWithArrays = () => {
         value={todo.id}
         className="form-control m-1 ms-3"
         onChange={(e) => {
-          setTodo({ ...todo, id: parseInt(e.target.value) });
+          setTodo({ ...todo, id: parseInt(e.target.value) })
         }}
       />
       <label className="ms-1">Todo Title:</label>
@@ -76,12 +104,10 @@ const WorkingWithArrays = () => {
         value={todo.title}
         className="form-control m-1 ms-3"
         onChange={(e) => {
-          setTodo({ ...todo, title: e.target.value });
+          setTodo({ ...todo, title: e.target.value })
         }}
       />
-      <a
-        href={`${API}/${todo.id}/title/${todo.title}`}
-        className="btn btn-primary m-1">
+      <a href={`${API}/${todo.id}/title/${todo.title}`} className="btn btn-primary m-1">
         Update Title to {todo.title}
       </a>
       {/* //- Updating an Item's complete status in an array*/}
@@ -92,7 +118,7 @@ const WorkingWithArrays = () => {
         value={todo.id}
         className="form-control m-1 ms-3"
         onChange={(e) => {
-          setTodo({ ...todo, id: parseInt(e.target.value) });
+          setTodo({ ...todo, id: parseInt(e.target.value) })
         }}
       />
       <label className="ms-1">Todo Complete Status:</label>
@@ -103,7 +129,7 @@ const WorkingWithArrays = () => {
         onChange={(e) =>
           setTodo({
             ...todo,
-            completed: e.target.value == "true" ? true : false,
+            completed: e.target.value === "true" ? true : false,
           })
         }>
         <option selected value="false">
@@ -111,9 +137,7 @@ const WorkingWithArrays = () => {
         </option>
         <option value="true">Complete</option>
       </select>
-      <a
-        href={`${API}/${todo.id}/completed/${todo.completed}`}
-        className="btn btn-primary m-1">
+      <a href={`${API}/${todo.id}/completed/${todo.completed}`} className="btn btn-primary m-1">
         Update Complete Status
       </a>
       {/* //- Updating an Item's description in an array*/}
@@ -123,16 +147,56 @@ const WorkingWithArrays = () => {
         value={todo.description}
         className="form-control m-1"
         onChange={(e) => {
-          setTodo({ ...todo, description: e.target.value });
+          setTodo({ ...todo, description: e.target.value })
         }}
       />
-      <a
-        href={`${API}/${todo.id}/description/${todo.description}`}
-        className="btn btn-primary m-1">
+      <a href={`${API}/${todo.id}/description/${todo.description}`} className="btn btn-primary m-1">
         Update Description to "{todo.description}"
       </a>
       <hr />
+      {/* //- Fetching Array*/}
+      <input
+        type="text"
+        value={todo.id}
+        className="form-control m-1"
+        onChange={(e) => {
+          setTodo({ ...todo, id: parseInt(e.target.value) })
+        }}
+      />
+      <input
+        type="text"
+        value={todo.title}
+        className="form-control m-1"
+        onChange={(e) => {
+          setTodo({ ...todo, title: e.target.value })
+        }}
+      />
+      <div className="d-grid">
+        <button className="btn btn-primary m-1" onClick={() => createTodos()}>
+          Create Todo
+        </button>
+        <button className="btn btn-success m-1" onClick={() => updateTodoById()}>
+          Update Todo
+        </button>
+      </div>
+      <ul className="list-group m-1">
+        {todos.map((todo) => (
+          <li key={todo.id} className="list-group-item">
+            <div className="d-flex align-items-center">
+              <div className="me-auto">{todo.title}</div>
+              <button className="btn btn-danger ms-2" onClick={() => removeTodos(todo)}>
+                Remove
+              </button>
+              <button className="btn btn-warning ms-2" onClick={() => fetchTodoById(todo)}>
+                Edit
+              </button>
+            </div>
+          </li>
+        ))}
+      </ul>
+
+      <hr />
     </div>
-  );
-};
-export default WorkingWithArrays;
+  )
+}
+export default WorkingWithArrays

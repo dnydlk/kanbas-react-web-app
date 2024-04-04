@@ -10,6 +10,7 @@ import {
   FaInbox,
 } from "react-icons/fa";
 function KanbasNavigation() {
+  // eslint-disable-next-line
   const links = [
     {
       label: "Account",
