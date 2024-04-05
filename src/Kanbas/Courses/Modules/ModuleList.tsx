@@ -12,6 +12,8 @@ import { addModule, deleteModule, setModule, setModuleCourse, updateModule, setM
 import * as client from "./client"
 import axios from "axios"
 
+const API_BASE = process.env.REACT_APP_API_BASE
+
 function ModuleList() {
   const { courseId } = useParams()
   const [isAddModuleFormVisible, setIsAddModuleFormVisible] = useState(true)
@@ -72,7 +74,9 @@ function ModuleList() {
   //   setModuleList(newModuleList);
   // };
 
-  const COURSES_API = "http://localhost:4000/api/courses"
+  // const COURSES_API = "http://localhost:4000/api/courses"
+  // const COURSES_API = "https://kanbas-node-server-app-wngf.onrender.com/api/courses"
+  const COURSES_API = `${API_BASE}/api/courses`
 
   const [course, setCourse] = useState<any>({ _id: "" })
 
@@ -87,9 +91,8 @@ function ModuleList() {
       const modules = await client.findModulesForCourse(courseId || "")
       dispatch(setModules(modules))
     }
-
     fetchModules()
-  }, [courseId, dispatch, moduleList.length]) // Dependency on moduleList.length ensures fetch after add/delete
+  }, [courseId, dispatch, moduleList.length])
 
   //- findCourseById
   const findCourseById = async (courseId: string) => {

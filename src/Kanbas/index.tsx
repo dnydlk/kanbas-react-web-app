@@ -10,6 +10,8 @@ import store from "./store"
 import TopNav from "./Navigation/TopNav"
 import axios from "axios"
 
+const API_BASE = process.env.REACT_APP_API_BASE
+
 function Kanbas() {
   // const [courses, setCourses] = useState(db.courses);
   const [courses, setCourses] = useState<any[]>([])
@@ -23,7 +25,9 @@ function Kanbas() {
     image: "C00.jpg",
   })
 
-  const COURSES_API = "http://localhost:4000/api/courses"
+  // const COURSES_API = "http://localhost:4000/api/courses"
+  // const COURSES_API = "https://kanbas-node-server-app-wngf.onrender.com/api/courses"
+  const COURSES_API = `${API_BASE}/api/courses`
 
   //- findAllCourses
   const findAllCourses = async () => {

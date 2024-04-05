@@ -40,8 +40,6 @@ function AssignmentEditor() {
   }
 
   const handleSave = () => {
-    console.log("assignmentIdassignmentIdassignmentId:\n" + assignmentId)
-    console.log("assignmentassignmentassignment:\n" + assignment)
     if (assignmentId === "New-Assignment") {
       handleAddAssignment()
     } else {
