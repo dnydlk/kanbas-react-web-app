@@ -1,43 +1,51 @@
-import React, { useState } from "react";
-import { FaCheckCircle, FaEllipsisV, FaPlusCircle } from "react-icons/fa";
-import { Link, useParams } from "react-router-dom";
-import { TiDelete } from "react-icons/ti";
-import { useDispatch, useSelector } from "react-redux";
-import { KanbasState } from "../../store";
+import React, { useEffect, useState } from "react"
+import { FaCheckCircle, FaEllipsisV, FaPlusCircle } from "react-icons/fa"
+import { Link, useParams } from "react-router-dom"
+import { TiDelete } from "react-icons/ti"
+import { useDispatch, useSelector } from "react-redux"
+import { KanbasState } from "../../store"
 import {
   deleteAssignment,
   resetToInitialState,
   setAssignment,
   setAssignmentCourse,
-} from "./assignmentsReducer";
-function Assignments() {
-  const dispatch = useDispatch();
-  const { courseId } = useParams();
-  const assignmentList = useSelector(
-    (state: KanbasState) => state.assignmentsReducer.assignments
-  );
-  console.log("🚀 ~ Assignments ~ assignmentList:", assignmentList);
-  const assignment = useSelector(
-    (state: KanbasState) => state.assignmentsReducer.assignment
-  );
-  dispatch(setAssignmentCourse(courseId));
-  console.log("🚀 ~ Assignments ~ assignment:", assignment);
+  setAssignments,
+} from "./assignmentsReducer"
+import * as client from "./client"
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedAssignmentId, setSelectedAssignmentId] = useState(null);
+function Assignments() {
+  const dispatch = useDispatch()
+  const { courseId } = useParams()
+  const assignmentList = useSelector((state: KanbasState) => state.assignmentsReducer.assignments)
+  console.log("🚀 ~ Assignments ~ assignmentList:", assignmentList)
+  const assignment = useSelector((state: KanbasState) => state.assignmentsReducer.assignment)
+  dispatch(setAssignmentCourse(courseId))
+  console.log("🚀 ~ Assignments ~ assignment:", assignment)
+
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedAssignmentId, setSelectedAssignmentId] = useState(null)
   const openModal = (assignmentId: any) => {
-    setSelectedAssignmentId(assignmentId);
-    setIsModalOpen(true);
-  };
+    setSelectedAssignmentId(assignmentId)
+    setIsModalOpen(true)
+  }
   const closeModal = () => {
-    setIsModalOpen(false);
-  };
-  const confirmDelete = () => {
-    if (selectedAssignmentId) {
-      dispatch(deleteAssignment(selectedAssignmentId));
-      closeModal();
-    }
-  };
+    setIsModalOpen(false)
+  }
+
+  //- deleteAssignment
+  const handleDeleteAssignment = (assignmentId: any) => {
+    client.deleteAssignment(assignmentId).then((status) => {
+      dispatch(deleteAssignment(assignmentId))
+      closeModal()
+    })
+  }
+
+  useEffect(() => {
+    client.findAssignmentsForCourse(courseId || "").then(
+      (assignments) => dispatch(setAssignments(assignments)),
+      (error) => console.log(error)
+    )
+  }, [courseId])
 
   return (
     <>
@@ -45,11 +53,7 @@ function Assignments() {
         <div id="module-buttons" className="row justify-content-end ">
           <div className="container">
             <div className="d-flex">
-              <input
-                type="text"
-                className="form-control w-25 float-start "
-                placeholder="Search for Assignment"
-              />
+              <input type="text" className="form-control w-25 float-start " placeholder="Search for Assignment" />
               <div className="col">
                 <div className="float-end">
                   <button className="wd-dani-btn">+Group</button>
@@ -59,7 +63,7 @@ function Assignments() {
                       to={`/Kanbas/Courses/${courseId}/Assignments/New-Assignment`}
                       style={{ textDecoration: "none", color: "white" }}
                       onClick={() => {
-                        dispatch(resetToInitialState(courseId));
+                        dispatch(resetToInitialState(courseId))
                       }}>
                       +Assignment
                     </Link>
@@ -75,9 +79,7 @@ function Assignments() {
           <li className="list-group-item rounded-1 m-1 p-0">
             <div className="d-flex align-items-center pt-3 pb-3">
               <FaEllipsisV className="ms-2 me-2 fs-5" />{" "}
-              <div
-                className="row ms-0 me-auto wd-dani-modules-module-heading"
-                style={{ fontWeight: "bold" }}>
+              <div className="row ms-0 me-auto wd-dani-modules-module-heading" style={{ fontWeight: "bold" }}>
                 ASSIGNMENTS
               </div>
               <span className="float-end">
@@ -101,7 +103,7 @@ function Assignments() {
                         fontWeight: "bold",
                       }}
                       onClick={() => {
-                        dispatch(setAssignment(assignment));
+                        dispatch(setAssignment(assignment))
                       }}>
                       {assignment.name}
                     </Link>
@@ -111,7 +113,7 @@ function Assignments() {
                         className="ms-1 me-0 fs-4 wd-dani-modules-icon-btn"
                         style={{ color: "#a32424" }}
                         onClick={() => {
-                          openModal(assignment._id);
+                          openModal(assignment._id)
                           // dispatch(deleteAssignment(assignment._id));
                         }}
                       />
@@ -130,12 +132,7 @@ function Assignments() {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title">Confirm Removal</h5>
-                <button
-                  type="button"
-                  className="btn fs-3"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                  onClick={closeModal}>
+                <button type="button" className="btn fs-3" data-dismiss="modal" aria-label="Close" onClick={closeModal}>
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
@@ -143,16 +140,15 @@ function Assignments() {
                 <p>Are you sure you want to remove this assignment?</p>
               </div>
               <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  onClick={closeModal}>
+                <button type="button" className="btn btn-secondary" onClick={closeModal}>
                   Close
                 </button>
                 <button
                   type="button"
                   className="btn btn-danger"
-                  onClick={confirmDelete}>
+                  onClick={() => {
+                    handleDeleteAssignment(selectedAssignmentId)
+                  }}>
                   Delete
                 </button>
               </div>
@@ -161,6 +157,6 @@ function Assignments() {
         </div>
       )}
     </>
-  );
+  )
 }
-export default Assignments;
+export default Assignments

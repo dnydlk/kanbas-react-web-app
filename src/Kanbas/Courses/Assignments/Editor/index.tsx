@@ -1,35 +1,54 @@
-import { useNavigate, useParams, Link } from "react-router-dom";
-import { IoMdCheckmarkCircle } from "react-icons/io";
-import { useDispatch, useSelector } from "react-redux";
-import { KanbasState } from "../../../store";
-import {
-  addAssignment,
-  updateAssignment,
-  setAssignment,
-} from "../assignmentsReducer";
+import { useNavigate, useParams, Link } from "react-router-dom"
+import { IoMdCheckmarkCircle } from "react-icons/io"
+import { useDispatch, useSelector } from "react-redux"
+import { KanbasState } from "../../../store"
+import { addAssignment, updateAssignment, setAssignment } from "../assignmentsReducer"
+import * as client from "../client"
 
 function AssignmentEditor() {
-  const { assignmentId } = useParams();
-  console.log("🚀 ~ AssignmentEditor ~ assignmentId:", assignmentId);
-  const { courseId } = useParams();
-  const navigate = useNavigate();
-  const assignment = useSelector(
-    (state: KanbasState) => state.assignmentsReducer.assignment
-  );
-  console.log(
-    "🚀 ~ AssignmentEditor ~ assignment's Id is:\n",
-    assignment.course
-  );
+  const { assignmentId } = useParams()
+  console.log("🚀 ~ AssignmentEditor ~ assignmentId:", assignmentId)
+  const { courseId } = useParams()
+  const navigate = useNavigate()
+  const assignment = useSelector((state: KanbasState) => state.assignmentsReducer.assignment)
+  console.log("🚀 ~ AssignmentEditor ~ assignment's Id is:\n", assignment.course)
 
-  const dispatch = useDispatch();
-  const handleSave = () => {
-    if (assignmentId === "New-Assignment") {
-      dispatch(addAssignment(assignment));
-    } else {
-      dispatch(updateAssignment(assignment));
+  const dispatch = useDispatch()
+
+  //- createAssignment
+  // const handleAddAssignment = () => {
+  //   client.createAssignments(courseId, assignment).then((assignment) => {
+  //     dispatch(addAssignment(assignment))
+  //     navigate(`/Kanbas/Courses/${courseId}/Assignments`)
+  //   })
+  // }
+  const handleAddAssignment = async () => {
+    try {
+      const newAssignment = await client.createAssignments(courseId, assignment)
+      dispatch(addAssignment(newAssignment))
+      navigate(`/Kanbas/Courses/${courseId}/Assignments`)
+    } catch (error) {
+      console.log("Failed to create assignment", error)
     }
-    navigate(`/Kanbas/Courses/${courseId}/Assignments`);
-  };
+  }
+
+  //- updateAssignment
+  const handleUpdateAssignment = async () => {
+    const status = await client.updateAssignment(assignment)
+    dispatch(updateAssignment(assignment))
+    navigate(`/Kanbas/Courses/${courseId}/Assignments`)
+  }
+
+  const handleSave = () => {
+    console.log("assignmentIdassignmentIdassignmentId:\n" + assignmentId)
+    console.log("assignmentassignmentassignment:\n" + assignment)
+    if (assignmentId === "New-Assignment") {
+      handleAddAssignment()
+    } else {
+      handleUpdateAssignment()
+    }
+  }
+
   return (
     <div id="assignment-editor" className="container p-2 ms-4">
       <div className="row">
@@ -54,7 +73,7 @@ function AssignmentEditor() {
         className="form-control mb-4"
         value={assignment?.name ?? ""}
         onChange={(e) => {
-          dispatch(setAssignment({ ...assignment, name: e.target.value }));
+          dispatch(setAssignment({ ...assignment, name: e.target.value }))
         }}
       />
       <div className="row">
@@ -65,16 +84,12 @@ function AssignmentEditor() {
             className="form-control"
             rows={5}
             onChange={(e) => {
-              dispatch(
-                setAssignment({ ...assignment, description: e.target.value })
-              );
+              dispatch(setAssignment({ ...assignment, description: e.target.value }))
             }}>
             {assignment?.description}
           </textarea>
           <div id="a-points" className="row mt-2 mb-4">
-            <label
-              htmlFor="points"
-              className="col-2 col-form-label text-end m-1">
+            <label htmlFor="points" className="col-2 col-form-label text-end m-1">
               Points
             </label>
             {/*//- A-points */}
@@ -85,17 +100,13 @@ function AssignmentEditor() {
                 id="points"
                 value={assignment.points}
                 onChange={(e) => {
-                  dispatch(
-                    setAssignment({ ...assignment, points: e.target.value })
-                  );
+                  dispatch(setAssignment({ ...assignment, points: e.target.value }))
                 }}
               />
             </div>
           </div>
           <div className="row mt-2 mb-4">
-            <label
-              htmlFor="assignment-group"
-              className="col-2 col-form-label text-end m-1">
+            <label htmlFor="assignment-group" className="col-2 col-form-label text-end m-1">
               Assignment Group
             </label>
             <div className="col-8 m-1">
@@ -108,9 +119,7 @@ function AssignmentEditor() {
             </div>
           </div>
           <div className="row mt-2 mb-4">
-            <label
-              htmlFor="display-grade-as"
-              className="col-2 col-form-label text-end m-1">
+            <label htmlFor="display-grade-as" className="col-2 col-form-label text-end m-1">
               Display Grade as
             </label>
             <div className="col-8 m-1">
@@ -127,23 +136,17 @@ function AssignmentEditor() {
             <div className="col-8 m-1">
               <div className="form-check">
                 <input className="form-check-input" type="checkbox" />
-                <label className="form-check-label">
-                  Do not count this assignment towards the final grade
-                </label>
+                <label className="form-check-label">Do not count this assignment towards the final grade</label>
               </div>
             </div>
           </div>
           <div className="row mt-2 mb-4">
-            <label
-              htmlFor="display-grade-as"
-              className="col-2 col-form-label text-end m-1">
+            <label htmlFor="display-grade-as" className="col-2 col-form-label text-end m-1">
               Assign
             </label>
             <div className="col-8 m-1 border border-light-subtle rounded">
               {/* <!-- * assign to --> */}
-              <label
-                htmlFor="assigne-to"
-                className="row col-form-label ms-1 me-1 mt-1">
+              <label htmlFor="assigne-to" className="row col-form-label ms-1 me-1 mt-1">
                 Assign to
               </label>
               <div className="row ms-1 me-1 mb-2">
@@ -154,9 +157,7 @@ function AssignmentEditor() {
                   value="Everyone"
                 />
               </div>
-              <label
-                htmlFor="duedate"
-                className="row col-form-label ms-1 me-1 mt-1">
+              <label htmlFor="duedate" className="row col-form-label ms-1 me-1 mt-1">
                 Due
               </label>
               {/*//- Due */}
@@ -167,9 +168,7 @@ function AssignmentEditor() {
                   id="assignment-name"
                   value={assignment.dueDate}
                   onChange={(e) => {
-                    dispatch(
-                      setAssignment({ ...assignment, dueDate: e.target.value })
-                    );
+                    dispatch(setAssignment({ ...assignment, dueDate: e.target.value }))
                   }}
                 />
               </div>
@@ -195,7 +194,7 @@ function AssignmentEditor() {
                           ...assignment,
                           availableFromDate: e.target.value,
                         })
-                      );
+                      )
                     }}
                   />
                 </div>
@@ -212,7 +211,7 @@ function AssignmentEditor() {
                           ...assignment,
                           availableUntilDate: e.target.value,
                         })
-                      );
+                      )
                     }}
                   />
                   <br />
@@ -230,22 +229,16 @@ function AssignmentEditor() {
             <div className="col">
               <div className="form-check">
                 <input className="form-check-input" type="checkbox" />
-                <label className="form-check-label">
-                  Notify users that this content has changed
-                </label>
+                <label className="form-check-label">Notify users that this content has changed</label>
               </div>
             </div>
             <div className="col-auto text-end p-0">
-              <Link
-                to={`/Kanbas/Courses/${courseId}/Assignments`}
-                className="wd-dani-btn float-end">
+              <Link to={`/Kanbas/Courses/${courseId}/Assignments`} className="wd-dani-btn float-end">
                 Cancel
               </Link>
             </div>
             <div className="col-auto float-end p-0">
-              <button
-                onClick={handleSave}
-                className="wd-dani-btn-red ms-2 float-end">
+              <button onClick={handleSave} className="wd-dani-btn-red ms-2 float-end">
                 Save
               </button>
             </div>
@@ -253,6 +246,6 @@ function AssignmentEditor() {
         </div>
       </div>
     </div>
-  );
+  )
 }
-export default AssignmentEditor;
+export default AssignmentEditor

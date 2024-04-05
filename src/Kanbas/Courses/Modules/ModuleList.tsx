@@ -8,15 +8,17 @@ import { useParams } from "react-router"
 import { BsThreeDotsVertical } from "react-icons/bs"
 import { useDispatch, useSelector } from "react-redux"
 import { KanbasState } from "../../store"
-import { addModule, deleteModule, setModule, setModuleCourse, updateModule } from "./modulesReducer"
+import { addModule, deleteModule, setModule, setModuleCourse, updateModule, setModules } from "./modulesReducer"
+import * as client from "./client"
 import axios from "axios"
+
 function ModuleList() {
   const { courseId } = useParams()
   const [isAddModuleFormVisible, setIsAddModuleFormVisible] = useState(true)
   const dispatch = useDispatch()
   const moduleList = useSelector((state: KanbasState) => state.modulesReducer.modules)
   const module = useSelector((state: KanbasState) => state.modulesReducer.module)
-  dispatch(setModuleCourse(courseId))
+  dispatch(setModuleCourse(courseId ?? ""))
   console.log("🚀 ~ module:", module)
   const [expandedModules, setExpandedModules] = useState(new Set<string>())
 
@@ -74,14 +76,52 @@ function ModuleList() {
 
   const [course, setCourse] = useState<any>({ _id: "" })
 
+  // useEffect(() => {
+  //   client.findModulesForCourse(courseId || "").then(
+  //     (modules) => dispatch(setModules(modules)),
+  //     (error) => console.log(error)
+  //   )
+  // }, [courseId])
   useEffect(() => {
-    findCourseById(courseId)
-  }, [])
+    const fetchModules = async () => {
+      const modules = await client.findModulesForCourse(courseId || "")
+      dispatch(setModules(modules))
+    }
+
+    fetchModules()
+  }, [courseId, dispatch, moduleList.length]) // Dependency on moduleList.length ensures fetch after add/delete
 
   //- findCourseById
-  const findCourseById = async (courseId?: string) => {
+  const findCourseById = async (courseId: string) => {
     const response = await axios.get(`${COURSES_API}/${courseId}`)
     setCourse(response.data)
+  }
+
+  //- createModule
+  // const handleAddModule = () => {
+  //   client.createModule(courseId, module).then((module) => dispatch(addModule(module)))
+  // }
+  const handleAddModule = async () => {
+    try {
+      const newModule = await client.createModule(courseId, module)
+      dispatch(addModule(newModule))
+    } catch (error) {
+      console.error("Failed to add module:", error)
+      // Handle failure (optional: implement rollback if using optimistic updates)
+    }
+  }
+
+  //- deleteModule
+  const handleDeleteModule = (moduleId: string) => {
+    client.deleteModule(moduleId).then((status) => {
+      dispatch(deleteModule(moduleId))
+    })
+  }
+
+  //- updateModule
+  const handleUpdateModule = async () => {
+    const status = await client.updateModule(module)
+    dispatch(updateModule(module))
   }
 
   return (
@@ -153,7 +193,8 @@ function ModuleList() {
                   style={{ backgroundColor: "#a32424" }}
                   onClick={() => {
                     // addModule(module);
-                    dispatch(addModule(module))
+                    // dispatch(addModule(module))
+                    handleAddModule()
                   }}>
                   Add
                 </button>
@@ -161,7 +202,8 @@ function ModuleList() {
                   className="btn btn-success m-1"
                   onClick={() => {
                     // updateModule(module);
-                    dispatch(updateModule(module))
+                    // dispatch(updateModule(module))
+                    handleUpdateModule()
                   }}>
                   Update
                 </button>
@@ -189,18 +231,17 @@ function ModuleList() {
                   <FaCheckCircle className="text-success ms-1 me-2" />
                   <FaPlusCircle className="ms-1 me-1" />
                   {/* //- Delete button */}
-                  ;<TiDelete
+                  <TiDelete
                     className="ms-1 me-0 fs-4 wd-dani-modules-icon-btn"
                     style={{ color: "#a32424" }}
                     onClick={() => {
                       // deleteModule(module._id);
-                      dispatch(deleteModule(module._id))
+                      // dispatch(deleteModule(module._id))
+                      handleDeleteModule(module._id)
                     }}
                   />
-                  {
-                    /* //- Edit button */
-                  }
-                  ;<RiEditCircleFill
+                  {/* //- Edit button */}
+                  <RiEditCircleFill
                     className="text-success ms-1 me-1 fs-5 wd-dani-modules-icon-btn"
                     style={{ color: "#a32424" }}
                     onClick={() => {

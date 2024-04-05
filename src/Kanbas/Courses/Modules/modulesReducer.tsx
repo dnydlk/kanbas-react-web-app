@@ -1,0 +1,56 @@
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+// import { modules } from "../../Database";
+
+interface Module {
+  _id: string
+  name: string
+  description: string
+  course: string
+}
+
+const initialState = {
+  modules: [] as Module[],
+  module: {
+    _id: "0",
+    name: "New Module",
+    description: "New Description",
+    course: "",
+  },
+}
+
+const modulesSlice = createSlice({
+  name: "modules",
+  initialState,
+  reducers: {
+    setModules: (state, action) => {
+      state.modules = action.payload
+    },
+    addModule: (state, action) => {
+      state.modules = [
+        {
+          ...action.payload,
+          _id: new Date().getTime().toString(),
+          lessons: [],
+        },
+        ...state.modules,
+      ]
+    },
+    deleteModule: (state, action) => {
+      state.modules = state.modules.filter((module) => module._id !== action.payload)
+    },
+    updateModule: (state, action) => {
+      state.modules = state.modules.map((module) =>
+        module._id === action.payload._id ? { ...module, ...action.payload } : module
+      )
+    },
+    setModule: (state, action) => {
+      state.module = action.payload
+    },
+    setModuleCourse: (state, action) => {
+      state.module.course = action.payload
+    },
+  },
+})
+
+export const { addModule, deleteModule, updateModule, setModule, setModuleCourse, setModules } = modulesSlice.actions
+export default modulesSlice.reducer
