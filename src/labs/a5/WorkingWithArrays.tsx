@@ -1,8 +1,10 @@
 import axios, { AxiosError } from "axios"
 import { useEffect, useState } from "react"
 
+const API_BASE = process.env.REACT_APP_API_BASE
+
 const WorkingWithArrays = () => {
-  const TODOS_URL = "http://localhost:4000/a5/todos"
+  const TODOS_URL = `${API_BASE}/a5/todos`
 
   const [todo, setTodo] = useState({
     id: 1,
