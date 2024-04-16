@@ -6,22 +6,15 @@ import { addAssignment, updateAssignment, setAssignment } from "../assignmentsRe
 import * as client from "../client"
 
 function AssignmentEditor() {
-  const { assignmentId } = useParams()
-  console.log("🚀 ~ AssignmentEditor ~ assignmentId:", assignmentId)
   const { courseId } = useParams()
+  const { assignmentId } = useParams()
   const navigate = useNavigate()
+  console.log("🚀 ~ AssignmentEditor ~ assignmentId:\ns", assignmentId)
   const assignment = useSelector((state: KanbasState) => state.assignmentsReducer.assignment)
-  console.log("🚀 ~ AssignmentEditor ~ assignment's Id is:\n", assignment.course)
-
+  console.log("🚀 ~ AssignmentEditor ~ assignment's course Id is:\n", assignment.course)
   const dispatch = useDispatch()
 
   //- createAssignment
-  // const handleAddAssignment = () => {
-  //   client.createAssignments(courseId, assignment).then((assignment) => {
-  //     dispatch(addAssignment(assignment))
-  //     navigate(`/Kanbas/Courses/${courseId}/Assignments`)
-  //   })
-  // }
   const handleAddAssignment = async () => {
     try {
       const newAssignment = await client.createAssignments(courseId, assignment)
@@ -81,15 +74,12 @@ function AssignmentEditor() {
             id="a-description"
             className="form-control"
             rows={5}
+            value={assignment?.description ?? ""}
             onChange={(e) => {
               dispatch(setAssignment({ ...assignment, description: e.target.value }))
-            }}>
-            {assignment?.description}
-          </textarea>
+            }}></textarea>
           <div id="a-points" className="row mt-2 mb-4">
-            <label htmlFor="points" className="col-2 col-form-label text-end m-1">
-              Points
-            </label>
+            <label className="col-2 col-form-label text-end m-1">Points</label>
             {/*//- A-points */}
             <div className="col-8 m-1">
               <input
@@ -104,9 +94,7 @@ function AssignmentEditor() {
             </div>
           </div>
           <div className="row mt-2 mb-4">
-            <label htmlFor="assignment-group" className="col-2 col-form-label text-end m-1">
-              Assignment Group
-            </label>
+            <label className="col-2 col-form-label text-end m-1">Assignment Group</label>
             <div className="col-8 m-1">
               <select id="assignment-group" className="form-control">
                 <option>ASSIGNMENT</option>
@@ -117,9 +105,7 @@ function AssignmentEditor() {
             </div>
           </div>
           <div className="row mt-2 mb-4">
-            <label htmlFor="display-grade-as" className="col-2 col-form-label text-end m-1">
-              Display Grade as
-            </label>
+            <label className="col-2 col-form-label text-end m-1">Display Grade as</label>
             <div className="col-8 m-1">
               <select id="display-grade-as" className="form-control">
                 <option>Percentage</option>
@@ -139,25 +125,20 @@ function AssignmentEditor() {
             </div>
           </div>
           <div className="row mt-2 mb-4">
-            <label htmlFor="display-grade-as" className="col-2 col-form-label text-end m-1">
-              Assign
-            </label>
+            <label className="col-2 col-form-label text-end m-1">Assign</label>
             <div className="col-8 m-1 border border-light-subtle rounded">
               {/* <!-- * assign to --> */}
-              <label htmlFor="assigne-to" className="row col-form-label ms-1 me-1 mt-1">
-                Assign to
-              </label>
+              <label className="row col-form-label ms-1 me-1 mt-1">Assign to</label>
               <div className="row ms-1 me-1 mb-2">
                 <input
                   type="text"
-                  className="assigne-to border border-light-subtle rounded p-2"
+                  className=" border border-light-subtle rounded p-2"
                   id="assignment-name"
                   value="Everyone"
+                  readOnly
                 />
               </div>
-              <label htmlFor="duedate" className="row col-form-label ms-1 me-1 mt-1">
-                Due
-              </label>
+              <label className="row col-form-label ms-1 me-1 mt-1">Due</label>
               {/*//- Due */}
               <div className="row ms-1 me-1 mb-2">
                 <input
@@ -172,10 +153,10 @@ function AssignmentEditor() {
               </div>
               <div className="row ms-1 me-1 mb-2">
                 <div className="col">
-                  <label htmlFor="available-from">Available from</label>
+                  <label>Available from</label>
                 </div>
                 <div className="col">
-                  <label htmlFor="until">Until</label>
+                  <label>Until</label>
                 </div>
               </div>
               <div className="row ms-1 me-1 mb-2">
@@ -183,7 +164,7 @@ function AssignmentEditor() {
                   {/*//- Available from */}
                   <input
                     type="date"
-                    className="form-control assigne-to p-2"
+                    className="form-control  p-2"
                     id="available-from"
                     value={assignment.availableFromDate}
                     onChange={(e) => {
@@ -200,7 +181,7 @@ function AssignmentEditor() {
                   {/*//- Available until */}
                   <input
                     type="date"
-                    className="form-control assigne-to p-2"
+                    className="form-control  p-2"
                     id="until"
                     value={assignment.availableUntilDate}
                     onChange={(e) => {

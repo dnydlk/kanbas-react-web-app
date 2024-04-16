@@ -8,7 +8,8 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  color: #28343c;
+  /* color: #28343c; */
+  color: var(--kanbas-text-color-dark)
 }
 body * {
   font-family: Arial, Helvetica, sans-serif;
@@ -18,6 +19,8 @@ body * {
   --navigation-width: 20px;
   --main-content-margin-top: 20px;
   --main-content-padding-right: 20px;
+  --kanbas-text-color-dark: #2D3B45;
+  /* --kanbas-text-color-red:  */
 }
 
 #kanbas > .main-content {

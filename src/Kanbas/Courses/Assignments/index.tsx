@@ -14,14 +14,11 @@ import {
 import * as client from "./client"
 
 function Assignments() {
-  const dispatch = useDispatch()
   const { courseId } = useParams()
   const assignmentList = useSelector((state: KanbasState) => state.assignmentsReducer.assignments)
-  console.log("🚀 ~ Assignments ~ assignmentList:", assignmentList)
-  const assignment = useSelector((state: KanbasState) => state.assignmentsReducer.assignment)
-  dispatch(setAssignmentCourse(courseId))
-  console.log("🚀 ~ Assignments ~ assignment:", assignment)
+  const dispatch = useDispatch()
 
+  // Functions for toggling module visibility
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedAssignmentId, setSelectedAssignmentId] = useState(null)
   const openModal = (assignmentId: any) => {
@@ -32,6 +29,16 @@ function Assignments() {
     setIsModalOpen(false)
   }
 
+  const refreshAssignments = async () => {
+    const assignments = await client.findAssignmentsForCourse(courseId || "")
+    dispatch(setAssignments(assignments))
+  }
+
+  useEffect(() => {
+    refreshAssignments()
+    dispatch(setAssignmentCourse(courseId || ""))
+  }, [courseId])
+
   //- deleteAssignment
   const handleDeleteAssignment = (assignmentId: any) => {
     client.deleteAssignment(assignmentId).then((status) => {
@@ -39,13 +46,6 @@ function Assignments() {
       closeModal()
     })
   }
-
-  useEffect(() => {
-    client.findAssignmentsForCourse(courseId || "").then(
-      (assignments) => dispatch(setAssignments(assignments)),
-      (error) => console.log(error)
-    )
-  }, [courseId])
 
   return (
     <>
@@ -92,7 +92,7 @@ function Assignments() {
               {assignmentList
                 .filter((assignment) => assignment.course === courseId)
                 .map((assignment) => (
-                  <li className="list-group-item d-flex align-items-center">
+                  <li key={assignment._id} className="list-group-item d-flex align-items-center">
                     <FaEllipsisV className="me-2 ms-2" />
                     <Link
                       to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}

@@ -1,29 +1,27 @@
-import { useEffect, useState } from "react"
 import "./index.css"
-import { modules } from "../../Database"
-import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from "react-icons/fa"
-import { TiDelete } from "react-icons/ti"
-import { RiEditCircleFill } from "react-icons/ri"
 import { useParams } from "react-router"
-import { BsThreeDotsVertical } from "react-icons/bs"
-import { useDispatch, useSelector } from "react-redux"
 import { KanbasState } from "../../store"
+import { useEffect, useState } from "react"
 import { addModule, deleteModule, setModule, setModuleCourse, updateModule, setModules } from "./modulesReducer"
 import * as client from "./client"
-import axios from "axios"
-
-const API_BASE = process.env.REACT_APP_API_BASE
+import { TiDelete } from "react-icons/ti"
+import { RiEditCircleFill } from "react-icons/ri"
+import { BsThreeDotsVertical } from "react-icons/bs"
+import { useDispatch, useSelector } from "react-redux"
+import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from "react-icons/fa"
 
 function ModuleList() {
   const { courseId } = useParams()
-  const [isAddModuleFormVisible, setIsAddModuleFormVisible] = useState(true)
-  const dispatch = useDispatch()
-  const moduleList = useSelector((state: KanbasState) => state.modulesReducer.modules)
-  const module = useSelector((state: KanbasState) => state.modulesReducer.module)
-  dispatch(setModuleCourse(courseId ?? ""))
-  console.log("🚀 ~ module:", module)
-  const [expandedModules, setExpandedModules] = useState(new Set<string>())
 
+  const moduleList = useSelector((state: KanbasState) => state.modulesReducer.modules)
+
+  const module = useSelector((state: KanbasState) => state.modulesReducer.module)
+
+  const dispatch = useDispatch()
+
+  // Functions for toggling module visibility
+  const [isAddModuleFormVisible, setIsAddModuleFormVisible] = useState(true)
+  const [expandedModules, setExpandedModules] = useState(new Set<string>())
   const toggleModule = (moduleId: string) => {
     setExpandedModules((prevExpandedModules) => {
       const newExpandedModules = new Set(prevExpandedModules)
@@ -35,82 +33,37 @@ function ModuleList() {
       return newExpandedModules
     })
   }
-
   const collapseAll = () => {
     setExpandedModules(new Set())
   }
-
   const expandAll = () => {
-    const allModuleIds = new Set(modules.map((module) => module._id))
+    const allModuleIds = new Set(moduleList.map((module) => module._id))
     setExpandedModules(allModuleIds)
   }
 
-  // const addModule = (module: any) => {
-  //   const newModule = {
-  //     ...module,
-  //     _id: new Date().getTime().toString(),
-  //     lessons: [],
-  //   };
-  //   const newModuleList = [newModule, ...moduleList];
-  //   setModuleList(newModuleList);
-  // };
-
-  // const deleteModule = (moduleId: string) => {
-  //   const newModuleList = moduleList.filter(
-  //     (module) => module._id !== moduleId
-  //   );
-  //   setModuleList(newModuleList);
-  // };
-
-  // const updateModule = (updatedModule: any) => {
-  //   const newModuleList = moduleList.map((m) => {
-  //     if (m._id === updatedModule._id) {
-  //       // return module; //* backup
-  //       return { ...m, ...updatedModule, lessons: m.lessons };
-  //     } else {
-  //       return m;
-  //     }
-  //   });
-  //   setModuleList(newModuleList);
-  // };
-
-  // const COURSES_API = "http://localhost:4000/api/courses"
-  // const COURSES_API = "https://kanbas-node-server-app-wngf.onrender.com/api/courses"
-  const COURSES_API = `${API_BASE}/api/courses`
-
-  const [course, setCourse] = useState<any>({ _id: "" })
-
-  // useEffect(() => {
-  //   client.findModulesForCourse(courseId || "").then(
-  //     (modules) => dispatch(setModules(modules)),
-  //     (error) => console.log(error)
-  //   )
-  // }, [courseId])
-  useEffect(() => {
-    const fetchModules = async () => {
-      const modules = await client.findModulesForCourse(courseId || "")
-      dispatch(setModules(modules))
-    }
-    fetchModules()
-  }, [courseId, dispatch, moduleList.length])
-
-  //- findCourseById
-  const findCourseById = async (courseId: string) => {
-    const response = await axios.get(`${COURSES_API}/${courseId}`)
-    setCourse(response.data)
+  const refreshModules = async () => {
+    const modules = await client.findModulesForCourse(courseId || "")
+    dispatch(setModules(modules))
   }
 
-  //- createModule
-  // const handleAddModule = () => {
-  //   client.createModule(courseId, module).then((module) => dispatch(addModule(module)))
+  useEffect(() => {
+    refreshModules()
+    dispatch(setModuleCourse(courseId || ""))
+  }, [courseId, dispatch, moduleList.length])
+
+  //// findCourseById
+  // const findCourseById = async (courseId: string) => {
+  //   const response = await axios.get(`${COURSES_API}/${courseId}`)
+  //   setCourse(response.data)
   // }
+
+  //- createModule
   const handleAddModule = async () => {
     try {
       const newModule = await client.createModule(courseId, module)
       dispatch(addModule(newModule))
     } catch (error) {
       console.error("Failed to add module:", error)
-      // Handle failure (optional: implement rollback if using optimistic updates)
     }
   }
 
@@ -165,9 +118,9 @@ function ModuleList() {
         </div>
       </div>
       <hr />
-      {/* <pre>
-        <code>{JSON.stringify(modulesList, null, 2)}</code>
-      </pre> */}
+      <pre>
+        <code>{JSON.stringify(module, null, 2)}</code>
+      </pre>
       <div id="add-module-form">
         {isAddModuleFormVisible && (
           <div className="container">
@@ -176,18 +129,12 @@ function ModuleList() {
                 <input
                   className="form-control m-1 me-auto"
                   value={module.name}
-                  onChange={(e) =>
-                    // setModule({ ...module, name: e.target.value })
-                    dispatch(setModule({ ...module, name: e.target.value }))
-                  }
+                  onChange={(e) => dispatch(setModule({ ...module, name: e.target.value }))}
                 />
                 <textarea
                   className="form-control m-1"
                   value={module.description}
-                  onChange={(e) =>
-                    // setModule({ ...module, description: e.target.value })
-                    dispatch(setModule({ ...module, description: e.target.value }))
-                  }
+                  onChange={(e) => dispatch(setModule({ ...module, description: e.target.value }))}
                 />
               </div>
               <div className="col">
@@ -195,8 +142,6 @@ function ModuleList() {
                   className="btn btn-danger m-1"
                   style={{ backgroundColor: "#a32424" }}
                   onClick={() => {
-                    // addModule(module);
-                    // dispatch(addModule(module))
                     handleAddModule()
                   }}>
                   Add
@@ -204,8 +149,6 @@ function ModuleList() {
                 <button
                   className="btn btn-success m-1"
                   onClick={() => {
-                    // updateModule(module);
-                    // dispatch(updateModule(module))
                     handleUpdateModule()
                   }}>
                   Update
@@ -238,8 +181,6 @@ function ModuleList() {
                     className="ms-1 me-0 fs-4 wd-dani-modules-icon-btn"
                     style={{ color: "#a32424" }}
                     onClick={() => {
-                      // deleteModule(module._id);
-                      // dispatch(deleteModule(module._id))
                       handleDeleteModule(module._id)
                     }}
                   />
@@ -248,7 +189,6 @@ function ModuleList() {
                     className="text-success ms-1 me-1 fs-5 wd-dani-modules-icon-btn"
                     style={{ color: "#a32424" }}
                     onClick={() => {
-                      // setModule(module);
                       dispatch(setModule(module))
                     }}
                   />
@@ -257,7 +197,6 @@ function ModuleList() {
               </div>
               {expandedModules.has(module._id) && (
                 <ul className="list-group rounded-0">
-                  {/* {module.lessons?.map((lesson, lessonIndex) => ( */}
                   {module.lessons?.map((lesson: any, lessonIndex: any) => (
                     <li key={lessonIndex} className="list-group-item">
                       <FaEllipsisV className="me-2 ms-2" />

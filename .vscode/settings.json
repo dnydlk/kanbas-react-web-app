@@ -1,14 +1,5 @@
 {
-  "cSpell.words": [
-    "Azkaban",
-    "dropend",
-    "Herbology",
-    "Kanbas",
-    "reduxjs",
-    "SCIFI",
-    "todos",
-    "Unpublish"
-  ],
+  "cSpell.words": ["Azkaban", "dropend", "Herbology", "Kanbas", "reduxjs", "SCIFI", "signin", "Signout", "Signup", "todos", "Unpublish"],
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#04566f",
     "activityBar.background": "#04566f",

@@ -1,98 +1,146 @@
-import { Link } from "react-router-dom";
-import "../styles.css";
-import { FaPlus } from "react-icons/fa";
+import { Link } from "react-router-dom"
+import "../styles.css"
+import { FaPlus } from "react-icons/fa"
+import { useSelector, useDispatch } from "react-redux"
+import { KanbasState } from "../store"
+import { addCourse, deleteCourse, updateCourse, setCourse, setCourses } from "./coursesReducer"
+import { useEffect } from "react"
+import * as client from "./client"
 
-interface Course {
-  _id: string;
-  name: string;
-  number: string;
-  startDate: string;
-  endDate: string;
-  image: string;
-}
+function Dashboard() {
+  const courseList = useSelector((state: KanbasState) => state.coursesReducer.courses)
 
-interface DashboardProps {
-  courses: Course[];
-  course: Course;
-  setCourse: (course: Course) => void;
-  addNewCourse: () => void;
-  deleteCourse: (courseId: string) => void;
-  updateCourse: () => void;
-}
+  const course = useSelector((state: KanbasState) => state.coursesReducer.course)
 
-function Dashboard({
-  courses,
-  course,
-  setCourse,
-  addNewCourse,
-  deleteCourse,
-  updateCourse,
-}: DashboardProps) {
-  const editCourse = (courseId: string) => {
-    const courseToEdit = courses.filter((course) => course._id === courseId);
-    setCourse(courseToEdit[0]);
-  };
+  const dispatch = useDispatch()
+
+  const refreshCourses = async () => {
+    const courses = await client.findAllCourses()
+    dispatch(setCourses(courses))
+  }
+
+  useEffect(() => {
+    refreshCourses()
+  }, [dispatch])
+
+  //- createCourse
+  const handleCreateCourse = async () => {
+    try {
+      const newCourse = await client.addNewCourse(course)
+      dispatch(addCourse(newCourse))
+      refreshCourses()
+    } catch (error) {
+      console.log("Failed to create course", error)
+    }
+  }
+
+  //- updateCourse
+  const handleUpdateCourse = async () => {
+    try {
+      const updatedCourse = await client.updateCourse(course)
+      dispatch(updateCourse(updatedCourse))
+      refreshCourses()
+    } catch (error) {
+      console.log("Failed to update course", error)
+    }
+  }
+
+  //- deleteCourse
+  const handleDeleteCourse = async (courseId: string) => {
+    try {
+      await client.deleteCourse(courseId)
+      dispatch(deleteCourse(courseId))
+      refreshCourses()
+    } catch (error) {
+      console.log("Failed to delete course", error)
+    }
+  }
 
   return (
     <div id="dashboard">
       <h1>Dashboard</h1> <hr />
-      <h2 className="me-auto">Published Courses ({courses.length})</h2>
+      <h2 className="me-auto">Published Courses ({courseList.length})</h2>
       <hr className="m-0 mt-2 mb-3" />
       <h5>Course</h5>
+      {/* course: {JSON.stringify(course)} */}
       <div className="container-fluid m-0 p-0">
         <div className="row">
           <div className="col">
+            <label>Course Name</label>
             <input
               type="text"
               value={course.name}
               className="form-control"
-              onChange={(e) => setCourse({ ...course, name: e.target.value })}
+              onChange={(e) => dispatch(setCourse({ ...course, name: e.target.value }))}
             />
+            <label>Course Number</label>
             <input
               type="text"
               value={course.number}
               className="form-control"
               onChange={(e) =>
-                setCourse({
-                  ...course,
-                  number: e.target.value,
-                })
+                dispatch(
+                  setCourse({
+                    ...course,
+                    number: e.target.value,
+                  })
+                )
               }
             />
+            <label>startDate</label>
             <input
               typeof="date"
               value={course.startDate}
               className="form-control"
               type="date"
               onChange={(e) =>
-                setCourse({
-                  ...course,
-                  startDate: e.target.value,
-                })
+                dispatch(
+                  setCourse({
+                    ...course,
+                    startDate: e.target.value,
+                  })
+                )
               }
             />
+            <label>endDate</label>
             <input
               typeof="date"
               value={course.endDate}
               className="form-control"
               type="date"
               onChange={(e) =>
-                setCourse({
-                  ...course,
-                  endDate: e.target.value,
-                })
+                dispatch(
+                  setCourse({
+                    ...course,
+                    endDate: e.target.value,
+                  })
+                )
               }
+            />
+            <label>Credit</label>
+            <input
+              type="number"
+              value={course.credit}
+              className="form-control w-100"
+              onChange={(e) => dispatch(setCourse({ ...course, credit: e.target.value }))}
             />
           </div>
           <div className="col">
-            <button onClick={addNewCourse} className="wd-dani-btn-red mt-1">
+            {/* <button onClick={addNewCourse} className="wd-dani-btn-red mt-1"> */}
+            <button
+              onClick={() => {
+                // dispatch(addCourse(course))
+                handleCreateCourse()
+              }}
+              className="wd-dani-btn-red mt-1">
               <FaPlus /> Add
             </button>
             <button
               className="wd-dani-btn-red bg-success mt-1"
               onClick={(event) => {
-                event.preventDefault();
-                updateCourse();
+                event.preventDefault()
+                // dispatch(updateCourse(course))
+                handleUpdateCourse()
               }}>
               Update
             </button>
@@ -101,12 +149,12 @@ function Dashboard({
       </div>
       <div className="row justify-content-center mt-1">
         <div className="row row-cols-1 g-4 ">
-          {courses.map((course) => (
-            <div key={course._id} className="col" style={{ width: "300px" }}>
+          {courseList.map((course) => (
+            <div key={course._id + course.name} className="col" style={{ width: "300px" }}>
               <div className="card">
                 <img
-                  src={`./images/${course.image}`}
-                  alt={`${course.image.toString()}`}
+                  src={`./images/${course.image || "C00.jpg"}`}
+                  // alt={`${course.image.toString()}`}
                   className="card-img-top"
                   style={{ height: "150px" }}
                 />
@@ -129,16 +177,18 @@ function Dashboard({
                   </Link>
                   <button
                     onClick={(event) => {
-                      event.preventDefault();
-                      editCourse(course._id);
+                      event.preventDefault()
+                      // editCourse(course._id)
+                      dispatch(setCourse(course))
                     }}
                     className="btn btn-success ms-1 me-1">
                     Edit
                   </button>
                   <button
                     onClick={(event) => {
-                      event.preventDefault();
-                      deleteCourse(course._id);
+                      event.preventDefault()
+                      // dispatch(deleteCourse(course._id))
+                      handleDeleteCourse(course._id)
                     }}
                     className="btn btn-danger"
                     style={{ backgroundColor: "#a32424" }}>
@@ -151,6 +201,6 @@ function Dashboard({
         </div>
       </div>
     </div>
-  );
+  )
 }
-export default Dashboard;
+export default Dashboard

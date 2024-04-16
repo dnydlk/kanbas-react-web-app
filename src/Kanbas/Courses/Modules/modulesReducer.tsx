@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit"
 // import { modules } from "../../Database";
 
 interface Module {
@@ -27,12 +27,12 @@ const modulesSlice = createSlice({
     },
     addModule: (state, action) => {
       state.modules = [
+        ...state.modules,
         {
           ...action.payload,
           _id: new Date().getTime().toString(),
           lessons: [],
         },
-        ...state.modules,
       ]
     },
     deleteModule: (state, action) => {
