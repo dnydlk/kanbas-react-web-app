@@ -118,9 +118,9 @@ function ModuleList() {
         </div>
       </div>
       <hr />
-      <pre>
+      {/* <pre>
         <code>{JSON.stringify(module, null, 2)}</code>
-      </pre>
+      </pre> */}
       <div id="add-module-form">
         {isAddModuleFormVisible && (
           <div className="container">
