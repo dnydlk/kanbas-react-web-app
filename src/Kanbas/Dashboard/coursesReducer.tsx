@@ -15,12 +15,13 @@ const initialState = {
   courses: [] as Course[],
   course: {
     _id: "",
-    name: "New Course",
+    name: "Course Name",
     number: "HP0001",
-    startDate: "2023-09-10",
-    endDate: "2023-12-15",
+    startDate: "2024-09-10",
+    endDate: "2024-12-15",
     credit: 4,
-    description: "New Description",
+    description: "Course Description",
+    author: "Author",
     image: "C00.jpg",
   },
 }
@@ -37,7 +38,6 @@ const coursesSlice = createSlice({
         ...state.courses,
         {
           ...action.payload,
-          // _id: new Date().getTime().toString(),
         },
       ]
     },

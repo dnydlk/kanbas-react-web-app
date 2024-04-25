@@ -1,6 +1,9 @@
 import * as client from "./client"
 import { useState, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { setCurrentUser } from "./userReducer"
+import CurrentUser from "./CurrentUser"
 
 export default function Profile() {
   const [profile, setProfile] = useState({
@@ -10,18 +13,21 @@ export default function Profile() {
     lastName: "",
     email: "",
     dob: "",
-    role: "USER",
+    role: "",
   })
   const [updateMessage, setUpdateMessage] = useState("")
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const fetchProfile = async () => {
+  const fetchCurrentUserProfile = async () => {
     try {
-      const account = await client.profile()
-      console.log("🚀 ~ fetchProfile ~ account:", account)
-      setProfile(account)
+      const user = await client.profile()
+      // console.log("🚀 ~ fetchProfile ~ user:", user)
+      setProfile(user)
+      dispatch(setCurrentUser(user))
     } catch (error: any) {
       console.error("Error fetching profile", error)
+      dispatch(setCurrentUser(null))
       if (error.response && error.response.status === 401) {
         console.error("Authentication error: User not authorized")
         openModal()
@@ -33,17 +39,18 @@ export default function Profile() {
 
   const handleSaveProfile = async () => {
     await client.updateUser(profile)
-    fetchProfile()
+    fetchCurrentUserProfile()
     setUpdateMessage("Profile updated")
   }
 
   const handleSignout = async () => {
     await client.signout()
+    dispatch(setCurrentUser(null))
     navigate("/Kanbas/Account/Signin")
   }
 
   useEffect(() => {
-    fetchProfile()
+    fetchCurrentUserProfile()
   }, [])
 
   // Modal state
@@ -103,7 +110,10 @@ export default function Profile() {
             onChange={(e) => setProfile({ ...profile, email: e.target.value })}
           />
           <label>Role</label>
-          <select className="form-control m-1" onChange={(e) => setProfile({ ...profile, role: e.target.value })}>
+          <select
+            className="form-control m-1"
+            value={profile.role}
+            onChange={(e) => setProfile({ ...profile, role: e.target.value })}>
             <option value="USER">User</option>
             <option value="ADMIN">Admin</option>
             <option value="FACULTY">Faculty</option>
@@ -118,7 +128,10 @@ export default function Profile() {
           {updateMessage && <div className="alert alert-success w-100 m-1 text-center">{updateMessage}</div>}
         </div>
       )}
-      {/* Modal component */}
+      {/* <pre>
+        <code>{JSON.stringify(profile, null, 2)}</code>
+      </pre> */}
+      {/*//- Modal component */}
       {isModalOpen && (
         <div className="modal show d-block" tabIndex={-1} role="dialog">
           <div className="modal-dialog" role="document">

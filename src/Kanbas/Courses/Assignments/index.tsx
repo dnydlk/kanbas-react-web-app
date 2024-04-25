@@ -29,16 +29,6 @@ function Assignments() {
     setIsModalOpen(false)
   }
 
-  const refreshAssignments = async () => {
-    const assignments = await client.findAssignmentsForCourse(courseId || "")
-    dispatch(setAssignments(assignments))
-  }
-
-  useEffect(() => {
-    refreshAssignments()
-    dispatch(setAssignmentCourse(courseId || ""))
-  }, [courseId])
-
   //- deleteAssignment
   const handleDeleteAssignment = (assignmentId: any) => {
     client.deleteAssignment(assignmentId).then((status) => {
@@ -46,6 +36,16 @@ function Assignments() {
       closeModal()
     })
   }
+
+  const refreshAssignments = async () => {
+    const assignments = await client.findAssignmentsForCourse(courseId || "")
+    dispatch(setAssignments(assignments))
+  }
+
+  useEffect(() => {
+    dispatch(setAssignmentCourse(courseId || ""))
+    refreshAssignments()
+  }, [courseId])
 
   return (
     <>

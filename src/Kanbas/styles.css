@@ -8,7 +8,6 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  /* color: #28343c; */
   color: var(--kanbas-text-color-dark)
 }
 body * {
@@ -52,7 +51,7 @@ body * {
 }
 
 .wd-dani-btn {
-  background-color: #e8e8e8;
+  background-color: hsl(0, 0%, 91%);
   color: #28343c;
   border: 1px solid #c0c6ca;
   /* padding: 5px 20px; */
@@ -61,6 +60,14 @@ body * {
   text-decoration: none;
   border-radius: 5px;
   margin-left: 5px;
+}
+
+.wd-dani-btn:hover {
+  background-color: hsl(0, 0%, 95%);
+}
+
+.wd-dani-btn:active {
+  background-color: hsl(0, 0%, 91%);
 }
 
 .wd-dani-btn-red {
@@ -72,6 +79,33 @@ body * {
   text-decoration: none;
   border-radius: 5px;
   margin-left: 5px;
+}
+
+.wd-dani-btn-red:hover {
+  background-color: hsl(0, 64%, 44%);
+}
+
+.wd-dani-btn-red:active {
+  background-color: #a32424;
+}
+
+.wd-dani-btn-green {
+  background-color: #0b874b;
+  color: #ffffff;
+  border: 1px solid #c0c6ca;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+.wd-dani-btn-green:hover {
+  background-color: hsl(151, 85%, 32%);
+}
+
+.wd-dani-btn-green:active {
+  background-color: #0b874b;
 }
 
 p#published {
@@ -91,4 +125,12 @@ p#published {
 
 .wd-dani-color-red {
   color: #a32424;
+}
+
+.wd-dani-icon-flipped {
+  transform: scaleX(-1);
+}
+
+.wd-dani-nav-link{
+  color: var(--kanbas-text-color-dark)
 }

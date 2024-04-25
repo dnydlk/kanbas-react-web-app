@@ -7,26 +7,44 @@ import { Provider } from "react-redux"
 import store from "./store"
 import TopNav from "./Navigation/TopNav"
 import Account from "./Account"
+import CurrentUser from "../Users/CurrentUser"
+import ProtectRoute from "./ProtectedRoute"
 
 const API_BASE = process.env.REACT_APP_API_BASE
 
 function Kanbas() {
   return (
     <Provider store={store}>
-      <div id="kanbas" className="d-flex">
-        <KanbasNavigation />
-        <div className="main-content m-0 p-0" style={{ flexGrow: 1 }}>
-          <TopNav />
-          <div className="m-2 p-2">
-            <Routes>
-              <Route path="/" element={<Navigate to="Dashboard" />} />
-              <Route path="Account/*" element={<Account />} />
-              <Route path="Dashboard" element={<Dashboard />} />
-              <Route path="Courses/:courseId/*" element={<Courses />} />
-            </Routes>
+      <CurrentUser>
+        <div id="kanbas" className="d-flex">
+          <KanbasNavigation />
+          <div className="main-content m-0 p-0" style={{ flexGrow: 1 }}>
+            <TopNav />
+            <div className="m-2 p-2">
+              <Routes>
+                <Route path="/" element={<Navigate to="Dashboard" />} />
+                <Route path="Account/*" element={<Account />} />
+                <Route
+                  path="Dashboard"
+                  element={
+                    <ProtectRoute>
+                      <Dashboard />
+                    </ProtectRoute>
+                  }
+                />
+                <Route
+                  path="Courses/:courseId/*"
+                  element={
+                    <ProtectRoute>
+                      <Courses />
+                    </ProtectRoute>
+                  }
+                />
+              </Routes>
+            </div>
           </div>
         </div>
-      </div>
+      </CurrentUser>
     </Provider>
   )
 }

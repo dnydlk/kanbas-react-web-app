@@ -12,15 +12,22 @@ function Dashboard() {
 
   const course = useSelector((state: KanbasState) => state.coursesReducer.course)
 
+  const currentUser = useSelector((state: KanbasState) => state.userReducer.currentUser)
+
   const dispatch = useDispatch()
 
-  const refreshCourses = async () => {
-    const courses = await client.findAllCourses()
-    dispatch(setCourses(courses))
+  const fetchCourses = async () => {
+    if (currentUser.role !== "STUDENT") {
+      const courses = await client.getAllCoursesByAuthor()
+      dispatch(setCourses(courses))
+    } else {
+      const course = await client.getAllCoursesByStudent()
+      dispatch(setCourses(course))
+    }
   }
 
   useEffect(() => {
-    refreshCourses()
+    fetchCourses()
   }, [dispatch])
 
   //- createCourse
@@ -28,7 +35,7 @@ function Dashboard() {
     try {
       const newCourse = await client.addNewCourse(course)
       dispatch(addCourse(newCourse))
-      refreshCourses()
+      fetchCourses()
     } catch (error) {
       console.log("Failed to create course", error)
     }
@@ -39,7 +46,7 @@ function Dashboard() {
     try {
       const updatedCourse = await client.updateCourse(course)
       dispatch(updateCourse(updatedCourse))
-      refreshCourses()
+      fetchCourses()
     } catch (error) {
       console.log("Failed to update course", error)
     }
@@ -50,7 +57,7 @@ function Dashboard() {
     try {
       await client.deleteCourse(courseId)
       dispatch(deleteCourse(courseId))
-      refreshCourses()
+      fetchCourses()
     } catch (error) {
       console.log("Failed to delete course", error)
     }
@@ -59,10 +66,23 @@ function Dashboard() {
   return (
     <div id="dashboard">
       <h1>Dashboard</h1> <hr />
-      <h2 className="me-auto">Published Courses ({courseList.length})</h2>
+      <h2 className="me-auto">Courses ({courseList.length})</h2>
       <hr className="m-0 mt-2 mb-3" />
       <h5>Course</h5>
-      {/* course: {JSON.stringify(course)} */}
+      <div className=" d-flex">
+        {/* <div className=" me-2">
+          currentUser:
+          <pre>
+            <code>{JSON.stringify(currentUser, null, 2)}</code>
+          </pre>
+        </div>
+        <div className="">
+          currentCourse:
+          <pre>
+            <code>{JSON.stringify(course, null, 2)}</code>
+          </pre>
+        </div> */}
+      </div>
       <div className="container-fluid m-0 p-0">
         <div className="row">
           <div className="col">
@@ -123,6 +143,13 @@ function Dashboard() {
               value={course.credit}
               className="form-control w-100"
               onChange={(e) => dispatch(setCourse({ ...course, credit: e.target.value }))}
+            />
+            <label>Description</label>
+            <input
+              type="text"
+              value={course.description}
+              className="form-control w-100"
+              onChange={(e) => dispatch(setCourse({ ...course, description: e.target.value }))}
             />
           </div>
           <div className="col">

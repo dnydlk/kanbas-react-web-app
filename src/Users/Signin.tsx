@@ -32,6 +32,7 @@ export default function Signin() {
         console.error("An unknown error occurred:", error)
       }
     }
+    console.log("🚀 ~ signin ~ credentials:", credentials)
   }
 
   const signup = () => {
@@ -49,6 +50,11 @@ export default function Signin() {
       <input
         value={credentials.password}
         className="form-control m-2"
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            signin()
+          }
+        }}
         onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
       />
       <button className="btn btn-primary m-2 mt-1" onClick={signin}>
@@ -58,9 +64,7 @@ export default function Signin() {
       <a className="text-primary" style={{ cursor: "pointer" }} onClick={signup}>
         Signup
       </a>
-      {authenticationError && (
-        <div className="alert alert-danger m-2">Username or password is incorrect. Please try again.</div>
-      )}
+      {authenticationError && <div className="alert alert-danger m-2">{errorMsg}</div>}
     </div>
   )
 }
