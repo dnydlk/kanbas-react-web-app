@@ -1,46 +1,82 @@
-# Getting Started with Create React App
+# Kanbas: A Canvas-Inspired Learning Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Kanbas** is a full-stack web application designed as a replica of the popular learning management system, Canvas. It re-creates key functionalities such as course management, assignment handling, and interactive user interfaces, delivering an experience reminiscent of Canvas while showcasing modern web development practices.
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+- **Name:** Kanbas  
+- **Description:** Kanbas is a replica of the popular LMS Canvas. The project re-creates essential features including course management, assignment tracking, and interactive interfaces, all aimed at providing a user-friendly and robust learning experience.  
+- **Purpose:** Built to demonstrate advanced full-stack development skills, Kanbas not only mimics a leading educational platform but also serves as a hands-on project for building scalable, responsive applications with modern technologies.  
+- **Target Audience:** This project is ideal for educators, students, and developers interested in learning management systems, as well as recruiters evaluating practical web development skills.
 
-### `npm start`
+## Repository Structure
 
-Runs the app in the development mode\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This project is separated into two interconnected repositories:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. **Front-End:** [kanbas-react-web-app](https://github.com/dnydlk/kanbas-react-web-app)  
+   - **Technologies:** HTML5, CSS3, JavaScript, React.js, Redux  
+   - **Key Features:**  
+     - Interactive and dynamic UI with drag-and-drop functionality  
+     - Responsive design for optimal performance on mobile and desktop devices  
+     - Seamless integration with the backend API for real-time updates
 
-### `npm test`
+2. **Back-End:** [kanbas-node-server-app](https://github.com/dnydlk/kanbas-node-server-app)  
+   - **Technologies:** Node.js, Express, MongoDB 
+   - **Key Features:**  
+     - RESTful API endpoints for managing courses, assignments, and user data  
+     - Secure user authentication and authorization  
+     - Robust and scalable handling of concurrent requests
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Key Features & Functionality
 
-### `npm run build`
+- **User Authentication:** Secure registration and login to protect user data.  
+- **Course & Assignment Management:** Create, update, and delete courses and assignments, mimicking the Canvas experience.  
+- **Dynamic Dashboards:** Interactive interfaces providing real-time updates and a cohesive user experience.  
+- **Responsive Design:** Optimized for performance across multiple devices, ensuring accessibility on both mobile and desktop.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Challenges & Learning Highlights
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Asynchronous Programming:** Handling asynchronous operations between the client and server effectively.  
+- **State Management:** Implementing efficient state management in React to support dynamic user interactions.  
+- **API Development:** Designing, securing, and scaling RESTful API endpoints to handle diverse user tasks.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Future Enhancements
 
-### `npm run eject`
+- **Real-Time Collaboration:** Integrate features that allow live course discussions and collaborative work on assignments.  
+- **Enhanced Analytics:** Add dashboards and reporting tools to monitor learning progress and course performance.  
+- **UI/UX Improvements:** Further refine the user interface and experience based on user feedback.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Getting Started
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+If you're interested in exploring or contributing to Kanbas, follow these steps:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. **Clone the Repositories:**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+   - **Front-End:**
+     ```bash
+     git clone https://github.com/dnydlk/kanbas-react-web-app.git
+     ```
+   - **Back-End:**
+     ```bash
+     git clone https://github.com/dnydlk/kanbas-node-server-app.git
+     ```
 
-## Learn More
+2. **Install Dependencies:**
+   - Navigate into each project folder and run:
+     ```bash
+     npm install
+     ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. **Configure Environment Variables:**
+   - Set up React app api base URL in the `.env` file of the front-end project:
+     ```bash
+     REACT_APP_API_URL=http://localhost:4000
+     ```
+   - Ensure the back-end server is configured to run on port 4000 (or adjust the front-end URL accordingly).
+   - Ensure MongoDB is running locally or adjust the connection string to point to your MongoDB instance.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. **Run the Application:**
+   - Start both the server and client (concurrently or separately as per your setup):
+     ```bash
+     npm start
+     ```
